@@ -1,7 +1,6 @@
 <script setup>
 import { useI18n } from 'vue-i18n'
 import { Target, Palette, Video, Layout, Globe, FileText } from 'lucide-vue-next'
-import GlowCard from './ui/GlowCard.vue'
 
 const { t } = useI18n()
 
@@ -46,51 +45,51 @@ const pillars = [
 </script>
 
 <template>
-  <section id="pillars" class="relative py-20 border-t border-obsidian-600/70 bg-obsidian-950">
+  <section id="pillars" class="relative py-20 border-t border-zendesk-divider bg-zendesk-white">
     <div class="mx-auto max-w-7xl px-6 sm:px-8">
       <!-- Section Header -->
       <div class="max-w-3xl">
-        <span class="text-xs font-bold uppercase tracking-wider text-growth-400">
+        <span class="inline-block rounded-tags bg-zendesk-warm px-3 py-1 text-xs font-semibold uppercase tracking-zendesk text-zendesk-forest border border-zendesk-divider">
           {{ t('pillars.tag') }}
         </span>
-        <h2 class="mt-2 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+        <h2 class="mt-3 text-3xl font-semibold tracking-zendesk text-zendesk-ink sm:text-4xl">
           {{ t('pillars.title') }}
         </h2>
-        <p class="mt-3 text-base text-zinc-400">
+        <p class="mt-3 text-base font-normal leading-relaxed text-zendesk-ink/80 tracking-zendesk">
           {{ t('pillars.desc') }}
         </p>
       </div>
 
-      <!-- 6 Pillars Grid -->
+      <!-- 6 Pillars Grid: Zendesk Flat Cards (0px radius, #f5f5f2 background, zero shadow) -->
       <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <GlowCard
+        <div
           v-for="(p, idx) in pillars"
           :key="idx"
-          className="flex flex-col justify-between"
+          class="flex flex-col justify-between rounded-cards border border-zendesk-divider bg-zendesk-warm p-7 transition-colors hover:border-zendesk-stone"
         >
           <div>
-            <div class="flex h-12 w-12 items-center justify-center rounded-xl border border-growth-500/30 bg-growth-500/10 text-growth-400">
+            <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-zendesk-white border border-zendesk-divider text-zendesk-forest">
               <component :is="p.icon" class="h-6 w-6" />
             </div>
-            <h3 class="mt-5 text-lg font-bold text-white">
+            <h3 class="mt-5 text-lg font-semibold tracking-zendesk text-zendesk-ink">
               {{ t(p.titleKey) }}
             </h3>
-            <p class="mt-2 text-sm leading-relaxed text-zinc-300">
+            <p class="mt-2 text-sm leading-relaxed text-zendesk-ink/80 tracking-zendesk">
               {{ t(p.descKey) }}
             </p>
           </div>
 
-          <!-- Tags -->
-          <div class="mt-6 flex flex-wrap gap-1.5 border-t border-obsidian-600/60 pt-4">
+          <!-- Tags (Zendesk 4px tags) -->
+          <div class="mt-6 flex flex-wrap gap-1.5 border-t border-zendesk-divider pt-4">
             <span
               v-for="tag in p.tags"
               :key="tag"
-              class="rounded-md border border-obsidian-600 bg-obsidian-900 px-2 py-1 font-mono text-[11px] text-zinc-400"
+              class="rounded-tags border border-zendesk-divider bg-zendesk-white px-2.5 py-1 font-mono text-[11px] font-medium text-zendesk-ink/80"
             >
               {{ tag }}
             </span>
           </div>
-        </GlowCard>
+        </div>
       </div>
     </div>
   </section>

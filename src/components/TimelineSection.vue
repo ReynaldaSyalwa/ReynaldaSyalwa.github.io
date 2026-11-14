@@ -41,55 +41,55 @@ const timelineItems = [
 </script>
 
 <template>
-  <section id="experience" class="relative py-20 border-t border-obsidian-600/70 bg-obsidian-900/40">
+  <section id="experience" class="relative py-20 border-t border-zendesk-divider bg-zendesk-warm">
     <div class="mx-auto max-w-7xl px-6 sm:px-8">
       <!-- Section Header -->
       <div class="max-w-3xl">
-        <span class="text-xs font-bold uppercase tracking-wider text-growth-400">
+        <span class="inline-block rounded-tags bg-zendesk-white px-3 py-1 text-xs font-semibold uppercase tracking-zendesk text-zendesk-forest border border-zendesk-divider">
           {{ t('timeline.tag') }}
         </span>
-        <h2 class="mt-2 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+        <h2 class="mt-3 text-3xl font-semibold tracking-zendesk text-zendesk-ink sm:text-4xl">
           {{ t('timeline.title') }}
         </h2>
-        <p class="mt-3 text-base text-zinc-400">
+        <p class="mt-3 text-base text-zendesk-ink/80 tracking-zendesk leading-relaxed">
           {{ t('timeline.desc') }}
         </p>
       </div>
 
-      <!-- Timeline List -->
-      <div class="mt-12 space-y-6">
+      <!-- Timeline List: Zendesk Flat Cards (0px radius, white surface, zero shadow) -->
+      <div class="mt-12 space-y-4">
         <div
           v-for="(item, idx) in timelineItems"
           :key="idx"
-          class="relative rounded-2xl border border-obsidian-600/80 bg-obsidian-800/80 p-6 sm:p-8 backdrop-blur-sm transition-all hover:border-zinc-500"
+          class="relative rounded-cards border border-zendesk-divider bg-zendesk-white p-6 sm:p-8 transition-colors hover:border-zendesk-stone"
         >
-          <div class="flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
-            <div class="flex items-center gap-3">
-              <div class="flex h-10 w-10 items-center justify-center rounded-xl border border-obsidian-600 bg-obsidian-900 text-growth-400">
+          <div class="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
+            <div class="flex items-center gap-3.5">
+              <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-zendesk-warm border border-zendesk-divider text-zendesk-forest">
                 <Briefcase v-if="item.type === 'exp'" class="h-5 w-5" />
                 <GraduationCap v-else class="h-5 w-5" />
               </div>
               <div>
-                <h3 class="text-lg font-bold text-white">
+                <h3 class="text-base sm:text-lg font-semibold tracking-zendesk text-zendesk-ink">
                   {{ t(item.roleKey) }}
                 </h3>
-                <span class="text-xs font-medium text-growth-400">
+                <span class="text-xs font-medium tracking-zendesk text-zendesk-forest">
                   {{ t(item.companyKey) }}
                 </span>
               </div>
             </div>
 
-            <div class="flex items-center gap-3">
-              <span v-if="item.periodKey" class="font-mono text-xs text-zinc-400">
+            <div class="flex items-center gap-3 self-start sm:self-auto">
+              <span v-if="item.periodKey" class="font-mono text-xs text-zendesk-stone">
                 {{ t(item.periodKey) }}
               </span>
-              <span class="rounded-full border border-obsidian-600 bg-obsidian-900 px-3 py-1 font-mono text-[10px] font-bold tracking-wider text-zinc-400">
+              <span class="rounded-tags bg-zendesk-forest px-2.5 py-1 font-mono text-[10px] font-semibold tracking-wider text-zendesk-lime">
                 {{ item.badge }}
               </span>
             </div>
           </div>
 
-          <p class="mt-4 text-sm leading-relaxed text-zinc-300">
+          <p class="mt-4 text-sm leading-relaxed text-zendesk-ink/80 tracking-zendesk">
             {{ t(item.descKey) }}
           </p>
         </div>
