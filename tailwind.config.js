@@ -9,34 +9,27 @@ export default {
   theme: {
     extend: {
       colors: {
-        zendesk: {
-          lime: '#d1f470',
-          forest: '#203524',
-          grove: '#2d4c33',
-          ink: '#11110d',
-          warm: '#f5f5f2',
-          white: '#ffffff',
-          midnight: '#000000',
-          stone: '#90918c',
-          divider: 'rgba(17, 17, 13, 0.11)',
+        editorial: {
+          canvas: '#ffffff',
+          ink: '#18181b',
+          muted: '#71717a',
+          divider: 'rgba(0, 0, 0, 0.08)',
+          pill: '#000000',
+          subtle: '#f4f4f5',
         },
       },
       fontFamily: {
+        serif: ['Newsreader', 'Georgia', 'serif'],
         sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       letterSpacing: {
-        zendesk: '0.054em',
+        editorial: '0.08em',
+        tracked: '0.15em',
       },
       borderRadius: {
-        cards: '0px',
-        buttons: '16px',
-        event: '40px',
-        inputs: '12px',
-        tags: '4px',
-      },
-      boxShadow: {
-        none: 'none',
+        '2xl': '16px',
+        '3xl': '24px',
       }
     },
   },

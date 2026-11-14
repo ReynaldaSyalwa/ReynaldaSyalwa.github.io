@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { createI18n } from 'vue-i18n'
+import AOS from 'aos'
 import App from './App.vue'
 import './style.css'
 
@@ -21,3 +22,11 @@ const i18n = createI18n({
 const app = createApp(App)
 app.use(i18n)
 app.mount('#app')
+
+// Initialize AOS (Animate On Scroll)
+AOS.init({
+  duration: 650,
+  easing: 'ease-out-cubic',
+  once: true,
+  offset: 40
+})

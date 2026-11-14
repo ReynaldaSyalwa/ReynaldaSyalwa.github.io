@@ -1,68 +1,34 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+@import "aos/dist/aos.css";
 
 :root {
-  /* Colors */
-  --color-electric-lime: #d1f470;
-  --color-forest-canopy: #203524;
-  --color-deep-grove: #2d4c33;
-  --color-near-black-ink: #11110d;
-  --color-warm-white: #f5f5f2;
-  --color-pure-white: #ffffff;
-  --color-midnight: #000000;
-  --color-stone-divider: #90918c;
-  --color-divider-subtle: rgba(17, 17, 13, 0.11);
-
-  /* Fonts */
+  --font-serif: 'Newsreader', Georgia, serif;
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-
-  /* Typography scale */
-  --text-caption: 14px;
-  --leading-caption: 1.44;
-  --text-body: 16px;
-  --leading-body: 1.56;
-  --text-subheading: 18px;
-  --leading-subheading: 1.40;
-  --text-heading-sm: 26px;
-  --leading-heading-sm: 1.30;
-  --text-heading: 32px;
-  --leading-heading: 1.25;
-  --text-heading-lg: 48px;
-  --leading-heading-lg: 1.15;
-  --text-display: 74px;
-  --leading-display: 1.02;
-
-  /* Radii */
-  --radius-tags: 4px;
-  --radius-cards: 0px;
-  --radius-inputs: 12px;
-  --radius-buttons: 16px;
-  --radius-iconbuttons: 100%;
-  --radius-eventbannercards: 40px;
 }
 
 body {
   font-family: var(--font-sans);
   background-color: #ffffff;
-  color: #11110d;
-  letter-spacing: 0.054em;
+  color: #18181b;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-/* Custom Scrollbar in Zendesk warm neutrals */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f5f5f2;
+  background: #ffffff;
 }
 ::-webkit-scrollbar-thumb {
-  background: #d4d4cb;
-  border-radius: 4px;
+  background: #e4e4e7;
+  border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #90918c;
+  background: #a1a1aa;
 }
