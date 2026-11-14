@@ -21,15 +21,6 @@ function initChart() {
   }
 
   const ctx = chartCanvas.value.getContext('2d')
-  
-  // Gradients
-  const incomeGradient = ctx.createLinearGradient(0, 0, 0, 350)
-  incomeGradient.addColorStop(0, 'rgba(16, 185, 129, 0.9)')
-  incomeGradient.addColorStop(1, 'rgba(16, 185, 129, 0.2)')
-
-  const spendGradient = ctx.createLinearGradient(0, 0, 0, 350)
-  spendGradient.addColorStop(0, 'rgba(239, 68, 68, 0.7)')
-  spendGradient.addColorStop(1, 'rgba(239, 68, 68, 0.15)')
 
   const labels = [
     locale.value === 'id' ? 'Januari 2025' : 'Jan 2025',
@@ -51,20 +42,20 @@ function initChart() {
         {
           label: t('chart_section.legend_income'),
           data: salesIncomeData,
-          backgroundColor: incomeGradient,
-          borderColor: '#10b981',
+          backgroundColor: '#203524', // Zendesk Forest Canopy
+          borderColor: '#d1f470',     // Zendesk Electric Lime
           borderWidth: 1.5,
-          borderRadius: 8,
+          borderRadius: 0,            // Strict Zendesk flat 0px
           barPercentage: 0.6,
           order: 2
         },
         {
           label: t('chart_section.legend_spend'),
           data: adSpendData,
-          backgroundColor: spendGradient,
-          borderColor: '#ef4444',
-          borderWidth: 1.5,
-          borderRadius: 8,
+          backgroundColor: '#90918c', // Zendesk Stone Neutral
+          borderColor: '#11110d',     // Zendesk Near-Black Ink
+          borderWidth: 1,
+          borderRadius: 0,            // Strict Zendesk flat 0px
           barPercentage: 0.6,
           order: 3
         }
@@ -81,9 +72,9 @@ function initChart() {
         legend: {
           position: 'top',
           labels: {
-            color: '#d4d4d8',
+            color: '#11110d',
             font: {
-              family: "'Plus Jakarta Sans', sans-serif",
+              family: "'Inter', sans-serif",
               size: 13,
               weight: '600'
             },
@@ -92,10 +83,10 @@ function initChart() {
           }
         },
         tooltip: {
-          backgroundColor: '#18181b',
-          titleColor: '#ffffff',
-          bodyColor: '#e4e4e7',
-          borderColor: '#3f3f46',
+          backgroundColor: '#ffffff',
+          titleColor: '#11110d',
+          bodyColor: '#11110d',
+          borderColor: 'rgba(17, 17, 13, 0.2)',
           borderWidth: 1,
           padding: 12,
           boxPadding: 6,
@@ -110,7 +101,7 @@ function initChart() {
               const income = salesIncomeData[dataIndex]
               if (spend > 0 && income > 0) {
                 const roas = (income / spend).toFixed(1)
-                return '\nROAS: ' + roas + 'x (Revenue / Spend)'
+                return '\nROAS: ' + roas + 'x (Sales Revenue / Ad Spend)'
               }
               return ''
             }
@@ -120,22 +111,22 @@ function initChart() {
       scales: {
         x: {
           grid: {
-            color: 'rgba(255, 255, 255, 0.05)'
+            color: 'rgba(17, 17, 13, 0.06)'
           },
           ticks: {
-            color: '#a1a1aa',
+            color: '#11110d',
             font: {
-              family: "'Plus Jakarta Sans', sans-serif",
+              family: "'Inter', sans-serif",
               size: 12
             }
           }
         },
         y: {
           grid: {
-            color: 'rgba(255, 255, 255, 0.06)'
+            color: 'rgba(17, 17, 13, 0.08)'
           },
           ticks: {
-            color: '#a1a1aa',
+            color: '#11110d',
             font: {
               family: "'JetBrains Mono', monospace",
               size: 11
@@ -163,85 +154,85 @@ watch(() => locale.value, () => {
 </script>
 
 <template>
-  <section id="chart" class="relative py-20 border-t border-obsidian-600/70 bg-obsidian-900/40">
+  <section id="chart" class="relative py-20 border-t border-zendesk-divider bg-zendesk-white">
     <div class="mx-auto max-w-7xl px-6 sm:px-8">
       <!-- Section Header -->
       <div class="max-w-3xl">
-        <span class="text-xs font-bold uppercase tracking-wider text-growth-400">
+        <span class="inline-block rounded-tags bg-zendesk-warm px-3 py-1 text-xs font-semibold uppercase tracking-zendesk text-zendesk-forest">
           {{ t('chart_section.tag') }}
         </span>
-        <h2 class="mt-2 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+        <h2 class="mt-3 text-3xl font-semibold tracking-zendesk text-zendesk-ink sm:text-4xl">
           {{ t('chart_section.title') }}
         </h2>
-        <p class="mt-4 text-base text-zinc-400">
+        <p class="mt-3 text-base font-normal leading-relaxed text-zendesk-ink/80 tracking-zendesk">
           {{ t('chart_section.desc') }}
         </p>
       </div>
 
-      <!-- 4 KPI Summary Cards -->
+      <!-- 4 KPI Summary Cards (Zendesk Flat Cards: 0px radius, #f5f5f2 background, zero shadow) -->
       <div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <!-- KPI 1 -->
-        <div class="rounded-xl border border-growth-500/30 bg-growth-500/10 p-5 backdrop-blur-sm">
-          <div class="flex items-center justify-between text-xs font-semibold text-growth-300">
+        <div class="rounded-cards border border-zendesk-divider bg-zendesk-warm p-5">
+          <div class="flex items-center justify-between text-xs font-semibold uppercase tracking-zendesk text-zendesk-stone">
             <span>{{ t('chart_section.kpi_total_revenue') }}</span>
-            <DollarSign class="h-4 w-4 text-growth-400" />
+            <DollarSign class="h-4 w-4 text-zendesk-forest" />
           </div>
-          <div class="mt-2 font-mono text-2xl font-bold text-white">
+          <div class="mt-2 font-mono text-2xl font-bold text-zendesk-ink">
             Rp 62.288.000
           </div>
-          <span class="text-[11px] text-zinc-400">Verified Client Deals 2025</span>
+          <span class="text-[11px] text-zendesk-ink/60">Verified Client Deals 2025</span>
         </div>
 
         <!-- KPI 2 -->
-        <div class="rounded-xl border border-obsidian-600 bg-obsidian-800/80 p-5 backdrop-blur-sm">
-          <div class="flex items-center justify-between text-xs font-semibold text-zinc-400">
+        <div class="rounded-cards border border-zendesk-divider bg-zendesk-warm p-5">
+          <div class="flex items-center justify-between text-xs font-semibold uppercase tracking-zendesk text-zendesk-stone">
             <span>{{ t('chart_section.kpi_total_spend') }}</span>
-            <Target class="h-4 w-4 text-red-400" />
+            <Target class="h-4 w-4 text-zendesk-stone" />
           </div>
-          <div class="mt-2 font-mono text-2xl font-bold text-zinc-200">
+          <div class="mt-2 font-mono text-2xl font-bold text-zendesk-ink">
             Rp 2.284.762
           </div>
-          <span class="text-[11px] text-zinc-400">Attributed Ad Spend Across Closing Months</span>
+          <span class="text-[11px] text-zendesk-ink/60">Attributed Ad Spend in Closing Months</span>
         </div>
 
         <!-- KPI 3 -->
-        <div class="rounded-xl border border-growth-500/30 bg-growth-500/10 p-5 backdrop-blur-sm">
-          <div class="flex items-center justify-between text-xs font-semibold text-growth-300">
+        <div class="rounded-cards border border-zendesk-forest bg-zendesk-warm p-5">
+          <div class="flex items-center justify-between text-xs font-semibold uppercase tracking-zendesk text-zendesk-forest">
             <span>{{ t('chart_section.kpi_net_profit') }}</span>
-            <TrendingUp class="h-4 w-4 text-growth-400" />
+            <TrendingUp class="h-4 w-4 text-zendesk-forest" />
           </div>
-          <div class="mt-2 font-mono text-2xl font-bold text-growth-400">
+          <div class="mt-2 font-mono text-2xl font-bold text-zendesk-forest">
             +Rp 60.003.238
           </div>
-          <span class="text-[11px] text-zinc-400">Revenue minus Ad Spend</span>
+          <span class="text-[11px] text-zendesk-ink/60">Revenue minus Ad Spend</span>
         </div>
 
         <!-- KPI 4 -->
-        <div class="rounded-xl border border-obsidian-600 bg-obsidian-800/80 p-5 backdrop-blur-sm">
-          <div class="flex items-center justify-between text-xs font-semibold text-zinc-400">
+        <div class="rounded-cards border border-zendesk-divider bg-zendesk-warm p-5">
+          <div class="flex items-center justify-between text-xs font-semibold uppercase tracking-zendesk text-zendesk-stone">
             <span>{{ t('chart_section.kpi_roas') }}</span>
-            <Award class="h-4 w-4 text-amber-400" />
+            <Award class="h-4 w-4 text-zendesk-forest" />
           </div>
-          <div class="mt-2 font-mono text-2xl font-bold text-amber-400">
+          <div class="mt-2 font-mono text-2xl font-bold text-zendesk-ink">
             27.26x ROAS
           </div>
-          <span class="text-[11px] text-zinc-400">Peak single-month ROAS: 95.7x (Dec)</span>
+          <span class="text-[11px] text-zendesk-ink/60">Peak single-month ROAS: 95.7x (Dec)</span>
         </div>
       </div>
 
-      <!-- Chart Container -->
-      <div class="mt-8 rounded-2xl border border-obsidian-600/80 bg-obsidian-800/90 p-6 sm:p-8 shadow-trifecta">
+      <!-- Chart Container (Flat 0px card, #f5f5f2 warm surface, zero shadow) -->
+      <div class="mt-8 rounded-cards border border-zendesk-divider bg-zendesk-warm p-6 sm:p-8">
         <div class="h-[360px] w-full sm:h-[420px]">
           <canvas ref="chartCanvas"></canvas>
         </div>
       </div>
 
-      <!-- Commercial Takeaway Box -->
-      <div class="mt-6 rounded-xl border border-obsidian-600 bg-obsidian-800/50 p-6">
-        <h4 class="text-sm font-bold text-growth-400">
+      <!-- Commercial Takeaway Box (Flat 0px card with Forest accent border) -->
+      <div class="mt-6 rounded-cards border-l-4 border-l-zendesk-forest border-y border-r border-zendesk-divider bg-zendesk-warm p-6">
+        <h4 class="text-sm font-semibold tracking-zendesk text-zendesk-forest">
           {{ t('chart_section.takeaway_title') }}
         </h4>
-        <p class="mt-2 text-sm leading-relaxed text-zinc-300">
+        <p class="mt-2 text-sm leading-relaxed text-zendesk-ink/80 tracking-zendesk">
           {{ t('chart_section.takeaway_body') }}
         </p>
       </div>
