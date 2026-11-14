@@ -6,6 +6,7 @@ import IncomeChartSection from './components/IncomeChartSection.vue'
 import DealsTableSection from './components/DealsTableSection.vue'
 import PillarsSection from './components/PillarsSection.vue'
 import TimelineSection from './components/TimelineSection.vue'
+import AboutSyalwaSection from './components/AboutSyalwaSection.vue'
 import ContactSection from './components/ContactSection.vue'
 import Footer from './components/Footer.vue'
 </script>
@@ -22,6 +23,7 @@ import Footer from './components/Footer.vue'
       <DealsTableSection />
       <PillarsSection />
       <TimelineSection />
+      <AboutSyalwaSection />
       <ContactSection />
     </main>
     <Footer />

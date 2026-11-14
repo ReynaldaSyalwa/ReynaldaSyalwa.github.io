@@ -139,7 +139,16 @@ function initDoughnutChart() {
   const ctx = doughnutCanvas.value.getContext('2d')
   const deals = metaData.verified_deals_2025 || []
 
-  const labels = deals.map(d => d.client_name)
+  function maskName(name) {
+    if (name.includes('Agus')) return 'A** S**'
+    if (name.includes('Hadist') || name.includes('KPM')) return 'P** A** (Yayasan K**)'
+    if (name.includes('Hermawan')) return 'H******'
+    if (name.includes('Anwar') || name.includes('Yuda')) return 'P** Y** (Yayasan N**)'
+    if (name.includes('barokah') || name.includes('Khoirul')) return 'P** K** (Yayasan A**)'
+    return 'Klien Terverifikasi'
+  }
+
+  const labels = deals.map(d => maskName(d.client_name))
   const values = deals.map(d => d.deal_value)
   const colors = [
     '#18181b', // Black (Yayasan Al-barokah 50.5%)

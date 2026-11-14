@@ -92,7 +92,7 @@ function toggleLocale() {
           <a href="#deals" class="hover:text-black transition-colors">
             {{ t('nav.deals') }}
           </a>
-          <a href="#experience" class="hover:text-black transition-colors">
+          <a href="#about" class="hover:text-black transition-colors">
             {{ t('nav.about') }}
           </a>
           <a href="#contact" class="hover:text-black transition-colors">
@@ -126,7 +126,7 @@ function toggleLocale() {
         <a href="#deals" @click="mobileMenuOpen = false" class="py-1 hover:text-black">
           {{ t('nav.deals') }}
         </a>
-        <a href="#experience" @click="mobileMenuOpen = false" class="py-1 hover:text-black">
+        <a href="#about" @click="mobileMenuOpen = false" class="py-1 hover:text-black">
           {{ t('nav.about') }}
         </a>
         <a href="#contact" @click="mobileMenuOpen = false" class="py-1 hover:text-black">

@@ -11,7 +11,7 @@ const deals = [
   {
     no: 1,
     month: 'Januari 2025',
-    client: 'Agus Susanto',
+    client: 'A** S**',
     service: 'Sertifikasi ISO & Konsultasi Manajemen',
     ad_spend: 654790,
     deal_value: 5550000,
@@ -21,7 +21,7 @@ const deals = [
   {
     no: 2,
     month: 'November 2025',
-    client: 'Pak Ady (Yayasan KPM Hadist)',
+    client: 'P** A** (Yayasan K**)',
     service: 'Layanan Sertifikasi ISO Manajemen Mutu',
     ad_spend: 407602,
     deal_value: 9990000,
@@ -31,7 +31,7 @@ const deals = [
   {
     no: 3,
     month: 'November 2025',
-    client: 'Hermawan',
+    client: 'H******',
     service: 'Paket Sertifikasi Manajemen Bisnis',
     ad_spend: 407602,
     deal_value: 8658000,
@@ -41,7 +41,7 @@ const deals = [
   {
     no: 4,
     month: 'November 2025',
-    client: 'Pak Yuda (Yayasan Nurul Anwar)',
+    client: 'P** Y** (Yayasan N**)',
     service: 'Sertifikasi ISO & Verifikasi Legalitas Dokumen',
     ad_spend: 407602,
     deal_value: 6660000,
@@ -51,7 +51,7 @@ const deals = [
   {
     no: 5,
     month: 'Desember 2025',
-    client: '(Pak Khoirul) Yayasan Al-barokah',
+    client: 'P** K** (Yayasan A**)',
     service: 'Paket Sertifikasi Institusional Skala Besar',
     ad_spend: 328468,
     deal_value: 31430000,
@@ -72,6 +72,29 @@ const filteredDeals = computed(() => {
     d.service.toLowerCase().includes(q) ||
     d.month.toLowerCase().includes(q)
   )
+})
+
+// Calculate rowspans for duplicate months (e.g. November 2025 grouping)
+const processedDeals = computed(() => {
+  const list = filteredDeals.value
+  return list.map((item, idx) => {
+    const isFirstInMonth = idx === 0 || list[idx - 1].month !== item.month
+    let monthSpan = 1
+    if (isFirstInMonth) {
+      let count = 1
+      while (idx + count < list.length && list[idx + count].month === item.month) {
+        count++
+      }
+      monthSpan = count
+    } else {
+      monthSpan = 0 // Don't render <td> for grouped subsequent rows
+    }
+
+    return {
+      ...item,
+      _monthSpan: monthSpan
+    }
+  })
 })
 
 const totalRevenue = computed(() => {
@@ -98,7 +121,7 @@ const totalRevenue = computed(() => {
 
         <div class="self-start md:self-auto inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-50 px-3.5 py-1.5 text-xs font-mono text-zinc-700">
           <ShieldCheck class="h-3.5 w-3.5 text-zinc-900" />
-          <span>{{ locale === 'id' ? 'Audit Log CRM Terverifikasi' : 'Verified CRM Audit Records' }}</span>
+          <span>{{ locale === 'id' ? 'Nama Klien Disamarkan (NDA)' : 'Client Names Masked (NDA)' }}</span>
         </div>
       </div>
 
@@ -118,15 +141,15 @@ const totalRevenue = computed(() => {
         </div>
       </div>
 
-      <!-- Borderless Editorial Table -->
+      <!-- Borderless Editorial Table with Rowspan grouping -->
       <div class="overflow-hidden rounded-2xl border border-zinc-200/80 bg-white">
         <div class="overflow-x-auto">
-          <table class="w-full text-left text-xs sm:text-sm text-zinc-800">
+          <table class="w-full text-left text-xs sm:text-sm text-zinc-800 border-collapse">
             <thead class="border-b border-zinc-100 bg-zinc-50/70 text-[11px] font-semibold uppercase tracking-editorial text-zinc-400">
               <tr>
                 <th scope="col" class="py-3.5 pl-6 pr-3">{{ t('deals_section.col_no') }}</th>
                 <th scope="col" class="px-3 py-3.5">{{ t('deals_section.col_month') }}</th>
-                <th scope="col" class="px-3 py-3.5">{{ t('deals_section.col_client') }}</th>
+                <th scope="col" class="px-3 py-3.5">{{ locale === 'id' ? 'Klien (Disamarkan)' : 'Client (Masked)' }}</th>
                 <th scope="col" class="px-3 py-3.5">{{ t('deals_section.col_service') }}</th>
                 <th scope="col" class="px-3 py-3.5 text-right">{{ t('deals_section.col_ad_spend') }}</th>
                 <th scope="col" class="px-3 py-3.5 text-right">{{ t('deals_section.col_deal_value') }}</th>
@@ -135,22 +158,57 @@ const totalRevenue = computed(() => {
             </thead>
             <tbody class="divide-y divide-zinc-100 font-sans">
               <tr
-                v-for="d in filteredDeals"
+                v-for="d in processedDeals"
                 :key="d.no"
                 class="transition-colors hover:bg-zinc-50/50"
               >
-                <td class="py-3.5 pl-6 pr-3 font-mono text-xs text-zinc-400">{{ d.no }}</td>
-                <td class="whitespace-nowrap px-3 py-3.5 font-mono text-xs text-zinc-600">{{ d.month }}</td>
-                <td class="px-3 py-3.5 font-medium text-zinc-900">{{ d.client }}</td>
-                <td class="px-3 py-3.5 text-xs text-zinc-500">{{ d.service }}</td>
-                <td class="whitespace-nowrap px-3 py-3.5 text-right font-mono text-xs text-zinc-500">
+                <!-- Number -->
+                <td class="py-3.5 pl-6 pr-3 font-mono text-xs text-zinc-400 align-middle">
+                  {{ d.no }}
+                </td>
+
+                <!-- Month with Rowspan for same month -->
+                <td
+                  v-if="d._monthSpan > 0"
+                  :rowspan="d._monthSpan"
+                  class="whitespace-nowrap px-3 py-3.5 font-mono text-xs font-medium text-zinc-800 align-middle bg-zinc-50/40 border-r border-zinc-100"
+                >
+                  <div class="flex items-center gap-1.5">
+                    <span v-if="d._monthSpan > 1" class="h-2 w-2 rounded-full bg-zinc-900"></span>
+                    <span>{{ d.month }}</span>
+                  </div>
+                  <span v-if="d._monthSpan > 1" class="block text-[10px] text-zinc-400 font-normal">
+                    ({{ d._monthSpan }} {{ locale === 'id' ? 'transaksi deal' : 'deals closed' }})
+                  </span>
+                </td>
+
+                <!-- Masked Client Name -->
+                <td class="px-3 py-3.5 font-mono text-xs font-semibold text-zinc-900 align-middle">
+                  {{ d.client }}
+                </td>
+
+                <!-- Service / Solution -->
+                <td class="px-3 py-3.5 text-xs text-zinc-600 align-middle">
+                  {{ d.service }}
+                </td>
+
+                <!-- Ad Spend with Rowspan for same monthly budget -->
+                <td
+                  v-if="d._monthSpan > 0"
+                  :rowspan="d._monthSpan"
+                  class="whitespace-nowrap px-3 py-3.5 text-right font-mono text-xs text-zinc-600 align-middle bg-zinc-50/20 border-r border-zinc-100"
+                >
                   {{ formatIDR(d.ad_spend) }}
                 </td>
-                <td class="whitespace-nowrap px-3 py-3.5 text-right font-mono font-bold text-zinc-900">
+
+                <!-- Deal Value & ROAS -->
+                <td class="whitespace-nowrap px-3 py-3.5 text-right font-mono font-bold text-zinc-900 align-middle">
                   {{ formatIDR(d.deal_value) }}
                   <span class="ml-1 text-[10px] font-normal text-zinc-400">({{ d.roas }})</span>
                 </td>
-                <td class="py-3.5 pl-3 pr-6 text-center">
+
+                <!-- Status Badge -->
+                <td class="py-3.5 pl-3 pr-6 text-center align-middle">
                   <span class="inline-flex items-center rounded-full bg-black px-2.5 py-0.5 text-[10px] font-semibold text-white">
                     {{ d.status }}
                   </span>

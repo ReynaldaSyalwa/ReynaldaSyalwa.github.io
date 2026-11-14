@@ -26,21 +26,21 @@ const skills = [
           <h1 class="font-serif text-3xl sm:text-4xl lg:text-[42px] text-zinc-900 leading-[1.24] font-normal tracking-tight">
             <template v-if="locale === 'id'">
               {{ t('hero.title_part1') }}
-              <span class="font-bold text-amber-700 underline decoration-amber-300/60 decoration-2 underline-offset-4">
+              <span class="font-bold text-black">
                 {{ t('hero.title_highlight') }}
               </span>
               {{ t('hero.title_part2') }}
-              <span class="font-bold text-zinc-950">
+              <span class="font-bold text-black">
                 {{ t('hero.title_part3') }}
               </span>
             </template>
             <template v-else>
               {{ t('hero.title_part1') }}
-              <span class="font-bold text-amber-700 underline decoration-amber-300/60 decoration-2 underline-offset-4">
+              <span class="font-bold text-black">
                 {{ t('hero.title_highlight') }}
               </span>
               {{ t('hero.title_part2') }}
-              <span class="font-bold text-zinc-950">
+              <span class="font-bold text-black">
                 {{ t('hero.title_part3') }}
               </span>
             </template>
