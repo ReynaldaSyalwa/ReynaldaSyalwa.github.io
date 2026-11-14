@@ -45,46 +45,48 @@ const pillars = [
 </script>
 
 <template>
-  <section id="pillars" class="relative py-20 border-t border-zendesk-divider bg-zendesk-white">
-    <div class="mx-auto max-w-7xl px-6 sm:px-8">
+  <section id="pillars" class="py-16 sm:py-20 px-6 sm:px-10 border-t border-zinc-100 bg-white">
+    <div class="mx-auto max-w-5xl space-y-10" data-aos="fade-up">
       <!-- Section Header -->
-      <div class="max-w-3xl">
-        <span class="inline-block rounded-tags bg-zendesk-warm px-3 py-1 text-xs font-semibold uppercase tracking-zendesk text-zendesk-forest border border-zendesk-divider">
+      <div class="max-w-3xl space-y-2">
+        <span class="text-[11px] font-semibold uppercase tracking-editorial text-zinc-400">
           {{ t('pillars.tag') }}
         </span>
-        <h2 class="mt-3 text-3xl font-semibold tracking-zendesk text-zendesk-ink sm:text-4xl">
+        <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900 leading-snug">
           {{ t('pillars.title') }}
         </h2>
-        <p class="mt-3 text-base font-normal leading-relaxed text-zendesk-ink/80 tracking-zendesk">
+        <p class="text-xs sm:text-sm text-zinc-500 font-normal leading-relaxed">
           {{ t('pillars.desc') }}
         </p>
       </div>
 
-      <!-- 6 Pillars Grid: Zendesk Flat Cards (0px radius, #f5f5f2 background, zero shadow) -->
-      <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- 6 Pillars Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         <div
           v-for="(p, idx) in pillars"
           :key="idx"
-          class="flex flex-col justify-between rounded-cards border border-zendesk-divider bg-zendesk-warm p-7 transition-colors hover:border-zendesk-stone"
+          class="flex flex-col justify-between rounded-2xl border border-zinc-200/70 bg-zinc-50/40 p-6 transition-all hover:border-zinc-400"
+          data-aos="fade-up"
+          :data-aos-delay="idx * 50"
         >
           <div>
-            <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-zendesk-white border border-zendesk-divider text-zendesk-forest">
-              <component :is="p.icon" class="h-6 w-6" />
+            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-white border border-zinc-200/80 text-zinc-800">
+              <component :is="p.icon" class="h-5 w-5" />
             </div>
-            <h3 class="mt-5 text-lg font-semibold tracking-zendesk text-zendesk-ink">
+            <h3 class="mt-4 font-serif text-lg font-medium text-zinc-900">
               {{ t(p.titleKey) }}
             </h3>
-            <p class="mt-2 text-sm leading-relaxed text-zendesk-ink/80 tracking-zendesk">
+            <p class="mt-2 text-xs sm:text-[13px] leading-relaxed text-zinc-500 font-normal">
               {{ t(p.descKey) }}
             </p>
           </div>
 
-          <!-- Tags (Zendesk 4px tags) -->
-          <div class="mt-6 flex flex-wrap gap-1.5 border-t border-zendesk-divider pt-4">
+          <!-- Tags -->
+          <div class="mt-5 flex flex-wrap gap-1.5 pt-4 border-t border-zinc-100">
             <span
               v-for="tag in p.tags"
               :key="tag"
-              class="rounded-tags border border-zendesk-divider bg-zendesk-white px-2.5 py-1 font-mono text-[11px] font-medium text-zendesk-ink/80"
+              class="rounded-full border border-zinc-200/80 bg-white px-2.5 py-0.5 font-mono text-[10px] text-zinc-600"
             >
               {{ tag }}
             </span>

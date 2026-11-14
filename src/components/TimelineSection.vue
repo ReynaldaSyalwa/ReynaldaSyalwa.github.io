@@ -41,55 +41,57 @@ const timelineItems = [
 </script>
 
 <template>
-  <section id="experience" class="relative py-20 border-t border-zendesk-divider bg-zendesk-warm">
-    <div class="mx-auto max-w-7xl px-6 sm:px-8">
+  <section id="experience" class="py-16 sm:py-20 px-6 sm:px-10 border-t border-zinc-100 bg-white">
+    <div class="mx-auto max-w-5xl space-y-10" data-aos="fade-up">
       <!-- Section Header -->
-      <div class="max-w-3xl">
-        <span class="inline-block rounded-tags bg-zendesk-white px-3 py-1 text-xs font-semibold uppercase tracking-zendesk text-zendesk-forest border border-zendesk-divider">
+      <div class="max-w-3xl space-y-2">
+        <span class="text-[11px] font-semibold uppercase tracking-editorial text-zinc-400">
           {{ t('timeline.tag') }}
         </span>
-        <h2 class="mt-3 text-3xl font-semibold tracking-zendesk text-zendesk-ink sm:text-4xl">
+        <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900 leading-snug">
           {{ t('timeline.title') }}
         </h2>
-        <p class="mt-3 text-base text-zendesk-ink/80 tracking-zendesk leading-relaxed">
+        <p class="text-xs sm:text-sm text-zinc-500 font-normal leading-relaxed">
           {{ t('timeline.desc') }}
         </p>
       </div>
 
-      <!-- Timeline List: Zendesk Flat Cards (0px radius, white surface, zero shadow) -->
-      <div class="mt-12 space-y-4">
+      <!-- Timeline List: Clean Borderless Cards with Hairline Dividers -->
+      <div class="space-y-4">
         <div
           v-for="(item, idx) in timelineItems"
           :key="idx"
-          class="relative rounded-cards border border-zendesk-divider bg-zendesk-white p-6 sm:p-8 transition-colors hover:border-zendesk-stone"
+          class="rounded-2xl border border-zinc-200/70 bg-white p-6 sm:p-7 transition-all hover:border-zinc-400"
+          data-aos="fade-up"
+          :data-aos-delay="idx * 50"
         >
-          <div class="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div class="flex items-center gap-3.5">
-              <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-zendesk-warm border border-zendesk-divider text-zendesk-forest">
-                <Briefcase v-if="item.type === 'exp'" class="h-5 w-5" />
-                <GraduationCap v-else class="h-5 w-5" />
+              <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-zinc-50 border border-zinc-200/80 text-zinc-800">
+                <Briefcase v-if="item.type === 'exp'" class="h-4 w-4" />
+                <GraduationCap v-else class="h-4 w-4" />
               </div>
               <div>
-                <h3 class="text-base sm:text-lg font-semibold tracking-zendesk text-zendesk-ink">
+                <h3 class="font-serif text-base sm:text-lg text-zinc-900 font-medium">
                   {{ t(item.roleKey) }}
                 </h3>
-                <span class="text-xs font-medium tracking-zendesk text-zendesk-forest">
+                <span class="text-xs text-zinc-500 font-normal">
                   {{ t(item.companyKey) }}
                 </span>
               </div>
             </div>
 
             <div class="flex items-center gap-3 self-start sm:self-auto">
-              <span v-if="item.periodKey" class="font-mono text-xs text-zendesk-stone">
+              <span v-if="item.periodKey" class="font-mono text-xs text-zinc-400">
                 {{ t(item.periodKey) }}
               </span>
-              <span class="rounded-tags bg-zendesk-forest px-2.5 py-1 font-mono text-[10px] font-semibold tracking-wider text-zendesk-lime">
+              <span class="rounded-full border border-zinc-200 bg-zinc-50 px-2.5 py-0.5 font-mono text-[10px] font-semibold text-zinc-700">
                 {{ item.badge }}
               </span>
             </div>
           </div>
 
-          <p class="mt-4 text-sm leading-relaxed text-zendesk-ink/80 tracking-zendesk">
+          <p class="mt-3 text-xs sm:text-[13px] leading-relaxed text-zinc-600 font-normal">
             {{ t(item.descKey) }}
           </p>
         </div>
