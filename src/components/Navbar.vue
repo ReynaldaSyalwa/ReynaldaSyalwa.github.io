@@ -1,180 +1,117 @@
 <script setup>
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { Globe, ArrowRight, Menu, X, ArrowUpRight } from 'lucide-vue-next'
+import { Search, Globe, Menu, X, ArrowUpRight } from 'lucide-vue-next'
 
 const { t, locale } = useI18n()
 const mobileMenuOpen = ref(false)
+const searchSkillsQuery = ref('')
 
 function toggleLocale() {
   locale.value = locale.value === 'id' ? 'en' : 'id'
   localStorage.setItem('syasya_lang', locale.value)
 }
+
+function handleSearchFocus() {
+  const target = document.getElementById('work') || document.getElementById('ads')
+  if (target) {
+    target.scrollIntoView({ behavior: 'smooth' })
+  }
+}
 </script>
 
 <template>
-  <div class="sticky top-0 z-50">
-    <!-- Top Announcement Strip (Zendesk Style: Midnight #000000 with Electric Lime link) -->
-    <aside class="w-full bg-zendesk-midnight px-4 py-2 text-center text-xs sm:text-sm text-white">
-      <div class="mx-auto flex max-w-7xl items-center justify-center gap-2 tracking-zendesk">
-        <span class="font-normal text-zinc-300">
-          {{ locale === 'id' ? 'Tersedia untuk Performance Marketing & Growth Q1/Q2 2026' : 'Open for Performance Marketing & Growth Projects Q1/Q2 2026' }}
-        </span>
-        <span class="hidden sm:inline text-zinc-500">•</span>
-        <a
-          href="#contact"
-          class="inline-flex items-center gap-1 font-semibold text-zendesk-lime underline decoration-zendesk-lime underline-offset-4 hover:opacity-90 transition-opacity"
-        >
-          <span>{{ locale === 'id' ? 'Konsultasi Gratis' : 'Book a Session' }}</span>
-          <ArrowUpRight class="h-3.5 w-3.5" />
-        </a>
-      </div>
-    </aside>
+  <header class="w-full bg-white text-zinc-900 border-b border-zinc-100">
+    <!-- Top Utility Bar: Search pill & Action CTA matching screenshot -->
+    <div class="border-b border-zinc-100/80 py-2.5 px-6 sm:px-10">
+      <div class="mx-auto max-w-5xl flex items-center justify-between gap-4">
+        <!-- Search Pill -->
+        <div class="relative w-full max-w-xs sm:max-w-sm">
+          <Search class="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-zinc-400" />
+          <input
+            v-model="searchSkillsQuery"
+            type="text"
+            @focus="handleSearchFocus"
+            :placeholder="locale === 'id' ? 'Search Skills / Meta Ads...' : 'Search Skills / Case Studies...'"
+            class="w-full rounded-full border border-zinc-200/90 bg-white py-1.5 pl-8 pr-3 text-xs text-zinc-800 placeholder:text-zinc-400 focus:outline-none focus:border-zinc-400 transition-colors"
+          />
+        </div>
 
-    <!-- Main Navigation Bar (Zendesk Style: Pure White #ffffff with 1px border rgba(17,17,13,0.11)) -->
-    <header class="w-full border-b border-zendesk-divider bg-zendesk-white/95 backdrop-blur-md">
-      <div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 sm:px-8">
-        <!-- Logo (Monochrome Near-Black #11110d) -->
-        <a href="#" class="group flex shrink-0 items-center gap-3">
-          <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-zendesk-forest text-zendesk-lime font-mono text-sm font-bold transition-transform group-hover:scale-105">
-            RS
-          </div>
-          <div class="flex flex-col">
-            <span class="text-base font-bold tracking-tight text-zendesk-ink">
-              Reynalda<span class="font-medium text-zendesk-stone">.growth</span>
-            </span>
-            <span class="text-[11px] font-medium text-zendesk-stone tracking-zendesk">
-              SyaSya • Digital Marketing
-            </span>
-          </div>
-        </a>
+        <!-- Right Utility Actions: Black Pill CTA & Language Toggle -->
+        <div class="flex items-center gap-3">
+          <a
+            href="#contact"
+            class="hidden sm:inline-flex items-center justify-center rounded-full bg-black px-4 py-1.5 text-xs font-medium text-white transition-opacity hover:opacity-85"
+          >
+            {{ locale === 'id' ? 'Hubungi SyaSya' : 'Submit Portfolio' }}
+          </a>
 
-        <!-- Desktop Nav Items -->
-        <nav class="hidden items-center gap-8 lg:flex">
-          <a
-            href="#chart"
-            class="text-sm font-medium tracking-zendesk text-zendesk-ink/80 transition-colors hover:text-zendesk-ink"
-          >
-            {{ t('nav.chart') }}
-          </a>
-          <a
-            href="#deals"
-            class="text-sm font-medium tracking-zendesk text-zendesk-ink/80 transition-colors hover:text-zendesk-ink"
-          >
-            {{ t('nav.deals') }}
-          </a>
-          <a
-            href="#ads"
-            class="text-sm font-medium tracking-zendesk text-zendesk-ink/80 transition-colors hover:text-zendesk-ink"
-          >
-            {{ t('nav.ads') }}
-          </a>
-          <a
-            href="#pillars"
-            class="text-sm font-medium tracking-zendesk text-zendesk-ink/80 transition-colors hover:text-zendesk-ink"
-          >
-            {{ t('nav.pillars') }}
-          </a>
-          <a
-            href="#experience"
-            class="text-sm font-medium tracking-zendesk text-zendesk-ink/80 transition-colors hover:text-zendesk-ink"
-          >
-            {{ t('nav.experience') }}
-          </a>
-        </nav>
-
-        <!-- Right Actions: Language Switcher + Primary Lime CTA -->
-        <div class="hidden shrink-0 items-center gap-4 lg:flex">
           <!-- Language Switcher -->
           <button
             @click="toggleLocale"
-            class="flex items-center gap-2 rounded-buttons border border-zendesk-divider bg-zendesk-warm px-3.5 py-2 text-xs font-semibold text-zendesk-ink transition-colors hover:bg-stone-200"
+            class="flex items-center gap-1.5 text-xs font-medium text-zinc-600 hover:text-black transition-colors"
             :title="locale === 'id' ? 'Switch to English' : 'Ganti ke Bahasa Indonesia'"
           >
-            <Globe class="h-3.5 w-3.5 text-zendesk-forest" />
-            <span>{{ locale.toUpperCase() }}</span>
-            <span class="text-[10px] text-zendesk-stone">|</span>
-            <span class="text-zendesk-stone">{{ locale === 'id' ? 'EN' : 'ID' }}</span>
+            <Globe class="h-3.5 w-3.5 text-zinc-400" />
+            <span class="tracking-wide">{{ locale.toUpperCase() }}</span>
           </button>
-
-          <!-- Primary Lime CTA Button (Zendesk signature: 16px radius, #d1f470 bg, #11110d color, weight 600) -->
-          <a
-            href="#contact"
-            class="inline-flex items-center gap-2 rounded-buttons bg-zendesk-lime px-5 py-2.5 text-sm font-semibold text-zendesk-ink transition-opacity hover:opacity-90"
-          >
-            <span>{{ t('nav.contact') }}</span>
-            <ArrowRight class="h-4 w-4" />
-          </a>
         </div>
+      </div>
+    </div>
 
-        <!-- Mobile Hamburger Button -->
-        <div class="flex items-center gap-3 lg:hidden">
-          <button
-            @click="toggleLocale"
-            class="flex items-center gap-1.5 rounded-buttons border border-zendesk-divider bg-zendesk-warm px-3 py-1.5 text-xs font-semibold text-zendesk-ink"
-          >
-            <Globe class="h-3.5 w-3.5 text-zendesk-forest" />
-            <span>{{ locale.toUpperCase() }}</span>
-          </button>
+    <!-- Main Navigation Bar: Brand Name Left + Nav Links Right -->
+    <div class="py-5 px-6 sm:px-10">
+      <div class="mx-auto max-w-5xl flex items-center justify-between">
+        <!-- Brand Name (Uppercase tracked out) -->
+        <a href="#" class="text-xs sm:text-[13px] font-semibold tracking-tracked uppercase text-zinc-800 hover:text-black transition-colors">
+          REYNALDA SYALWA
+        </a>
+
+        <!-- Desktop Nav Links -->
+        <nav class="hidden md:flex items-center gap-8 text-[11px] font-medium tracking-tracked uppercase text-zinc-600">
+          <a href="#work" class="hover:text-black transition-colors">
+            WORK
+          </a>
+          <a href="#chart" class="hover:text-black transition-colors">
+            ANALYTICS
+          </a>
+          <a href="#experience" class="hover:text-black transition-colors">
+            ABOUT
+          </a>
+          <a href="#contact" class="hover:text-black transition-colors">
+            CONTACT
+          </a>
+        </nav>
+
+        <!-- Mobile Menu Toggle -->
+        <div class="flex items-center gap-2 md:hidden">
           <button
             @click="mobileMenuOpen = !mobileMenuOpen"
-            class="flex h-10 w-10 items-center justify-center rounded-buttons border border-zendesk-divider bg-zendesk-warm text-zendesk-ink"
-            aria-label="Toggle Menu"
+            class="flex h-8 w-8 items-center justify-center text-zinc-700"
+            aria-label="Toggle Navigation Menu"
           >
             <Menu v-if="!mobileMenuOpen" class="h-5 w-5" />
             <X v-else class="h-5 w-5" />
           </button>
         </div>
       </div>
+    </div>
 
-      <!-- Mobile Drawer Menu -->
-      <div v-if="mobileMenuOpen" class="border-b border-zendesk-divider bg-zendesk-white px-6 py-5 lg:hidden">
-        <div class="flex flex-col gap-4">
-          <a
-            href="#chart"
-            @click="mobileMenuOpen = false"
-            class="text-sm font-medium tracking-zendesk text-zendesk-ink/80 hover:text-zendesk-ink"
-          >
-            {{ t('nav.chart') }}
-          </a>
-          <a
-            href="#deals"
-            @click="mobileMenuOpen = false"
-            class="text-sm font-medium tracking-zendesk text-zendesk-ink/80 hover:text-zendesk-ink"
-          >
-            {{ t('nav.deals') }}
-          </a>
-          <a
-            href="#ads"
-            @click="mobileMenuOpen = false"
-            class="text-sm font-medium tracking-zendesk text-zendesk-ink/80 hover:text-zendesk-ink"
-          >
-            {{ t('nav.ads') }}
-          </a>
-          <a
-            href="#pillars"
-            @click="mobileMenuOpen = false"
-            class="text-sm font-medium tracking-zendesk text-zendesk-ink/80 hover:text-zendesk-ink"
-          >
-            {{ t('nav.pillars') }}
-          </a>
-          <a
-            href="#experience"
-            @click="mobileMenuOpen = false"
-            class="text-sm font-medium tracking-zendesk text-zendesk-ink/80 hover:text-zendesk-ink"
-          >
-            {{ t('nav.experience') }}
-          </a>
-          <a
-            href="#contact"
-            @click="mobileMenuOpen = false"
-            class="mt-2 flex items-center justify-center gap-2 rounded-buttons bg-zendesk-lime px-5 py-3 text-sm font-semibold text-zendesk-ink hover:opacity-90 transition-opacity"
-          >
-            <span>{{ t('nav.contact') }}</span>
-            <ArrowRight class="h-4 w-4" />
-          </a>
-        </div>
+    <!-- Mobile Drawer Menu -->
+    <div v-if="mobileMenuOpen" class="border-t border-zinc-100 bg-white px-6 py-4 md:hidden">
+      <div class="flex flex-col gap-3 text-xs tracking-tracked uppercase text-zinc-700 font-medium">
+        <a href="#work" @click="mobileMenuOpen = false" class="py-1 hover:text-black">WORK</a>
+        <a href="#chart" @click="mobileMenuOpen = false" class="py-1 hover:text-black">ANALYTICS</a>
+        <a href="#experience" @click="mobileMenuOpen = false" class="py-1 hover:text-black">ABOUT</a>
+        <a href="#contact" @click="mobileMenuOpen = false" class="py-1 hover:text-black">CONTACT</a>
+        <a
+          href="#contact"
+          @click="mobileMenuOpen = false"
+          class="mt-2 inline-flex items-center justify-center rounded-full bg-black py-2 text-center text-xs text-white"
+        >
+          {{ locale === 'id' ? 'Hubungi SyaSya' : 'Submit Portfolio' }}
+        </a>
       </div>
-    </header>
-  </div>
+    </div>
+  </header>
 </template>

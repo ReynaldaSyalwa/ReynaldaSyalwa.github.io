@@ -25,13 +25,15 @@ function handleCloseModal() {
 </script>
 
 <template>
-  <div class="min-h-screen bg-zendesk-white text-zendesk-ink selection:bg-zendesk-lime selection:text-zendesk-ink font-sans">
+  <div class="min-h-screen bg-white text-zinc-900 font-sans selection:bg-zinc-200 selection:text-black">
     <Navbar />
     <main>
       <HeroSection />
+      <div id="work">
+        <MetaAdsSection @open-modal="handleOpenModal" />
+      </div>
       <IncomeChartSection />
       <DealsTableSection @open-modal="handleOpenModal" />
-      <MetaAdsSection @open-modal="handleOpenModal" />
       <PillarsSection />
       <TimelineSection />
       <ContactSection />
