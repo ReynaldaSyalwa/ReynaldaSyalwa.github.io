@@ -25,7 +25,7 @@ function handleCloseModal() {
 </script>
 
 <template>
-  <div class="min-h-screen bg-obsidian-950 text-zinc-100 selection:bg-growth-500 selection:text-obsidian-950 font-sans">
+  <div class="min-h-screen bg-zendesk-white text-zendesk-ink selection:bg-zendesk-lime selection:text-zendesk-ink font-sans">
     <Navbar />
     <main>
       <HeroSection />
