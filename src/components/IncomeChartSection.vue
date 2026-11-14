@@ -33,14 +33,15 @@ function initChart() {
 
   const labels = [
     locale.value === 'id' ? 'Januari 2025' : 'Jan 2025',
+    locale.value === 'id' ? 'Februari 2025' : 'Feb 2025',
     locale.value === 'id' ? 'September 2025' : 'Sep 2025',
     locale.value === 'id' ? 'Oktober 2025' : 'Oct 2025',
     locale.value === 'id' ? 'November 2025' : 'Nov 2025',
     locale.value === 'id' ? 'Desember 2025' : 'Dec 2025'
   ]
 
-  const adSpendData = [654790, 541374, 352528, 407602, 328468]
-  const salesIncomeData = [5550000, 0, 0, 25308000, 31430000]
+  const adSpendData = [654790, 506000, 541374, 352528, 407602, 328468]
+  const salesIncomeData = [5550000, 0, 0, 0, 25308000, 31430000]
 
   chartInstance = new Chart(ctx, {
     type: 'bar',
