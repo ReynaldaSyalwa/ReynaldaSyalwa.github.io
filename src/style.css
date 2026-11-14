@@ -3,59 +3,66 @@
 @import "tailwindcss/utilities";
 
 :root {
-  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  /* Colors */
+  --color-electric-lime: #d1f470;
+  --color-forest-canopy: #203524;
+  --color-deep-grove: #2d4c33;
+  --color-near-black-ink: #11110d;
+  --color-warm-white: #f5f5f2;
+  --color-pure-white: #ffffff;
+  --color-midnight: #000000;
+  --color-stone-divider: #90918c;
+  --color-divider-subtle: rgba(17, 17, 13, 0.11);
+
+  /* Fonts */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
+
+  /* Typography scale */
+  --text-caption: 14px;
+  --leading-caption: 1.44;
+  --text-body: 16px;
+  --leading-body: 1.56;
+  --text-subheading: 18px;
+  --leading-subheading: 1.40;
+  --text-heading-sm: 26px;
+  --leading-heading-sm: 1.30;
+  --text-heading: 32px;
+  --leading-heading: 1.25;
+  --text-heading-lg: 48px;
+  --leading-heading-lg: 1.15;
+  --text-display: 74px;
+  --leading-display: 1.02;
+
+  /* Radii */
+  --radius-tags: 4px;
+  --radius-cards: 0px;
+  --radius-inputs: 12px;
+  --radius-buttons: 16px;
+  --radius-iconbuttons: 100%;
+  --radius-eventbannercards: 40px;
 }
 
 body {
   font-family: var(--font-sans);
-  background-color: #060608;
-  color: #f4f4f5;
+  background-color: #ffffff;
+  color: #11110d;
+  letter-spacing: 0.054em;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Subtle Ambient Dot Grid for Modern Studio Depth */
-.bg-grid-pattern {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-  background-size: 32px 32px;
-}
-
-/* Custom Scrollbar */
+/* Custom Scrollbar in Zendesk warm neutrals */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #09090b;
+  background: #f5f5f2;
 }
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
+  background: #d4d4cb;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3f3f46;
-}
-
-/* Shimmer animation for Vue-bits ShinyText */
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-.animate-shimmer {
-  background: linear-gradient(90deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0.4) 100%);
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shimmer 4s infinite linear;
-}
-
-.emerald-gradient-text {
-  background: linear-gradient(135deg, #34d399 0%, #10b981 50%, #38bdf8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background: #90918c;
 }

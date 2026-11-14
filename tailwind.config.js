@@ -2,36 +2,41 @@
 export default {
   content: [
     "./index.html",
+    "./template.html",
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        obsidian: {
-          950: '#060608',
-          900: '#09090b',
-          800: '#121215',
-          700: '#18181b',
-          600: '#27272a',
-          500: '#3f3f46',
+        zendesk: {
+          lime: '#d1f470',
+          forest: '#203524',
+          grove: '#2d4c33',
+          ink: '#11110d',
+          warm: '#f5f5f2',
+          white: '#ffffff',
+          midnight: '#000000',
+          stone: '#90918c',
+          divider: 'rgba(17, 17, 13, 0.11)',
         },
-        growth: {
-          50: '#ecfdf5',
-          100: '#d1fae5',
-          300: '#6ee7b7',
-          400: '#34d399',
-          500: '#10b981',
-          600: '#059669',
-        }
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
       },
+      letterSpacing: {
+        zendesk: '0.054em',
+      },
+      borderRadius: {
+        cards: '0px',
+        buttons: '16px',
+        event: '40px',
+        inputs: '12px',
+        tags: '4px',
+      },
       boxShadow: {
-        'trifecta': '0 20px 40px -12px rgba(0, 0, 0, 0.7)',
-        'glow-emerald': '0 0 24px -4px rgba(16, 185, 129, 0.25)',
+        none: 'none',
       }
     },
   },
