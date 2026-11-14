@@ -1,182 +1,176 @@
 <script setup>
-import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { Sparkles, ExternalLink, Image as ImageIcon, MessageSquare } from 'lucide-vue-next'
-import adsData from '../data/meta_ads_and_deals.json'
+import { ExternalLink, ArrowUpRight } from 'lucide-vue-next'
 
 const emit = defineEmits(['open-modal'])
-const { t } = useI18n()
-const selectedFilter = ref('all')
+const { t, locale } = useI18n()
 
-const allCampaigns = adsData.monthly_ad_performance
-
-const filteredCampaigns = computed(() => {
-  if (selectedFilter.value === '2025') {
-    return allCampaigns.filter(c => c.period.includes('2025'))
+const projects = [
+  {
+    id: 'p1',
+    type: 'featured',
+    category: 'ads',
+    yearLocation: '2025–2026 • SURABAYA • PERFORMANCE MARKETING',
+    titleId: 'Scaling institutional ISO certification client closing with 95.7x ROAS',
+    descId: 'Converting Rp 328k Meta Ads spend into Rp 31.4M verified commercial contract revenue.',
+    img: 'screenshots/meta-ads/03_meta_ads_okt2025_jan2026.webp',
+    modalType: 'ads'
+  },
+  {
+    id: 'p2',
+    type: 'featured',
+    category: 'sheet',
+    yearLocation: '2025 • INDONESIA • SALES CLOSING & CRM',
+    titleId: 'Converting paid inquiries into Rp 62.2M+ high-ticket B2B deals',
+    descId: 'Structuring full-funnel WhatsApp consultation pipelines for institutional clients and foundations.',
+    img: 'screenshots/leads-deals/leads_deals_sep_des2025.webp',
+    modalType: 'sheet'
+  },
+  {
+    id: 'p3',
+    type: 'grid',
+    category: 'ads',
+    yearLocation: '2026 • EFFICIENCY • META ADS MANAGER',
+    titleId: 'Achieving record-low Rp 3.612 Cost-Per-Result across 27 campaigns',
+    descId: 'Optimizing audience ABO testing to maximize high-intent consultation messages.',
+    img: 'screenshots/meta-ads/05_meta_ads_apr_jul_2026.webp',
+    modalType: 'ads'
+  },
+  {
+    id: 'p4',
+    type: 'grid',
+    category: 'ads',
+    yearLocation: '2025–2026 • CREATIVE & CONTENT • GROWTH',
+    titleId: 'High-conversion commercial flyers & short-form video creatives',
+    descId: 'Iterative creative testing across Canva, Photoshop, and short-form video hooks.',
+    img: 'screenshots/meta-ads/01_meta_ads_jan_apr_2025.webp',
+    modalType: 'ads'
   }
-  if (selectedFilter.value === '2026') {
-    return allCampaigns.filter(c => c.period.includes('2026'))
-  }
-  return allCampaigns
-})
-
-function formatIDR(val) {
-  return 'Rp ' + Number(val).toLocaleString('id-ID')
-}
+]
 </script>
 
 <template>
-  <section id="ads" class="relative py-20 border-t border-zendesk-divider bg-zendesk-white">
-    <div class="mx-auto max-w-7xl px-6 sm:px-8">
-      <!-- Section Header -->
-      <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-        <div>
-          <span class="inline-block rounded-tags bg-zendesk-warm px-3 py-1 text-xs font-semibold uppercase tracking-zendesk text-zendesk-forest border border-zendesk-divider">
-            {{ t('ads_section.tag') }}
-          </span>
-          <h2 class="mt-3 text-3xl font-semibold tracking-zendesk text-zendesk-ink sm:text-4xl">
-            {{ t('ads_section.title') }}
+  <section id="ads" class="py-12 sm:py-16 px-6 sm:px-10 bg-white">
+    <div class="mx-auto max-w-5xl space-y-16 sm:space-y-20">
+      
+      <!-- Project 1 (Full-width Featured Card matching reference screenshot) -->
+      <article
+        class="group cursor-pointer space-y-4"
+        data-aos="fade-up"
+        @click="emit('open-modal', projects[0].modalType)"
+      >
+        <div class="relative overflow-hidden rounded-2xl border border-zinc-200/70 bg-zinc-50 aspect-[16/9] sm:aspect-[21/10]">
+          <img
+            :src="projects[0].img"
+            :alt="projects[0].titleId"
+            class="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.01]"
+          />
+          <div class="absolute bottom-3 right-3 rounded-full bg-white/90 backdrop-blur-sm px-3 py-1 text-[11px] font-medium text-zinc-700 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1 shadow-sm">
+            <span>{{ locale === 'id' ? 'Buka Bukti' : 'View Proof' }}</span>
+            <ArrowUpRight class="h-3 w-3" />
+          </div>
+        </div>
+
+        <div class="space-y-1 pt-1">
+          <p class="text-[11px] font-medium uppercase tracking-editorial text-zinc-500">
+            {{ projects[0].yearLocation }}
+          </p>
+          <h2 class="font-serif text-xl sm:text-2xl text-zinc-900 group-hover:text-black transition-colors leading-snug">
+            {{ projects[0].titleId }}
           </h2>
-          <p class="mt-3 max-w-2xl text-base text-zendesk-ink/80 tracking-zendesk leading-relaxed">
-            {{ t('ads_section.desc') }}
+          <p class="text-xs sm:text-sm text-zinc-500 font-normal">
+            {{ projects[0].descId }}
           </p>
         </div>
+      </article>
 
-        <!-- Button to open proof dashboard modal: Zendesk 16px button -->
-        <button
-          @click="emit('open-modal', 'ads')"
-          class="inline-flex items-center gap-2 rounded-buttons border border-zendesk-ink bg-zendesk-white px-5 py-2.5 text-xs font-semibold tracking-zendesk text-zendesk-ink transition-colors hover:bg-stone-100"
-        >
-          <ImageIcon class="h-4 w-4 text-zendesk-forest" />
-          <span>{{ t('ads_section.btn_view_dashboard') }}</span>
-          <ExternalLink class="h-3.5 w-3.5 text-zendesk-stone" />
-        </button>
-      </div>
-
-      <!-- Year Filter Tabs (Zendesk 16px button radii) -->
-      <div class="mt-8 flex items-center gap-2">
-        <button
-          @click="selectedFilter = 'all'"
-          :class="[
-            'rounded-buttons px-4 py-2 text-xs font-semibold tracking-zendesk transition-all',
-            selectedFilter === 'all'
-              ? 'bg-zendesk-forest text-zendesk-lime'
-              : 'border border-zendesk-divider bg-zendesk-warm text-zendesk-ink hover:bg-stone-200'
-          ]"
-        >
-          {{ t('ads_section.tab_all') }}
-        </button>
-        <button
-          @click="selectedFilter = '2025'"
-          :class="[
-            'rounded-buttons px-4 py-2 text-xs font-semibold tracking-zendesk transition-all',
-            selectedFilter === '2025'
-              ? 'bg-zendesk-forest text-zendesk-lime'
-              : 'border border-zendesk-divider bg-zendesk-warm text-zendesk-ink hover:bg-stone-200'
-          ]"
-        >
-          {{ t('ads_section.tab_2025') }}
-        </button>
-        <button
-          @click="selectedFilter = '2026'"
-          :class="[
-            'rounded-buttons px-4 py-2 text-xs font-semibold tracking-zendesk transition-all',
-            selectedFilter === '2026'
-              ? 'bg-zendesk-forest text-zendesk-lime'
-              : 'border border-zendesk-divider bg-zendesk-warm text-zendesk-ink hover:bg-stone-200'
-          ]"
-        >
-          {{ t('ads_section.tab_2026') }}
-        </button>
-      </div>
-
-      <!-- Highlights Banner: Flat 0px Cards, zero shadow, #f5f5f2 surface -->
-      <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
-        <div class="rounded-cards border border-zendesk-divider bg-zendesk-warm p-5">
-          <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-zendesk text-zendesk-stone">
-            <Sparkles class="h-3.5 w-3.5 text-zendesk-forest" />
-            <span>CPR Terendah 2026</span>
+      <!-- Project 2 (Full-width Featured Card matching reference screenshot) -->
+      <article
+        class="group cursor-pointer space-y-4"
+        data-aos="fade-up"
+        @click="emit('open-modal', projects[1].modalType)"
+      >
+        <div class="relative overflow-hidden rounded-2xl border border-zinc-200/70 bg-zinc-50 aspect-[16/9] sm:aspect-[21/10]">
+          <img
+            :src="projects[1].img"
+            :alt="projects[1].titleId"
+            class="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.01]"
+          />
+          <div class="absolute bottom-3 right-3 rounded-full bg-white/90 backdrop-blur-sm px-3 py-1 text-[11px] font-medium text-zinc-700 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1 shadow-sm">
+            <span>{{ locale === 'id' ? 'Buka Bukti' : 'View Proof' }}</span>
+            <ArrowUpRight class="h-3 w-3" />
           </div>
-          <div class="mt-2 font-mono text-2xl font-bold text-zendesk-forest">
-            Rp 3.612 <span class="text-xs font-normal text-zendesk-stone">/ pesan</span>
-          </div>
-          <p class="mt-1 text-[11px] text-zendesk-ink/70">Ads NSM Mei 2026 MBG (10 hasil dari budget Rp 36.121)</p>
         </div>
 
-        <div class="rounded-cards border border-zendesk-divider bg-zendesk-warm p-5">
-          <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-zendesk text-zendesk-stone">
-            <Sparkles class="h-3.5 w-3.5 text-zendesk-forest" />
-            <span>CPR Terendah 2025</span>
-          </div>
-          <div class="mt-2 font-mono text-2xl font-bold text-zendesk-forest">
-            Rp 5.435 <span class="text-xs font-normal text-zendesk-stone">/ pesan</span>
-          </div>
-          <p class="mt-1 text-[11px] text-zendesk-ink/70">Ads November - mbg 2025 (75 pesan, jangkauan 12.611)</p>
+        <div class="space-y-1 pt-1">
+          <p class="text-[11px] font-medium uppercase tracking-editorial text-zinc-500">
+            {{ projects[1].yearLocation }}
+          </p>
+          <h2 class="font-serif text-xl sm:text-2xl text-zinc-900 group-hover:text-black transition-colors leading-snug">
+            {{ projects[1].titleId }}
+          </h2>
+          <p class="text-xs sm:text-sm text-zinc-500 font-normal">
+            {{ projects[1].descId }}
+          </p>
         </div>
+      </article>
 
-        <div class="rounded-cards border border-zendesk-divider bg-zendesk-warm p-5">
-          <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-zendesk text-zendesk-stone">
-            <MessageSquare class="h-3.5 w-3.5 text-zendesk-forest" />
-            <span>Rekor Volume Hasil Pesan</span>
+      <!-- 2-Column Grid (Projects 3 & 4 Side by Side matching reference screenshot) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12">
+        <!-- Project 3 -->
+        <article
+          class="group cursor-pointer space-y-3"
+          data-aos="fade-up"
+          @click="emit('open-modal', projects[2].modalType)"
+        >
+          <div class="relative overflow-hidden rounded-2xl border border-zinc-200/70 bg-zinc-50 aspect-[16/10]">
+            <img
+              :src="projects[2].img"
+              :alt="projects[2].titleId"
+              class="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.01]"
+            />
           </div>
-          <div class="mt-2 font-mono text-2xl font-bold text-zendesk-ink">
-            75 Percakapan
+          <div class="space-y-1 pt-1">
+            <p class="text-[10px] sm:text-[11px] font-medium uppercase tracking-editorial text-zinc-500">
+              {{ projects[2].yearLocation }}
+            </p>
+            <h3 class="font-serif text-lg sm:text-xl text-zinc-900 group-hover:text-black transition-colors leading-snug">
+              {{ projects[2].titleId }}
+            </h3>
+            <p class="text-xs text-zinc-500">
+              {{ projects[2].descId }}
+            </p>
           </div>
-          <p class="mt-1 text-[11px] text-zendesk-ink/70">November 2025 (Menghasilkan omzet closing Rp 25.3 Juta)</p>
-        </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article
+          class="group cursor-pointer space-y-3"
+          data-aos="fade-up"
+          data-aos-delay="100"
+          @click="emit('open-modal', projects[3].modalType)"
+        >
+          <div class="relative overflow-hidden rounded-2xl border border-zinc-200/70 bg-zinc-50 aspect-[16/10]">
+            <img
+              :src="projects[3].img"
+              :alt="projects[3].titleId"
+              class="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.01]"
+            />
+          </div>
+          <div class="space-y-1 pt-1">
+            <p class="text-[10px] sm:text-[11px] font-medium uppercase tracking-editorial text-zinc-500">
+              {{ projects[3].yearLocation }}
+            </p>
+            <h3 class="font-serif text-lg sm:text-xl text-zinc-900 group-hover:text-black transition-colors leading-snug">
+              {{ projects[3].titleId }}
+            </h3>
+            <p class="text-xs text-zinc-500">
+              {{ projects[3].descId }}
+            </p>
+          </div>
+        </article>
       </div>
 
-      <!-- Campaign Table: Flat Card 0px, zero shadow -->
-      <div class="mt-6 overflow-hidden rounded-cards border border-zendesk-divider bg-zendesk-white">
-        <div class="max-h-[520px] overflow-y-auto overflow-x-auto">
-          <table class="w-full text-left text-sm text-zendesk-ink">
-            <thead class="sticky top-0 z-10 border-b border-zendesk-divider bg-zendesk-warm text-xs font-semibold uppercase tracking-zendesk text-zendesk-ink">
-              <tr>
-                <th scope="col" class="py-3.5 pl-6 pr-3">Periode</th>
-                <th scope="col" class="px-3 py-3.5">Nama Kampanye</th>
-                <th scope="col" class="px-3 py-3.5 text-right">{{ t('ads_section.metric_spent') }}</th>
-                <th scope="col" class="px-3 py-3.5 text-right">{{ t('ads_section.metric_spent_tax') }}</th>
-                <th scope="col" class="px-3 py-3.5 text-center">{{ t('ads_section.metric_results') }}</th>
-                <th scope="col" class="px-3 py-3.5 text-right">{{ t('ads_section.metric_cpr') }}</th>
-                <th scope="col" class="px-3 py-3.5 text-right">{{ t('ads_section.metric_reach') }}</th>
-                <th scope="col" class="py-3.5 pl-3 pr-6 text-right">{{ t('ads_section.metric_clicks') }}</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-zendesk-divider font-sans">
-              <tr
-                v-for="c in filteredCampaigns"
-                :key="c.campaign_name + c.period"
-                class="transition-colors hover:bg-zendesk-warm/60"
-              >
-                <td class="whitespace-nowrap py-3 pl-6 pr-3 font-mono text-xs font-semibold text-zendesk-forest">{{ c.period }}</td>
-                <td class="px-3 py-3 font-medium text-zendesk-ink">
-                  {{ c.campaign_name }}
-                </td>
-                <td class="whitespace-nowrap px-3 py-3 text-right font-mono text-xs text-zendesk-stone">
-                  {{ formatIDR(c.amount_spent) }}
-                </td>
-                <td class="whitespace-nowrap px-3 py-3 text-right font-mono text-xs text-zendesk-stone">
-                  {{ formatIDR(c.spent_with_tax) }}
-                </td>
-                <td class="whitespace-nowrap px-3 py-3 text-center">
-                  <span class="inline-flex items-center gap-1 rounded-tags bg-zendesk-warm px-2.5 py-0.5 font-mono text-xs font-bold text-zendesk-forest border border-zendesk-divider">
-                    {{ c.results_messaging }} pesan
-                  </span>
-                </td>
-                <td class="whitespace-nowrap px-3 py-3 text-right font-mono text-xs font-bold text-zendesk-forest">
-                  {{ formatIDR(c.cost_per_result) }}
-                </td>
-                <td class="whitespace-nowrap px-3 py-3 text-right font-mono text-xs text-zendesk-stone">
-                  {{ c.reach.toLocaleString('id-ID') }}
-                </td>
-                <td class="whitespace-nowrap py-3 pl-3 pr-6 text-right font-mono text-xs text-zendesk-ink">
-                  {{ c.link_clicks }} klik
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
     </div>
   </section>
 </template>
