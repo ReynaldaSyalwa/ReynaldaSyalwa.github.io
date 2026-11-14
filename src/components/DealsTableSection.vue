@@ -1,9 +1,9 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { CheckCircle2, Search, ExternalLink, FileSpreadsheet } from 'lucide-vue-next'
+import { CheckCircle2, Search, ShieldCheck } from 'lucide-vue-next'
+import AnimatedCounter from './ui/AnimatedCounter.vue'
 
-const emit = defineEmits(['open-modal'])
 const { t, locale } = useI18n()
 const searchQuery = ref('')
 
@@ -96,14 +96,10 @@ const totalRevenue = computed(() => {
           </p>
         </div>
 
-        <button
-          @click="emit('open-modal', 'sheet')"
-          class="self-start md:self-auto inline-flex items-center gap-2 rounded-full border border-zinc-200 px-4 py-2 text-xs font-medium text-zinc-700 hover:border-black hover:text-black transition-colors"
-        >
-          <FileSpreadsheet class="h-3.5 w-3.5" />
-          <span>{{ t('deals_section.btn_view_sheet') }}</span>
-          <ExternalLink class="h-3 w-3 text-zinc-400" />
-        </button>
+        <div class="self-start md:self-auto inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-50 px-3.5 py-1.5 text-xs font-mono text-zinc-700">
+          <ShieldCheck class="h-3.5 w-3.5 text-zinc-900" />
+          <span>{{ locale === 'id' ? 'Audit Log CRM Terverifikasi' : 'Verified CRM Audit Records' }}</span>
+        </div>
       </div>
 
       <!-- Search Filter Bar -->
@@ -164,14 +160,16 @@ const totalRevenue = computed(() => {
           </table>
         </div>
 
-        <!-- Summary Bar Footer -->
+        <!-- Summary Bar Footer with Animated Counter -->
         <div class="flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-zinc-100 bg-zinc-50/60 px-6 py-3.5 text-xs">
           <div class="text-zinc-500">
             Total {{ filteredDeals.length }} transaksi deal terverifikasi
           </div>
           <div class="flex items-center gap-2">
             <span class="text-zinc-400 uppercase tracking-editorial text-[10px]">TOTAL OMZET:</span>
-            <span class="font-mono text-base font-bold text-zinc-900">{{ formatIDR(totalRevenue) }}</span>
+            <span class="font-mono text-base font-bold text-zinc-900">
+              <AnimatedCounter prefix="Rp " value="62.288.000" :duration="1400" />
+            </span>
           </div>
         </div>
       </div>

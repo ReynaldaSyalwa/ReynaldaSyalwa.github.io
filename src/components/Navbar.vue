@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { Search, Globe, Menu, X, ArrowUpRight } from 'lucide-vue-next'
+import sketchAvatarCropped from '@/assets/sketch-avatar-cropped.png'
 
 const { t, locale } = useI18n()
 const mobileMenuOpen = ref(false)
@@ -13,7 +14,7 @@ function toggleLocale() {
 }
 
 function handleSearchFocus() {
-  const target = document.getElementById('work') || document.getElementById('ads')
+  const target = document.getElementById('ads-table') || document.getElementById('ads') || document.getElementById('chart')
   if (target) {
     target.scrollIntoView({ behavior: 'smooth' })
   }
@@ -21,9 +22,9 @@ function handleSearchFocus() {
 </script>
 
 <template>
-  <header class="w-full bg-white text-zinc-900 border-b border-zinc-100">
-    <!-- Top Utility Bar: Search pill & Action CTA matching screenshot -->
-    <div class="border-b border-zinc-100/80 py-2.5 px-6 sm:px-10">
+  <header class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-zinc-200/80 transition-all shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+    <!-- Top Utility Bar: Search pill & Action CTA matching reference screenshot -->
+    <div class="border-b border-zinc-100/90 py-2 px-6 sm:px-10">
       <div class="mx-auto max-w-5xl flex items-center justify-between gap-4">
         <!-- Search Pill -->
         <div class="relative w-full max-w-xs sm:max-w-sm">
@@ -32,7 +33,7 @@ function handleSearchFocus() {
             v-model="searchSkillsQuery"
             type="text"
             @focus="handleSearchFocus"
-            :placeholder="locale === 'id' ? 'Search Skills / Meta Ads...' : 'Search Skills / Case Studies...'"
+            :placeholder="locale === 'id' ? 'Cari Kampanye / Data Meta Ads...' : 'Search Campaigns / Meta Ads Data...'"
             class="w-full rounded-full border border-zinc-200/90 bg-white py-1.5 pl-8 pr-3 text-xs text-zinc-800 placeholder:text-zinc-400 focus:outline-none focus:border-zinc-400 transition-colors"
           />
         </div>
@@ -60,20 +61,32 @@ function handleSearchFocus() {
     </div>
 
     <!-- Main Navigation Bar: Brand Name Left + Nav Links Right -->
-    <div class="py-5 px-6 sm:px-10">
+    <div class="py-3 sm:py-3.5 px-6 sm:px-10">
       <div class="mx-auto max-w-5xl flex items-center justify-between">
-        <!-- Brand Name (Uppercase tracked out) -->
-        <a href="#" class="text-xs sm:text-[13px] font-semibold tracking-tracked uppercase text-zinc-800 hover:text-black transition-colors">
-          REYNALDA SYALWA
+        <!-- Brand Name with Media 2 Line-art Avatar Icon -->
+        <a href="#" class="inline-flex items-center gap-2.5 group">
+          <div class="h-7 w-7 rounded-full border border-zinc-200 bg-zinc-50 overflow-hidden flex items-center justify-center p-0.5 transition-transform duration-300 group-hover:scale-105">
+            <img
+              :src="sketchAvatarCropped"
+              alt="SyaSya Icon"
+              class="h-full w-full object-contain"
+            />
+          </div>
+          <span class="text-xs sm:text-[13px] font-semibold tracking-tracked uppercase text-zinc-900 group-hover:text-black transition-colors">
+            REYNALDA SYALWA
+          </span>
         </a>
 
         <!-- Desktop Nav Links -->
         <nav class="hidden md:flex items-center gap-8 text-[11px] font-medium tracking-tracked uppercase text-zinc-600">
-          <a href="#work" class="hover:text-black transition-colors">
-            WORK
+          <a href="#ads" class="hover:text-black transition-colors">
+            CAMPAIGNS
           </a>
           <a href="#chart" class="hover:text-black transition-colors">
             ANALYTICS
+          </a>
+          <a href="#deals" class="hover:text-black transition-colors">
+            DEALS
           </a>
           <a href="#experience" class="hover:text-black transition-colors">
             ABOUT
@@ -100,8 +113,9 @@ function handleSearchFocus() {
     <!-- Mobile Drawer Menu -->
     <div v-if="mobileMenuOpen" class="border-t border-zinc-100 bg-white px-6 py-4 md:hidden">
       <div class="flex flex-col gap-3 text-xs tracking-tracked uppercase text-zinc-700 font-medium">
-        <a href="#work" @click="mobileMenuOpen = false" class="py-1 hover:text-black">WORK</a>
+        <a href="#ads" @click="mobileMenuOpen = false" class="py-1 hover:text-black">CAMPAIGNS</a>
         <a href="#chart" @click="mobileMenuOpen = false" class="py-1 hover:text-black">ANALYTICS</a>
+        <a href="#deals" @click="mobileMenuOpen = false" class="py-1 hover:text-black">DEALS</a>
         <a href="#experience" @click="mobileMenuOpen = false" class="py-1 hover:text-black">ABOUT</a>
         <a href="#contact" @click="mobileMenuOpen = false" class="py-1 hover:text-black">CONTACT</a>
         <a
