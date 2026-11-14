@@ -193,32 +193,48 @@ watch(() => locale.value, () => {
       <!-- Live Stats Ribbon with Scrolling Odometer Numbers -->
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-4" data-aos="fade-up">
         <div class="rounded-xl border border-zinc-200/80 bg-zinc-50/60 p-4">
-          <span class="text-[10px] font-semibold uppercase tracking-editorial text-zinc-400">Total Belanja Iklan</span>
+          <span class="text-[10px] font-semibold uppercase tracking-editorial text-zinc-400">
+            {{ locale === 'id' ? 'Total Belanja Iklan' : 'Total Ad Spend' }}
+          </span>
           <div class="mt-1 font-mono text-lg sm:text-2xl font-bold text-zinc-900">
             <AnimatedCounter prefix="Rp " value="8.75" suffix="M+" :duration="1300" />
           </div>
-          <span class="text-[10px] text-zinc-400">27 kampanye terekam</span>
+          <span class="text-[10px] text-zinc-400">
+            {{ locale === 'id' ? '27 kampanye terekam' : '27 documented campaigns' }}
+          </span>
         </div>
         <div class="rounded-xl border border-zinc-200/80 bg-zinc-50/60 p-4">
-          <span class="text-[10px] font-semibold uppercase tracking-editorial text-zinc-400">Total Akun Dijangkau</span>
+          <span class="text-[10px] font-semibold uppercase tracking-editorial text-zinc-400">
+            {{ locale === 'id' ? 'Total Akun Dijangkau' : 'Total Accounts Reached' }}
+          </span>
           <div class="mt-1 font-mono text-lg sm:text-2xl font-bold text-zinc-900">
-            <AnimatedCounter value="218.070" suffix=" Akun" :duration="1500" />
+            <AnimatedCounter value="218.070" :suffix="locale === 'id' ? ' Akun' : ' Accounts'" :duration="1500" />
           </div>
-          <span class="text-[10px] text-zinc-400">Audiens unik terverifikasi</span>
+          <span class="text-[10px] text-zinc-400">
+            {{ locale === 'id' ? 'Audiens unik terverifikasi' : 'Verified unique audiences' }}
+          </span>
         </div>
         <div class="rounded-xl border border-zinc-200/80 bg-zinc-50/60 p-4">
-          <span class="text-[10px] font-semibold uppercase tracking-editorial text-zinc-400">Hasil Konsultasi (Leads)</span>
+          <span class="text-[10px] font-semibold uppercase tracking-editorial text-zinc-400">
+            {{ locale === 'id' ? 'Hasil Konsultasi (Leads)' : 'Consultation Inquiries' }}
+          </span>
           <div class="mt-1 font-mono text-lg sm:text-2xl font-bold text-zinc-900">
             <AnimatedCounter value="606" suffix=" Chats" :duration="1400" />
           </div>
-          <span class="text-[10px] text-zinc-400">High-intent inquiries</span>
+          <span class="text-[10px] text-zinc-400">
+            {{ locale === 'id' ? 'High-intent inquiries' : 'High-intent inquiries' }}
+          </span>
         </div>
         <div class="rounded-xl border border-zinc-200/80 bg-zinc-50/60 p-4">
-          <span class="text-[10px] font-semibold uppercase tracking-editorial text-zinc-400">CPR Terendah (Rekor)</span>
+          <span class="text-[10px] font-semibold uppercase tracking-editorial text-zinc-400">
+            {{ locale === 'id' ? 'CPR Terendah (Rekor)' : 'Lowest CPR (Record)' }}
+          </span>
           <div class="mt-1 font-mono text-lg sm:text-2xl font-bold text-zinc-900">
             <AnimatedCounter prefix="Rp " value="3.612" :duration="1600" />
           </div>
-          <span class="text-[10px] text-zinc-400">Efisiensi Mei 2026</span>
+          <span class="text-[10px] text-zinc-400">
+            {{ locale === 'id' ? 'Efisiensi Mei 2026' : 'May 2026 efficiency record' }}
+          </span>
         </div>
       </div>
 
@@ -305,11 +321,11 @@ watch(() => locale.value, () => {
           <table class="w-full text-left text-xs">
             <thead class="bg-zinc-50/80 border-b border-zinc-200/80 text-[10px] font-semibold uppercase tracking-wider text-zinc-500">
               <tr>
-                <th class="py-3 px-4">Nama Kampanye</th>
-                <th class="py-3 px-4">Periode</th>
+                <th class="py-3 px-4">{{ locale === 'id' ? 'Nama Kampanye' : 'Campaign Name' }}</th>
+                <th class="py-3 px-4">{{ locale === 'id' ? 'Periode' : 'Period' }}</th>
                 <th class="py-3 px-4 text-right">Ad Spend</th>
                 <th class="py-3 px-4 text-right">Reach</th>
-                <th class="py-3 px-4 text-right">Hasil (Chat)</th>
+                <th class="py-3 px-4 text-right">{{ locale === 'id' ? 'Hasil (Chat)' : 'Results (Inquiries)' }}</th>
                 <th class="py-3 px-4 text-right">Cost Per Result (CPR)</th>
               </tr>
             </thead>
@@ -365,7 +381,7 @@ watch(() => locale.value, () => {
               </tr>
               <tr v-if="displayedCampaigns.length === 0">
                 <td colspan="6" class="py-8 text-center text-zinc-400 text-xs">
-                  Tidak ditemukan kampanye yang sesuai kata kunci pencarian.
+                  {{ locale === 'id' ? 'Tidak ditemukan kampanye yang sesuai kata kunci pencarian.' : 'No campaigns found matching search query.' }}
                 </td>
               </tr>
             </tbody>

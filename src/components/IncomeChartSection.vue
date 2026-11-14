@@ -263,32 +263,48 @@ watch(() => locale.value, () => {
       <!-- KPI Indicators with Scrolling Odometer Numbers -->
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <div class="rounded-xl border border-zinc-100 bg-zinc-50/70 p-4">
-          <span class="text-[10px] sm:text-[11px] font-medium uppercase tracking-editorial text-zinc-400">Total Omzet</span>
+          <span class="text-[10px] sm:text-[11px] font-medium uppercase tracking-editorial text-zinc-400">
+            {{ locale === 'id' ? 'Total Omzet' : 'Total Revenue' }}
+          </span>
           <div class="mt-1 font-mono text-xl sm:text-2xl font-bold text-zinc-900">
             <AnimatedCounter prefix="Rp " value="62.2" suffix="M" :duration="1400" />
           </div>
-          <span class="text-[10px] text-zinc-400">Closing ISO 2025</span>
+          <span class="text-[10px] text-zinc-400">
+            {{ locale === 'id' ? 'Closing ISO 2025' : 'ISO 2025 Deals' }}
+          </span>
         </div>
         <div class="rounded-xl border border-zinc-100 bg-zinc-50/70 p-4">
-          <span class="text-[10px] sm:text-[11px] font-medium uppercase tracking-editorial text-zinc-400">Total Ad Spend</span>
+          <span class="text-[10px] sm:text-[11px] font-medium uppercase tracking-editorial text-zinc-400">
+            {{ locale === 'id' ? 'Total Ad Spend' : 'Total Ad Spend' }}
+          </span>
           <div class="mt-1 font-mono text-xl sm:text-2xl font-bold text-zinc-900">
             <AnimatedCounter prefix="Rp " value="2.28" suffix="M" :duration="1300" />
           </div>
-          <span class="text-[10px] text-zinc-400">Total belanja iklan</span>
+          <span class="text-[10px] text-zinc-400">
+            {{ locale === 'id' ? 'Total belanja iklan' : 'Total advertising cost' }}
+          </span>
         </div>
         <div class="rounded-xl border border-zinc-100 bg-zinc-50/70 p-4">
-          <span class="text-[10px] sm:text-[11px] font-medium uppercase tracking-editorial text-zinc-400">Gross Margin Lift</span>
+          <span class="text-[10px] sm:text-[11px] font-medium uppercase tracking-editorial text-zinc-400">
+            {{ locale === 'id' ? 'Gross Margin Lift' : 'Gross Margin Lift' }}
+          </span>
           <div class="mt-1 font-mono text-xl sm:text-2xl font-bold text-zinc-900">
             <AnimatedCounter prefix="+Rp " value="60.0" suffix="M" :duration="1500" />
           </div>
-          <span class="text-[10px] text-zinc-400">Net revenue margin</span>
+          <span class="text-[10px] text-zinc-400">
+            {{ locale === 'id' ? 'Net revenue margin' : 'Net revenue margin' }}
+          </span>
         </div>
         <div class="rounded-xl border border-zinc-100 bg-zinc-50/70 p-4">
-          <span class="text-[10px] sm:text-[11px] font-medium uppercase tracking-editorial text-zinc-400">Average ROAS</span>
+          <span class="text-[10px] sm:text-[11px] font-medium uppercase tracking-editorial text-zinc-400">
+            {{ locale === 'id' ? 'Average ROAS' : 'Average ROAS' }}
+          </span>
           <div class="mt-1 font-mono text-xl sm:text-2xl font-bold text-zinc-900">
             <AnimatedCounter value="27.2" suffix="x" :duration="1600" />
           </div>
-          <span class="text-[10px] text-zinc-400">Peak Dec: 95.7x</span>
+          <span class="text-[10px] text-zinc-400">
+            {{ locale === 'id' ? 'Puncak Des: 95.7x' : 'Peak Dec: 95.7x' }}
+          </span>
         </div>
       </div>
 

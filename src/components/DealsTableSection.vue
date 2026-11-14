@@ -124,13 +124,13 @@ const totalRevenue = computed(() => {
           <table class="w-full text-left text-xs sm:text-sm text-zinc-800">
             <thead class="border-b border-zinc-100 bg-zinc-50/70 text-[11px] font-semibold uppercase tracking-editorial text-zinc-400">
               <tr>
-                <th scope="col" class="py-3.5 pl-6 pr-3">No</th>
-                <th scope="col" class="px-3 py-3.5">Bulan</th>
-                <th scope="col" class="px-3 py-3.5">Klien</th>
-                <th scope="col" class="px-3 py-3.5">Layanan</th>
-                <th scope="col" class="px-3 py-3.5 text-right">Ad Spend</th>
-                <th scope="col" class="px-3 py-3.5 text-right">Nilai Deal</th>
-                <th scope="col" class="py-3.5 pl-3 pr-6 text-center">Status</th>
+                <th scope="col" class="py-3.5 pl-6 pr-3">{{ t('deals_section.col_no') }}</th>
+                <th scope="col" class="px-3 py-3.5">{{ t('deals_section.col_month') }}</th>
+                <th scope="col" class="px-3 py-3.5">{{ t('deals_section.col_client') }}</th>
+                <th scope="col" class="px-3 py-3.5">{{ t('deals_section.col_service') }}</th>
+                <th scope="col" class="px-3 py-3.5 text-right">{{ t('deals_section.col_ad_spend') }}</th>
+                <th scope="col" class="px-3 py-3.5 text-right">{{ t('deals_section.col_deal_value') }}</th>
+                <th scope="col" class="py-3.5 pl-3 pr-6 text-center">{{ t('deals_section.col_status') }}</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-zinc-100 font-sans">
@@ -163,10 +163,12 @@ const totalRevenue = computed(() => {
         <!-- Summary Bar Footer with Animated Counter -->
         <div class="flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-zinc-100 bg-zinc-50/60 px-6 py-3.5 text-xs">
           <div class="text-zinc-500">
-            Total {{ filteredDeals.length }} transaksi deal terverifikasi
+            {{ locale === 'id' ? `Total ${filteredDeals.length} transaksi deal terverifikasi` : `Total ${filteredDeals.length} verified deal transactions` }}
           </div>
           <div class="flex items-center gap-2">
-            <span class="text-zinc-400 uppercase tracking-editorial text-[10px]">TOTAL OMZET:</span>
+            <span class="text-zinc-400 uppercase tracking-editorial text-[10px]">
+              {{ locale === 'id' ? 'TOTAL OMZET:' : 'TOTAL REVENUE:' }}
+            </span>
             <span class="font-mono text-base font-bold text-zinc-900">
               <AnimatedCounter prefix="Rp " value="62.288.000" :duration="1400" />
             </span>

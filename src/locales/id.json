@@ -1,18 +1,25 @@
 {
   "nav": {
-    "chart": "Hasil Penjualan",
+    "specialty": "Digital Marketing & Growth Specialist",
+    "campaigns": "Kampanye",
+    "analytics": "Analitik",
     "deals": "Klien Closing",
-    "ads": "Kinerja Ads",
-    "pillars": "Kapabilitas",
-    "experience": "Tentang",
-    "contact": "Hubungi SyaSya"
+    "about": "Tentang",
+    "contact": "Kontak",
+    "contact_btn": "Hubungi SyaSya"
   },
   "hero": {
+    "title_part1": "Mengubah",
+    "title_highlight": "Meta Ads",
+    "title_part2": "& Strategi Pertumbuhan Menjadi",
+    "title_part3": "Closing Transaksi Nyata.",
+    "desc": "Berbasis di Surabaya, Indonesia, saya seorang Digital Marketing & Growth Specialist yang mengombinasikan Meta Ads, Strategi Kreatif, dan Sistem Informasi. Berfokus pada pengujian audiens berbiaya efisien, optimasi konsultasi WhatsApp, dan pencapaian closing transaksi institusional bernilai tinggi.",
+    "skills_label": "Keahlian & Ekosistem Utama",
+    "metric_revenue": "Omzet Closing",
+    "metric_roas": "Blended ROAS",
+    "metric_campaigns": "Total Kampanye",
+    "metric_cpr": "CPR Terendah",
     "badge": "Tersedia untuk Posisi Full-Time & Kontrak Strategis",
-    "title_prefix": "Scaling Brands dengan",
-    "title_highlight": "Data-Driven Growth",
-    "title_suffix": "& Proven Sales Closing.",
-    "desc": "Halo, saya Reynalda Vonna Syalwa (SyaSya) — Digital Marketing & Growth Specialist lulusan Sistem Informasi (IPK 3,78). Menggabungkan strategi Meta Ads berbiaya efisien, desain visual kreatif, dan kemampuan konsultasi prospek hingga menghasilkan omzet penjualan riil puluhan juta rupiah.",
     "cta_chart": "Lihat Grafik Penjualan",
     "cta_deals": "Daftar Klien Closing",
     "cta_cv": "Unduh CV Resmi (PDF)",
@@ -120,6 +127,10 @@
     "btn_wa": "Chat via WhatsApp",
     "btn_email": "Kirim Email",
     "btn_cv": "Unduh CV Lengkap"
+  },
+  "footer": {
+    "copyright": "© 2026 R.V. SYALWA • ALL RIGHTS RESERVED",
+    "tagline": "❤️ Dibuat dengan dedikasi & integritas data di Surabaya"
   },
   "modal": {
     "title": "Bukti Otentik Tangkapan Layar",

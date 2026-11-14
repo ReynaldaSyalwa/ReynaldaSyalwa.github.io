@@ -1,18 +1,25 @@
 {
   "nav": {
-    "chart": "Sales Results",
+    "specialty": "Digital Marketing & Growth Specialist",
+    "campaigns": "Campaigns",
+    "analytics": "Analytics",
     "deals": "Closed Deals",
-    "ads": "Ads Track Record",
-    "pillars": "Capabilities",
-    "experience": "About",
-    "contact": "Contact SyaSya"
+    "about": "About",
+    "contact": "Contact",
+    "contact_btn": "Contact SyaSya"
   },
   "hero": {
+    "title_part1": "Converting",
+    "title_highlight": "Meta Ads Performance",
+    "title_part2": "into",
+    "title_part3": "High-Ticket Revenue Deals.",
+    "desc": "Based in Surabaya, Indonesia, I'm a Digital Marketing & Growth Specialist combining Meta Ads, Creative Strategy, and Information Systems. Centered on cost-efficient audience testing, high-intent WhatsApp consultation funnels, and closing verified high-ticket institutional contracts.",
+    "skills_label": "Core Skills & Ecosystem",
+    "metric_revenue": "Closed Revenue",
+    "metric_roas": "Blended ROAS",
+    "metric_campaigns": "Total Campaigns",
+    "metric_cpr": "Lowest CPR",
     "badge": "Available for Full-Time & Strategic Roles",
-    "title_prefix": "Scaling Brands with",
-    "title_highlight": "Data-Driven Growth",
-    "title_suffix": "& Proven Sales Closing.",
-    "desc": "Hi, I am Reynalda Vonna Syalwa (SyaSya) — Digital Marketing & Growth Specialist with an Information Systems degree (GPA 3.78). Combining cost-efficient Meta Ads, high-conversion visual design, and lead consultation to generate measurable revenue.",
     "cta_chart": "View Sales Chart",
     "cta_deals": "Closed Deals Table",
     "cta_cv": "Download Official CV (PDF)",
@@ -120,6 +127,10 @@
     "btn_wa": "Chat via WhatsApp",
     "btn_email": "Send Direct Email",
     "btn_cv": "Download Full CV"
+  },
+  "footer": {
+    "copyright": "© 2026 R.V. SYALWA • ALL RIGHTS RESERVED",
+    "tagline": "❤️ Crafted with dedication & data integrity in Surabaya"
   },
   "modal": {
     "title": "Authentic Dashboard Proof",

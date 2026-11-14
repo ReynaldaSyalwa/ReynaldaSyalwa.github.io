@@ -1,50 +1,63 @@
 <script setup>
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { Search, Globe, Menu, X, ArrowUpRight } from 'lucide-vue-next'
-import sketchAvatarCropped from '@/assets/sketch-avatar-cropped.png'
+import { Globe, Menu, X, ArrowUpRight } from 'lucide-vue-next'
 
 const { t, locale } = useI18n()
 const mobileMenuOpen = ref(false)
-const searchSkillsQuery = ref('')
 
 function toggleLocale() {
   locale.value = locale.value === 'id' ? 'en' : 'id'
   localStorage.setItem('syasya_lang', locale.value)
 }
-
-function handleSearchFocus() {
-  const target = document.getElementById('ads-table') || document.getElementById('ads') || document.getElementById('chart')
-  if (target) {
-    target.scrollIntoView({ behavior: 'smooth' })
-  }
-}
 </script>
 
 <template>
   <header class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-zinc-200/80 transition-all shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
-    <!-- Top Utility Bar: Search pill & Action CTA matching reference screenshot -->
+    <!-- Top Utility Bar: Specialty & Social Links Left, Contact & Lang Right (Replaces media0) -->
     <div class="border-b border-zinc-100/90 py-2 px-6 sm:px-10">
       <div class="mx-auto max-w-5xl flex items-center justify-between gap-4">
-        <!-- Search Pill -->
-        <div class="relative w-full max-w-xs sm:max-w-sm">
-          <Search class="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-zinc-400" />
-          <input
-            v-model="searchSkillsQuery"
-            type="text"
-            @focus="handleSearchFocus"
-            :placeholder="locale === 'id' ? 'Cari Kampanye / Data Meta Ads...' : 'Search Campaigns / Meta Ads Data...'"
-            class="w-full rounded-full border border-zinc-200/90 bg-white py-1.5 pl-8 pr-3 text-xs text-zinc-800 placeholder:text-zinc-400 focus:outline-none focus:border-zinc-400 transition-colors"
-          />
+        <!-- Left: Specialty & Social Profile Links -->
+        <div class="flex items-center gap-3 sm:gap-4 overflow-x-auto text-[11px] font-mono">
+          <!-- Specialty badge -->
+          <span class="font-semibold text-zinc-900 whitespace-nowrap">
+            {{ t('nav.specialty') }}
+          </span>
+
+          <span class="text-zinc-300 hidden sm:inline">•</span>
+
+          <!-- LinkedIn Link -->
+          <a
+            href="https://www.linkedin.com/in/reynalda-vonna-syalwa-77359b279/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1 text-zinc-600 hover:text-black transition-colors whitespace-nowrap"
+          >
+            <span>LinkedIn</span>
+            <ArrowUpRight class="h-3 w-3 text-zinc-400" />
+          </a>
+
+          <span class="text-zinc-300">•</span>
+
+          <!-- Instagram Link -->
+          <a
+            href="https://www.instagram.com/sylwa__/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1 text-zinc-600 hover:text-black transition-colors whitespace-nowrap"
+          >
+            <span>Instagram</span>
+            <ArrowUpRight class="h-3 w-3 text-zinc-400" />
+          </a>
         </div>
 
-        <!-- Right Utility Actions: Black Pill CTA & Language Toggle -->
-        <div class="flex items-center gap-3">
+        <!-- Right: Action CTA & Language Toggle -->
+        <div class="flex items-center gap-3 shrink-0">
           <a
             href="#contact"
             class="hidden sm:inline-flex items-center justify-center rounded-full bg-black px-4 py-1.5 text-xs font-medium text-white transition-opacity hover:opacity-85"
           >
-            {{ locale === 'id' ? 'Hubungi SyaSya' : 'Submit Portfolio' }}
+            {{ t('nav.contact_btn') }}
           </a>
 
           <!-- Language Switcher -->
@@ -54,45 +67,36 @@ function handleSearchFocus() {
             :title="locale === 'id' ? 'Switch to English' : 'Ganti ke Bahasa Indonesia'"
           >
             <Globe class="h-3.5 w-3.5 text-zinc-400" />
-            <span class="tracking-wide">{{ locale.toUpperCase() }}</span>
+            <span class="tracking-wide font-mono font-semibold">{{ locale.toUpperCase() }}</span>
           </button>
         </div>
       </div>
     </div>
 
-    <!-- Main Navigation Bar: Brand Name Left + Nav Links Right -->
-    <div class="py-3 sm:py-3.5 px-6 sm:px-10">
+    <!-- Main Navigation Bar: Brand Name (R.V. SYALWA) Left + Dynamic Nav Links Right (media3) -->
+    <div class="py-3.5 sm:py-4 px-6 sm:px-10">
       <div class="mx-auto max-w-5xl flex items-center justify-between">
-        <!-- Brand Name with Media 2 Line-art Avatar Icon -->
-        <a href="#" class="inline-flex items-center gap-2.5 group">
-          <div class="h-7 w-7 rounded-full border border-zinc-200 bg-zinc-50 overflow-hidden flex items-center justify-center p-0.5 transition-transform duration-300 group-hover:scale-105">
-            <img
-              :src="sketchAvatarCropped"
-              alt="SyaSya Icon"
-              class="h-full w-full object-contain"
-            />
-          </div>
-          <span class="text-xs sm:text-[13px] font-semibold tracking-tracked uppercase text-zinc-900 group-hover:text-black transition-colors">
-            REYNALDA SYALWA
-          </span>
+        <!-- Brand Name: Pure Typography R.V. SYALWA (No logo/icon per media3 request) -->
+        <a href="#" class="text-xs sm:text-[14px] font-bold tracking-tracked uppercase text-zinc-900 hover:text-black transition-colors">
+          R.V. SYALWA
         </a>
 
-        <!-- Desktop Nav Links -->
+        <!-- Desktop Nav Links (Fully synced with ID / EN) -->
         <nav class="hidden md:flex items-center gap-8 text-[11px] font-medium tracking-tracked uppercase text-zinc-600">
           <a href="#ads" class="hover:text-black transition-colors">
-            CAMPAIGNS
+            {{ t('nav.campaigns') }}
           </a>
           <a href="#chart" class="hover:text-black transition-colors">
-            ANALYTICS
+            {{ t('nav.analytics') }}
           </a>
           <a href="#deals" class="hover:text-black transition-colors">
-            DEALS
+            {{ t('nav.deals') }}
           </a>
           <a href="#experience" class="hover:text-black transition-colors">
-            ABOUT
+            {{ t('nav.about') }}
           </a>
           <a href="#contact" class="hover:text-black transition-colors">
-            CONTACT
+            {{ t('nav.contact') }}
           </a>
         </nav>
 
@@ -110,20 +114,30 @@ function handleSearchFocus() {
       </div>
     </div>
 
-    <!-- Mobile Drawer Menu -->
+    <!-- Mobile Drawer Menu (Fully synced with ID / EN) -->
     <div v-if="mobileMenuOpen" class="border-t border-zinc-100 bg-white px-6 py-4 md:hidden">
       <div class="flex flex-col gap-3 text-xs tracking-tracked uppercase text-zinc-700 font-medium">
-        <a href="#ads" @click="mobileMenuOpen = false" class="py-1 hover:text-black">CAMPAIGNS</a>
-        <a href="#chart" @click="mobileMenuOpen = false" class="py-1 hover:text-black">ANALYTICS</a>
-        <a href="#deals" @click="mobileMenuOpen = false" class="py-1 hover:text-black">DEALS</a>
-        <a href="#experience" @click="mobileMenuOpen = false" class="py-1 hover:text-black">ABOUT</a>
-        <a href="#contact" @click="mobileMenuOpen = false" class="py-1 hover:text-black">CONTACT</a>
+        <a href="#ads" @click="mobileMenuOpen = false" class="py-1 hover:text-black">
+          {{ t('nav.campaigns') }}
+        </a>
+        <a href="#chart" @click="mobileMenuOpen = false" class="py-1 hover:text-black">
+          {{ t('nav.analytics') }}
+        </a>
+        <a href="#deals" @click="mobileMenuOpen = false" class="py-1 hover:text-black">
+          {{ t('nav.deals') }}
+        </a>
+        <a href="#experience" @click="mobileMenuOpen = false" class="py-1 hover:text-black">
+          {{ t('nav.about') }}
+        </a>
+        <a href="#contact" @click="mobileMenuOpen = false" class="py-1 hover:text-black">
+          {{ t('nav.contact') }}
+        </a>
         <a
           href="#contact"
           @click="mobileMenuOpen = false"
           class="mt-2 inline-flex items-center justify-center rounded-full bg-black py-2 text-center text-xs text-white"
         >
-          {{ locale === 'id' ? 'Hubungi SyaSya' : 'Submit Portfolio' }}
+          {{ t('nav.contact_btn') }}
         </a>
       </div>
     </div>
