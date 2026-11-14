@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { X, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-vue-next'
+import { X, ChevronLeft, ChevronRight } from 'lucide-vue-next'
 
 const props = defineProps({
   isOpen: {
@@ -108,57 +108,62 @@ function selectImage(idx) {
 <template>
   <div
     v-if="isOpen"
-    class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-md"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4 backdrop-blur-sm"
     @click.self="emit('close')"
   >
-    <div class="relative flex max-h-[92vh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-obsidian-600 bg-obsidian-900 shadow-2xl">
+    <!-- Modal Container: 16px radius, Warm White #f5f5f2 background, zero shadow -->
+    <div class="relative flex max-h-[92vh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-zendesk-divider bg-zendesk-warm">
       <!-- Modal Header -->
-      <div class="flex items-center justify-between border-b border-obsidian-600 px-6 py-4">
+      <div class="flex items-center justify-between border-b border-zendesk-divider bg-zendesk-white px-6 py-4">
         <div>
-          <span class="text-xs font-semibold text-growth-400">
+          <span class="inline-block rounded-tags bg-zendesk-warm px-2 py-0.5 text-xs font-semibold uppercase tracking-zendesk text-zendesk-forest">
             {{ currentImage.category === 'ads' ? t('modal.category_ads') : t('modal.category_sheet') }}
           </span>
-          <h3 class="text-base font-bold text-white">
+          <h3 class="mt-1 text-base font-semibold tracking-zendesk text-zendesk-ink">
             {{ currentImage.title }}
           </h3>
         </div>
 
+        <!-- Zendesk Circular Icon Button: radius 100%, 1px border #11110d -->
         <button
           @click="emit('close')"
-          class="flex h-9 w-9 items-center justify-center rounded-full border border-obsidian-600 bg-obsidian-800 text-zinc-300 transition-colors hover:bg-obsidian-700 hover:text-white"
+          class="flex h-9 w-9 items-center justify-center rounded-full border border-zendesk-ink bg-transparent text-zendesk-ink transition-colors hover:bg-stone-200"
+          aria-label="Close modal"
         >
-          <X class="h-5 w-5" />
+          <X class="h-4 w-4" />
         </button>
       </div>
 
-      <!-- Main Image Viewport with Nav Arrows -->
-      <div class="relative flex flex-1 items-center justify-center overflow-hidden bg-obsidian-950 p-4">
+      <!-- Main Image Viewport with Circular Arrow Nav (Zendesk signature circular buttons) -->
+      <div class="relative flex flex-1 items-center justify-center overflow-hidden bg-zendesk-white p-6">
         <img
           :src="currentImage.src"
           :alt="currentImage.title"
-          class="max-h-[60vh] max-w-full rounded-lg border border-obsidian-700 object-contain shadow-lg"
+          class="max-h-[60vh] max-w-full rounded-lg border border-zendesk-divider object-contain"
         />
 
-        <!-- Left Arrow -->
+        <!-- Left Circular Arrow -->
         <button
           @click="prevImage"
-          class="absolute left-6 flex h-10 w-10 items-center justify-center rounded-full border border-obsidian-600 bg-obsidian-800/80 text-white backdrop-blur-sm transition-all hover:bg-white hover:text-black"
+          class="absolute left-6 flex h-10 w-10 items-center justify-center rounded-full border border-zendesk-ink bg-zendesk-white/90 text-zendesk-ink transition-colors hover:bg-zendesk-lime"
+          aria-label="Previous image"
         >
           <ChevronLeft class="h-5 w-5" />
         </button>
 
-        <!-- Right Arrow -->
+        <!-- Right Circular Arrow -->
         <button
           @click="nextImage"
-          class="absolute right-6 flex h-10 w-10 items-center justify-center rounded-full border border-obsidian-600 bg-obsidian-800/80 text-white backdrop-blur-sm transition-all hover:bg-white hover:text-black"
+          class="absolute right-6 flex h-10 w-10 items-center justify-center rounded-full border border-zendesk-ink bg-zendesk-white/90 text-zendesk-ink transition-colors hover:bg-zendesk-lime"
+          aria-label="Next image"
         >
           <ChevronRight class="h-5 w-5" />
         </button>
       </div>
 
       <!-- Description & Thumbnail Bar -->
-      <div class="border-t border-obsidian-600 bg-obsidian-800/80 px-6 py-4">
-        <p class="text-xs text-zinc-300">
+      <div class="border-t border-zendesk-divider bg-zendesk-warm px-6 py-4">
+        <p class="text-xs font-normal leading-relaxed text-zendesk-ink/80 tracking-zendesk">
           {{ currentImage.desc }}
         </p>
 
@@ -168,7 +173,12 @@ function selectImage(idx) {
             v-for="(img, idx) in proofImages"
             :key="img.id"
             @click="selectImage(idx)"
-            :class="['h-14 w-20 flex-shrink-0 overflow-hidden rounded-md border transition-all', currentIndex === idx ? 'border-growth-400 ring-2 ring-growth-400/40' : 'border-obsidian-600 opacity-60 hover:opacity-100']"
+            :class="[
+              'h-14 w-20 flex-shrink-0 overflow-hidden rounded-md border transition-all',
+              currentIndex === idx
+                ? 'border-zendesk-forest ring-2 ring-zendesk-lime'
+                : 'border-zendesk-divider opacity-60 hover:opacity-100'
+            ]"
           >
             <img :src="img.src" :alt="img.title" class="h-full w-full object-cover" />
           </button>
