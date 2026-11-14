@@ -65,20 +65,20 @@ const skills = [
           </div>
 
           <!-- Key Metrics Strip with Scrolling Odometer Numbers (media2 bottom - preserved & localized) -->
-          <div class="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-zinc-100">
+          <div class="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 border-t border-zinc-100">
             <div>
               <span class="text-[10px] font-semibold uppercase tracking-editorial text-zinc-400">
                 {{ t('hero.metric_revenue') }}
               </span>
-              <div class="mt-0.5 text-lg sm:text-xl font-bold text-zinc-900">
-                <AnimatedCounter prefix="Rp " value="62.2" suffix="M+" :duration="1400" />
+              <div class="mt-0.5 text-base sm:text-xl font-bold text-zinc-900">
+                <AnimatedCounter prefix="Rp " value="62.2" :suffix="locale === 'id' ? ' Jt+' : 'M+'" :duration="1400" />
               </div>
             </div>
             <div>
               <span class="text-[10px] font-semibold uppercase tracking-editorial text-zinc-400">
                 {{ t('hero.metric_roas') }}
               </span>
-              <div class="mt-0.5 text-lg sm:text-xl font-bold text-zinc-900">
+              <div class="mt-0.5 text-base sm:text-xl font-bold text-zinc-900">
                 <AnimatedCounter value="27.2" suffix="x" :duration="1500" />
               </div>
             </div>
@@ -86,7 +86,7 @@ const skills = [
               <span class="text-[10px] font-semibold uppercase tracking-editorial text-zinc-400">
                 {{ t('hero.metric_campaigns') }}
               </span>
-              <div class="mt-0.5 text-lg sm:text-xl font-bold text-zinc-900">
+              <div class="mt-0.5 text-base sm:text-xl font-bold text-zinc-900">
                 <AnimatedCounter value="27" suffix=" Ads" :duration="1200" />
               </div>
             </div>
@@ -94,7 +94,7 @@ const skills = [
               <span class="text-[10px] font-semibold uppercase tracking-editorial text-zinc-400">
                 {{ t('hero.metric_cpr') }}
               </span>
-              <div class="mt-0.5 text-lg sm:text-xl font-bold text-zinc-900">
+              <div class="mt-0.5 text-base sm:text-xl font-bold text-zinc-900">
                 <AnimatedCounter prefix="Rp " value="3.612" :duration="1600" />
               </div>
             </div>

@@ -118,8 +118,8 @@ onBeforeUnmount(() => {
       </template>
     </span>
 
-    <!-- Suffix (e.g. 'M+', 'x', '+') -->
-    <span v-if="suffix" class="ml-0.5 text-[0.85em] font-medium opacity-85">
+    <!-- Suffix (e.g. 'M+', 'Jt+', 'x', '+') -->
+    <span v-if="suffix" class="ml-0.5 text-[0.8em] font-medium opacity-85 whitespace-nowrap">
       {{ suffix }}
     </span>
   </span>

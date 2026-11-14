@@ -78,7 +78,7 @@ const { t, locale } = useI18n()
             </div>
             <div class="flex items-center gap-2 rounded-xl border border-zinc-200/80 bg-zinc-50/70 p-2.5">
               <Award class="h-4 w-4 text-zinc-900 shrink-0" />
-              <span>Closing Rp 62.2M+ (ROAS 27.2x)</span>
+              <span>{{ locale === 'id' ? 'Closing Rp 62.2 Jt+ (ROAS 27.2x)' : 'Closing Rp 62.2M+ (ROAS 27.2x)' }}</span>
             </div>
           </div>
         </div>

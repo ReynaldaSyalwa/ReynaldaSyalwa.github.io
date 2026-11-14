@@ -19,9 +19,10 @@ function toggleLocale() {
       <div class="mx-auto max-w-5xl flex items-center justify-between gap-4">
         <!-- Left: Specialty & Social Profile Links -->
         <div class="flex items-center gap-3 sm:gap-4 overflow-x-auto text-[11px] font-mono">
-          <!-- Specialty badge -->
-          <span class="font-semibold text-zinc-900 whitespace-nowrap">
-            {{ t('nav.specialty') }}
+          <!-- Specialty badge (responsive text on mobile) -->
+          <span class="font-semibold text-zinc-900 whitespace-nowrap text-[10px] sm:text-[11px]">
+            <span class="sm:hidden">Growth Specialist</span>
+            <span class="hidden sm:inline">{{ t('nav.specialty') }}</span>
           </span>
 
           <span class="text-zinc-300 hidden sm:inline">•</span>

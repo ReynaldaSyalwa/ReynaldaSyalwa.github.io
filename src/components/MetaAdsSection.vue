@@ -190,20 +190,20 @@ watch(() => locale.value, () => {
         </p>
       </div>
 
-      <!-- Live Stats Ribbon with Scrolling Odometer Numbers -->
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4" data-aos="fade-up">
-        <div class="rounded-xl border border-zinc-200/80 bg-zinc-50/60 p-4">
+      <!-- Live Stats Ribbon with Scrolling Odometer Numbers (grid 12 12 12 12 on mobile) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4" data-aos="fade-up">
+        <div class="rounded-xl border border-zinc-200/80 bg-zinc-50/60 p-3.5 sm:p-4">
           <span class="text-[10px] font-semibold uppercase tracking-editorial text-zinc-400">
             {{ locale === 'id' ? 'Total Belanja Iklan' : 'Total Ad Spend' }}
           </span>
           <div class="mt-1 font-mono text-lg sm:text-2xl font-bold text-zinc-900">
-            <AnimatedCounter prefix="Rp " value="8.75" suffix="M+" :duration="1300" />
+            <AnimatedCounter prefix="Rp " value="8.75" :suffix="locale === 'id' ? ' Jt+' : 'M+'" :duration="1300" />
           </div>
           <span class="text-[10px] text-zinc-400">
             {{ locale === 'id' ? '27 kampanye terekam' : '27 documented campaigns' }}
           </span>
         </div>
-        <div class="rounded-xl border border-zinc-200/80 bg-zinc-50/60 p-4">
+        <div class="rounded-xl border border-zinc-200/80 bg-zinc-50/60 p-3.5 sm:p-4">
           <span class="text-[10px] font-semibold uppercase tracking-editorial text-zinc-400">
             {{ locale === 'id' ? 'Total Akun Dijangkau' : 'Total Accounts Reached' }}
           </span>
@@ -214,7 +214,7 @@ watch(() => locale.value, () => {
             {{ locale === 'id' ? 'Audiens unik terverifikasi' : 'Verified unique audiences' }}
           </span>
         </div>
-        <div class="rounded-xl border border-zinc-200/80 bg-zinc-50/60 p-4">
+        <div class="rounded-xl border border-zinc-200/80 bg-zinc-50/60 p-3.5 sm:p-4">
           <span class="text-[10px] font-semibold uppercase tracking-editorial text-zinc-400">
             {{ locale === 'id' ? 'Hasil Konsultasi (Leads)' : 'Consultation Inquiries' }}
           </span>
@@ -225,7 +225,7 @@ watch(() => locale.value, () => {
             {{ locale === 'id' ? 'High-intent inquiries' : 'High-intent inquiries' }}
           </span>
         </div>
-        <div class="rounded-xl border border-zinc-200/80 bg-zinc-50/60 p-4">
+        <div class="rounded-xl border border-zinc-200/80 bg-zinc-50/60 p-3.5 sm:p-4">
           <span class="text-[10px] font-semibold uppercase tracking-editorial text-zinc-400">
             {{ locale === 'id' ? 'CPR Terendah (Rekor)' : 'Lowest CPR (Record)' }}
           </span>

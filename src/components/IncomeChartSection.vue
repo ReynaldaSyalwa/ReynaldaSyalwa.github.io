@@ -119,7 +119,7 @@ function initBarChart() {
             font: { family: "'JetBrains Mono', monospace", size: 11 },
             callback: function(value) {
               if (value >= 1000000) {
-                return 'Rp ' + (value / 1000000) + 'M'
+                return 'Rp ' + (value / 1000000) + (locale.value === 'id' ? ' Jt' : 'M')
               }
               return 'Rp ' + value
             }
@@ -269,46 +269,46 @@ watch(() => locale.value, () => {
         </div>
       </div>
 
-      <!-- KPI Indicators with Scrolling Odometer Numbers -->
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="rounded-xl border border-zinc-100 bg-zinc-50/70 p-4">
+      <!-- KPI Indicators with Scrolling Odometer Numbers (grid 12 12 12 12 on mobile) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+        <div class="rounded-xl border border-zinc-100 bg-zinc-50/70 p-3.5 sm:p-4">
           <span class="text-[10px] sm:text-[11px] font-medium uppercase tracking-editorial text-zinc-400">
             {{ locale === 'id' ? 'Total Omzet' : 'Total Revenue' }}
           </span>
-          <div class="mt-1 font-mono text-xl sm:text-2xl font-bold text-zinc-900">
-            <AnimatedCounter prefix="Rp " value="62.2" suffix="M" :duration="1400" />
+          <div class="mt-1 font-mono text-lg sm:text-2xl font-bold text-zinc-900">
+            <AnimatedCounter prefix="Rp " value="62.2" :suffix="locale === 'id' ? ' Jt' : 'M'" :duration="1400" />
           </div>
           <span class="text-[10px] text-zinc-400">
             {{ locale === 'id' ? 'Closing ISO 2025' : 'ISO 2025 Deals' }}
           </span>
         </div>
-        <div class="rounded-xl border border-zinc-100 bg-zinc-50/70 p-4">
+        <div class="rounded-xl border border-zinc-100 bg-zinc-50/70 p-3.5 sm:p-4">
           <span class="text-[10px] sm:text-[11px] font-medium uppercase tracking-editorial text-zinc-400">
             {{ locale === 'id' ? 'Total Ad Spend' : 'Total Ad Spend' }}
           </span>
-          <div class="mt-1 font-mono text-xl sm:text-2xl font-bold text-zinc-900">
-            <AnimatedCounter prefix="Rp " value="2.28" suffix="M" :duration="1300" />
+          <div class="mt-1 font-mono text-lg sm:text-2xl font-bold text-zinc-900">
+            <AnimatedCounter prefix="Rp " value="2.28" :suffix="locale === 'id' ? ' Jt' : 'M'" :duration="1300" />
           </div>
           <span class="text-[10px] text-zinc-400">
             {{ locale === 'id' ? 'Total belanja iklan' : 'Total advertising cost' }}
           </span>
         </div>
-        <div class="rounded-xl border border-zinc-100 bg-zinc-50/70 p-4">
+        <div class="rounded-xl border border-zinc-100 bg-zinc-50/70 p-3.5 sm:p-4">
           <span class="text-[10px] sm:text-[11px] font-medium uppercase tracking-editorial text-zinc-400">
             {{ locale === 'id' ? 'Gross Margin Lift' : 'Gross Margin Lift' }}
           </span>
-          <div class="mt-1 font-mono text-xl sm:text-2xl font-bold text-zinc-900">
-            <AnimatedCounter prefix="+Rp " value="60.0" suffix="M" :duration="1500" />
+          <div class="mt-1 font-mono text-lg sm:text-2xl font-bold text-zinc-900">
+            <AnimatedCounter prefix="+Rp " value="60.0" :suffix="locale === 'id' ? ' Jt' : 'M'" :duration="1500" />
           </div>
           <span class="text-[10px] text-zinc-400">
             {{ locale === 'id' ? 'Net revenue margin' : 'Net revenue margin' }}
           </span>
         </div>
-        <div class="rounded-xl border border-zinc-100 bg-zinc-50/70 p-4">
+        <div class="rounded-xl border border-zinc-100 bg-zinc-50/70 p-3.5 sm:p-4">
           <span class="text-[10px] sm:text-[11px] font-medium uppercase tracking-editorial text-zinc-400">
             {{ locale === 'id' ? 'Average ROAS' : 'Average ROAS' }}
           </span>
-          <div class="mt-1 font-mono text-xl sm:text-2xl font-bold text-zinc-900">
+          <div class="mt-1 font-mono text-lg sm:text-2xl font-bold text-zinc-900">
             <AnimatedCounter value="27.2" suffix="x" :duration="1600" />
           </div>
           <span class="text-[10px] text-zinc-400">
@@ -329,7 +329,9 @@ watch(() => locale.value, () => {
           <canvas ref="doughnutCanvas"></canvas>
           <div class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center -translate-x-12 sm:-translate-x-20">
             <span class="text-[10px] uppercase tracking-wider text-zinc-400 font-medium">Verified Deals</span>
-            <span class="font-mono text-lg sm:text-xl font-bold text-zinc-900">Rp 62.2M</span>
+            <span class="font-mono text-lg sm:text-xl font-bold text-zinc-900">
+              {{ locale === 'id' ? 'Rp 62.2 Jt' : 'Rp 62.2M' }}
+            </span>
             <span class="text-[10px] text-zinc-500 font-mono">5 Institutional Deals</span>
           </div>
         </div>
