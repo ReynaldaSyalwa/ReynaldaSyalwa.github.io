@@ -184,7 +184,7 @@ Data ads IWASH yang sudah masuk cocok dengan flyer musiman:
 | Flyer | Kampanye ads (data terverifikasi) | Hasil |
 |---|---|---|
 | Ramadhan (1–10 Mar 2025) | **Ramadhan Batch 1** — spend Rp 272.098 | 3 closing · Rp 735.000 · ROAS 2,70x |
-| Valentine (5–16 Feb 2025) | **Imlek seat** — spend Rp 88.263 | 1 closing · Rp 835.000 · **ROAS 9,46x** |
+| Valentine (5–16 Feb 2025) | **Februari 2025** — spend Rp 88.263 (di Excel berlabel "IMLEK") | 1 closing · Rp 835.000 · **ROAS 9,46x** |
 | — | **HUT Surabaya** — spend Rp 200.000 | 2 closing · Rp 526.000 · ROAS 2,63x |
 
 → Narasi yang bisa dibangun: *"Desain flyer musiman → dipakai jadi materi Meta Ads → menghasilkan closing terukur."* Ini pola studi kasus yang sama seperti referensi Behance (visual + grid Result), tapi dengan angka riil.
@@ -196,4 +196,4 @@ Data ads IWASH yang sudah masuk cocok dengan flyer musiman:
 2. Video — minta file .mp4 hasil export (screenshot tidak bisa diputar di web)
 3. Apakah brand NSM & Iwash boleh disebut eksplisit di portofolio, atau hanya "brand klien"?
 4. Testimoni klien — ada yang bisa dipakai untuk blok kutipan seperti di referensi?
-5. Linking flyer ↔ campaign: apakah benar flyer Valentine dipasangkan dengan kampanye Imlek? (di data ads tidak ada kampanye Valentine) — perlu konfirmasi supaya tidak salah narasi.
+5. ~~Linking flyer ↔ campaign~~ ✅ **Sudah dikonfirmasi SyaSya:** flyer Valentine (Feb) dipasangkan dengan kampanye bulan **Februari 2025** (di Excel berlabel "IMLEK"). Beda judul tidak masalah — flyer dan label ads memang tidak harus sama; yang penting **periodenya cocok**. Di website nanti label kampanye ditampilkan sebagai **"Februari 2025"**, bukan "Imlek", supaya konsisten dengan flyer.
