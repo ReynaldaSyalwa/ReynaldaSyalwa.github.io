@@ -847,5 +847,63 @@
       "results": 2,
       "revenue": 526000
     }
-  ]
+  ],
+  "periods": {
+    "all": {
+      "deals": 22,
+      "revenue": 229080000,
+      "ad_spend": 9934605,
+      "roas": 23.06,
+      "avg_deal_value": 10412727,
+      "campaigns": 27
+    },
+    "2025": {
+      "deals": 12,
+      "revenue": 82904000,
+      "ad_spend": 5199457,
+      "roas": 15.94,
+      "avg_deal_value": 6908667,
+      "campaigns": 13
+    },
+    "2026": {
+      "deals": 10,
+      "revenue": 146176000,
+      "ad_spend": 4735148,
+      "roas": 30.87,
+      "avg_deal_value": 14617600,
+      "campaigns": 14
+    }
+  },
+  "meta_ads": {
+    "all": {
+      "campaigns": 27,
+      "spend": 8753344,
+      "reach": 218070,
+      "impressions": 286419,
+      "chats": 606,
+      "link_clicks": 2286,
+      "best_cpr": 3612,
+      "cost_per_chat": 14444
+    },
+    "2025": {
+      "campaigns": 13,
+      "spend": 4999681,
+      "reach": 95491,
+      "impressions": 133819,
+      "chats": 392,
+      "link_clicks": 1553,
+      "best_cpr": 5435,
+      "cost_per_chat": 12754
+    },
+    "2026": {
+      "campaigns": 14,
+      "spend": 3753663,
+      "reach": 122579,
+      "impressions": 152600,
+      "chats": 214,
+      "link_clicks": 733,
+      "best_cpr": 3612,
+      "cost_per_chat": 17540
+    }
+  }
 }

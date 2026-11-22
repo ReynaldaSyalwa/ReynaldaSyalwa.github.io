@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && mv dist/template.html dist/index.html && cp dist/index.html ./index.html && cp -r dist/assets/* ./assets/",
+    "build": "vite build && mv dist/template.html dist/index.html && cp dist/index.html ./index.html && cp -r dist/assets/* ./assets/ && cp -r dist/media ./media && cp dist/favicon.ico ./favicon.ico 2>/dev/null; cp dist/favicon-32x32.png ./ 2>/dev/null; cp dist/apple-touch-icon.png ./ 2>/dev/null; true",
     "preview": "vite preview"
   },
   "dependencies": {
