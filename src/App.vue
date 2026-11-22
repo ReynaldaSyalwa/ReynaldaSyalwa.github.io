@@ -1,6 +1,7 @@
 <script setup>
 import Navbar from './components/Navbar.vue'
 import HeroSection from './components/HeroSection.vue'
+import BusinessLineSwitcher from './components/BusinessLineSwitcher.vue'
 import MetaAdsSection from './components/MetaAdsSection.vue'
 import IncomeChartSection from './components/IncomeChartSection.vue'
 import DealsTableSection from './components/DealsTableSection.vue'
@@ -16,6 +17,14 @@ import Footer from './components/Footer.vue'
     <Navbar />
     <main>
       <HeroSection />
+
+      <!-- Filter global: menggerakkan chart, tabel deals & tabel kampanye -->
+      <div class="border-y border-zinc-100 bg-white px-6 py-1 sm:px-10">
+        <div class="mx-auto max-w-5xl">
+          <BusinessLineSwitcher />
+        </div>
+      </div>
+
       <div id="work">
         <MetaAdsSection />
       </div>

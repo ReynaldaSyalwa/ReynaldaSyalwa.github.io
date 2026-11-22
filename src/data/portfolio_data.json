@@ -1,0 +1,851 @@
+{
+  "meta": {
+    "currency": "IDR",
+    "updated": "2026-11-22",
+    "period": "2025-01 .. 2026-12",
+    "sources": [
+      "Data_klien_ads_2026_untuk_keperluan_portofolio.xlsx",
+      "REKAP_IKLAN_IWASH.xlsx"
+    ],
+    "notes": [
+      "Nama konsumen IWASH disamarkan (inisial), nama PT/Yayasan tampil penuh.",
+      "Nomor telepon tidak pernah dipublikasikan.",
+      "Ad spend ISO April & Mei 2025 tidak tercatat pada file sumber."
+    ]
+  },
+  "totals": {
+    "deals": 22,
+    "revenue": 229080000,
+    "ad_spend": 9934605,
+    "roas": 23.06,
+    "avg_deal_value": 10412727
+  },
+  "business_lines": [
+    {
+      "id": "iso",
+      "deals": 16,
+      "revenue": 226984000,
+      "ad_spend": 9374244,
+      "roas": 24.21,
+      "deals_list": [
+        {
+          "period": "2025-01",
+          "month_label": "Januari 2025",
+          "year": 2025,
+          "client": "Law Firm AS & Partner",
+          "client_full_masked": "L** F*** A* &*** P******",
+          "service": "Konsultasi & Sertifikasi ISO",
+          "deal_value": 5550000
+        },
+        {
+          "period": "2025-07",
+          "month_label": "Juli 2025",
+          "year": 2025,
+          "client": "PT. Tunas Karya Sulawesi",
+          "client_full_masked": "P* T**** K**** S*******",
+          "service": "Sertifikasi ISO",
+          "deal_value": 18870000
+        },
+        {
+          "period": "2025-11",
+          "month_label": "November 2025",
+          "year": 2025,
+          "client": "Yayasan KPM Hadist (Dapur SPPG)",
+          "client_full_masked": "Y****** K** H***** (***** S****",
+          "service": "Sertifikasi ISO Pangan",
+          "deal_value": 9990000
+        },
+        {
+          "period": "2025-11",
+          "month_label": "November 2025",
+          "year": 2025,
+          "client": "CV. Hypnosis Indonesia",
+          "client_full_masked": "C* H******* I********",
+          "service": "Sertifikasi ISO",
+          "deal_value": 8658000
+        },
+        {
+          "period": "2025-11",
+          "month_label": "November 2025",
+          "year": 2025,
+          "client": "Yayasan Nurul Anwar (Dapur SPPG)",
+          "client_full_masked": "Y****** N**** A**** (***** S****",
+          "service": "Sertifikasi ISO Pangan",
+          "deal_value": 6660000
+        },
+        {
+          "period": "2025-12",
+          "month_label": "Desember 2025",
+          "year": 2025,
+          "client": "Yayasan Al-barokah (Dapur SPPG)",
+          "client_full_masked": "Y****** A********* (***** S****",
+          "service": "Paket Sertifikasi Institusional",
+          "deal_value": 31080000
+        },
+        {
+          "period": "2026-01",
+          "month_label": "Januari 2026",
+          "year": 2026,
+          "client": "PT. Adipati Karya Group",
+          "client_full_masked": "P* A****** K**** G****",
+          "service": "Penawaran & Sertifikasi ISO",
+          "deal_value": 5000000
+        },
+        {
+          "period": "2026-05",
+          "month_label": "Mei 2026",
+          "year": 2026,
+          "client": "PT. Plaza Medis Indonesia (NSM)",
+          "client_full_masked": "P* P**** M**** I******** (****",
+          "service": "Sertifikasi NSM",
+          "deal_value": 6660000
+        },
+        {
+          "period": "2026-05",
+          "month_label": "Mei 2026",
+          "year": 2026,
+          "client": "PT. Plaza Medis Indonesia (VRC)",
+          "client_full_masked": "P* P**** M**** I******** (****",
+          "service": "Sertifikasi VRC",
+          "deal_value": 11100000
+        },
+        {
+          "period": "2026-05",
+          "month_label": "Mei 2026",
+          "year": 2026,
+          "client": "Yayasan Kemala Bhayangkari (SPPG Polresta Sidoarjo)",
+          "client_full_masked": "Y****** K***** B********** (**** P******* S********",
+          "service": "Sertifikasi ISO Pangan",
+          "deal_value": 27000000
+        },
+        {
+          "period": "2026-07",
+          "month_label": "Juli 2026",
+          "year": 2026,
+          "client": "Yayasan Nurul Ummah (Dapur SPPG)",
+          "client_full_masked": "Y****** N**** U**** (***** S****",
+          "service": "Sertifikasi NSM",
+          "deal_value": 10440000
+        },
+        {
+          "period": "2026-08",
+          "month_label": "Agustus 2026",
+          "year": 2026,
+          "client": "PT. Setrum Mobil Listrik",
+          "client_full_masked": "P* S***** M**** L******",
+          "service": "Sertifikasi NSM",
+          "deal_value": 7770000
+        },
+        {
+          "period": "2026-08",
+          "month_label": "Agustus 2026",
+          "year": 2026,
+          "client": "CV. Maha Karya Indonesia",
+          "client_full_masked": "C* M*** K**** I********",
+          "service": "Sertifikasi NSM",
+          "deal_value": 13986000
+        },
+        {
+          "period": "2026-09",
+          "month_label": "September 2026",
+          "year": 2026,
+          "client": "CV. Loviona Awstin Marine",
+          "client_full_masked": "C* L****** A***** M*****",
+          "service": "Sertifikasi NSM",
+          "deal_value": 6500000
+        },
+        {
+          "period": "2026-11",
+          "month_label": "November 2026",
+          "year": 2026,
+          "client": "PT. Mitra Intertrans Forwarding",
+          "client_full_masked": "P* M**** I********* F*********",
+          "service": "Sertifikasi NSM",
+          "deal_value": 15540000
+        },
+        {
+          "period": "2026-12",
+          "month_label": "Desember 2026",
+          "year": 2026,
+          "client": "PT. Mitra Intertrans Forwarding",
+          "client_full_masked": "P* M**** I********* F*********",
+          "service": "Paket Sertifikasi Institusional",
+          "deal_value": 42180000
+        }
+      ],
+      "monthly": [
+        {
+          "period": "2025-01",
+          "year": 2025,
+          "label_id": "Januari 2025",
+          "label_en": "Jan 2025",
+          "short_id": "Jan 2025",
+          "short_en": "Jan 2025",
+          "ad_spend": 654790,
+          "revenue": 5550000,
+          "has_campaign": true
+        },
+        {
+          "period": "2025-02",
+          "year": 2025,
+          "label_id": "Februari 2025",
+          "label_en": "Feb 2025",
+          "short_id": "Feb 2025",
+          "short_en": "Feb 2025",
+          "ad_spend": 506000,
+          "revenue": 0,
+          "has_campaign": true
+        },
+        {
+          "period": "2025-03",
+          "year": 2025,
+          "label_id": "Maret 2025",
+          "label_en": "Mar 2025",
+          "short_id": "Mar 2025",
+          "short_en": "Mar 2025",
+          "ad_spend": 365000,
+          "revenue": 0,
+          "has_campaign": true
+        },
+        {
+          "period": "2025-06",
+          "year": 2025,
+          "label_id": "Juni 2025",
+          "label_en": "Jun 2025",
+          "short_id": "Jun 2025",
+          "short_en": "Jun 2025",
+          "ad_spend": 511721,
+          "revenue": 0,
+          "has_campaign": true
+        },
+        {
+          "period": "2025-07",
+          "year": 2025,
+          "label_id": "Juli 2025",
+          "label_en": "Jul 2025",
+          "short_id": "Jul 2025",
+          "short_en": "Jul 2025",
+          "ad_spend": 566207,
+          "revenue": 18870000,
+          "has_campaign": true
+        },
+        {
+          "period": "2025-08",
+          "year": 2025,
+          "label_id": "Agustus 2025",
+          "label_en": "Aug 2025",
+          "short_id": "Agu 2025",
+          "short_en": "Aug 2025",
+          "ad_spend": 405406,
+          "revenue": 0,
+          "has_campaign": true
+        },
+        {
+          "period": "2025-09",
+          "year": 2025,
+          "label_id": "September 2025",
+          "label_en": "Sep 2025",
+          "short_id": "Sep 2025",
+          "short_en": "Sep 2025",
+          "ad_spend": 541374,
+          "revenue": 0,
+          "has_campaign": true
+        },
+        {
+          "period": "2025-10",
+          "year": 2025,
+          "label_id": "Oktober 2025",
+          "label_en": "Oct 2025",
+          "short_id": "Okt 2025",
+          "short_en": "Oct 2025",
+          "ad_spend": 352528,
+          "revenue": 0,
+          "has_campaign": true
+        },
+        {
+          "period": "2025-11",
+          "year": 2025,
+          "label_id": "November 2025",
+          "label_en": "Nov 2025",
+          "short_id": "Nov 2025",
+          "short_en": "Nov 2025",
+          "ad_spend": 407602,
+          "revenue": 25308000,
+          "has_campaign": true
+        },
+        {
+          "period": "2025-12",
+          "year": 2025,
+          "label_id": "Desember 2025",
+          "label_en": "Dec 2025",
+          "short_id": "Des 2025",
+          "short_en": "Dec 2025",
+          "ad_spend": 328468,
+          "revenue": 31080000,
+          "has_campaign": true
+        },
+        {
+          "period": "2026-01",
+          "year": 2026,
+          "label_id": "Januari 2026",
+          "label_en": "Jan 2026",
+          "short_id": "Jan 2026",
+          "short_en": "Jan 2026",
+          "ad_spend": 258160,
+          "revenue": 5000000,
+          "has_campaign": true
+        },
+        {
+          "period": "2026-02",
+          "year": 2026,
+          "label_id": "Februari 2026",
+          "label_en": "Feb 2026",
+          "short_id": "Feb 2026",
+          "short_en": "Feb 2026",
+          "ad_spend": 507219,
+          "revenue": 0,
+          "has_campaign": true
+        },
+        {
+          "period": "2026-03",
+          "year": 2026,
+          "label_id": "Maret 2026",
+          "label_en": "Mar 2026",
+          "short_id": "Mar 2026",
+          "short_en": "Mar 2026",
+          "ad_spend": 155620,
+          "revenue": 0,
+          "has_campaign": true
+        },
+        {
+          "period": "2026-04",
+          "year": 2026,
+          "label_id": "April 2026",
+          "label_en": "Apr 2026",
+          "short_id": "Apr 2026",
+          "short_en": "Apr 2026",
+          "ad_spend": 486333,
+          "revenue": 0,
+          "has_campaign": true
+        },
+        {
+          "period": "2026-05",
+          "year": 2026,
+          "label_id": "Mei 2026",
+          "label_en": "May 2026",
+          "short_id": "Mei 2026",
+          "short_en": "May 2026",
+          "ad_spend": 740000,
+          "revenue": 44760000,
+          "has_campaign": true
+        },
+        {
+          "period": "2026-06",
+          "year": 2026,
+          "label_id": "Juni 2026",
+          "label_en": "Jun 2026",
+          "short_id": "Jun 2026",
+          "short_en": "Jun 2026",
+          "ad_spend": 176428,
+          "revenue": 0,
+          "has_campaign": true
+        },
+        {
+          "period": "2026-07",
+          "year": 2026,
+          "label_id": "Juli 2026",
+          "label_en": "Jul 2026",
+          "short_id": "Jul 2026",
+          "short_en": "Jul 2026",
+          "ad_spend": 214960,
+          "revenue": 10440000,
+          "has_campaign": true
+        },
+        {
+          "period": "2026-08",
+          "year": 2026,
+          "label_id": "Agustus 2026",
+          "label_en": "Aug 2026",
+          "short_id": "Agu 2026",
+          "short_en": "Aug 2026",
+          "ad_spend": 396799,
+          "revenue": 21756000,
+          "has_campaign": true
+        },
+        {
+          "period": "2026-09",
+          "year": 2026,
+          "label_id": "September 2026",
+          "label_en": "Sep 2026",
+          "short_id": "Sep 2026",
+          "short_en": "Sep 2026",
+          "ad_spend": 401130,
+          "revenue": 6500000,
+          "has_campaign": true
+        },
+        {
+          "period": "2026-10",
+          "year": 2026,
+          "label_id": "Oktober 2026",
+          "label_en": "Oct 2026",
+          "short_id": "Okt 2026",
+          "short_en": "Oct 2026",
+          "ad_spend": 498499,
+          "revenue": 0,
+          "has_campaign": true
+        },
+        {
+          "period": "2026-11",
+          "year": 2026,
+          "label_id": "November 2026",
+          "label_en": "Nov 2026",
+          "short_id": "Nov 2026",
+          "short_en": "Nov 2026",
+          "ad_spend": 400000,
+          "revenue": 15540000,
+          "has_campaign": true
+        },
+        {
+          "period": "2026-12",
+          "year": 2026,
+          "label_id": "Desember 2026",
+          "label_en": "Dec 2026",
+          "short_id": "Des 2026",
+          "short_en": "Dec 2026",
+          "ad_spend": 500000,
+          "revenue": 42180000,
+          "has_campaign": true
+        }
+      ]
+    },
+    {
+      "id": "iwash",
+      "deals": 6,
+      "revenue": 2096000,
+      "ad_spend": 560361,
+      "roas": 3.74,
+      "deals_list": [
+        {
+          "period": "2025-02",
+          "month_label": "Imlek 2025",
+          "year": 2025,
+          "client": "L**** D*******",
+          "client_full_masked": "L**** D*******",
+          "service": "Deep Cleaning Rumah",
+          "deal_value": 835000
+        },
+        {
+          "period": "2025-03",
+          "month_label": "Ramadhan 2025",
+          "year": 2025,
+          "client": "B* Y***",
+          "client_full_masked": "B* Y***",
+          "service": "Cleaning Service",
+          "deal_value": 300000
+        },
+        {
+          "period": "2025-03",
+          "month_label": "Ramadhan 2025",
+          "year": 2025,
+          "client": "S****",
+          "client_full_masked": "S****",
+          "service": "Cleaning Service",
+          "deal_value": 140000
+        },
+        {
+          "period": "2025-03",
+          "month_label": "Ramadhan 2025",
+          "year": 2025,
+          "client": "E*****",
+          "client_full_masked": "E*****",
+          "service": "Cleaning Service",
+          "deal_value": 295000
+        },
+        {
+          "period": "2025-05",
+          "month_label": "HUT Surabaya 2025",
+          "year": 2025,
+          "client": "S****",
+          "client_full_masked": "S****",
+          "service": "Cleaning Service",
+          "deal_value": 126000
+        },
+        {
+          "period": "2025-05",
+          "month_label": "HUT Surabaya 2025",
+          "year": 2025,
+          "client": "I** F*****",
+          "client_full_masked": "I** F*****",
+          "service": "Deep Cleaning",
+          "deal_value": 400000
+        }
+      ],
+      "monthly": [
+        {
+          "period": "2025-02",
+          "year": 2025,
+          "label_id": "Februari 2025",
+          "label_en": "Feb 2025",
+          "short_id": "Feb 2025",
+          "short_en": "Feb 2025",
+          "ad_spend": 88263,
+          "revenue": 835000,
+          "has_campaign": true
+        },
+        {
+          "period": "2025-03",
+          "year": 2025,
+          "label_id": "Maret 2025",
+          "label_en": "Mar 2025",
+          "short_id": "Mar 2025",
+          "short_en": "Mar 2025",
+          "ad_spend": 272098,
+          "revenue": 735000,
+          "has_campaign": true
+        },
+        {
+          "period": "2025-05",
+          "year": 2025,
+          "label_id": "Mei 2025",
+          "label_en": "May 2025",
+          "short_id": "Mei 2025",
+          "short_en": "May 2025",
+          "ad_spend": 200000,
+          "revenue": 526000,
+          "has_campaign": true
+        }
+      ]
+    }
+  ],
+  "campaigns": [
+    {
+      "period": "Januari 2025",
+      "campaign_name": "Ads NSM Januari 2025",
+      "amount_spent": 165450,
+      "spent_with_tax": 183650,
+      "reach": 3407,
+      "impressions": 4832,
+      "results_messaging": 24,
+      "cost_per_result": 6894,
+      "link_clicks": 87
+    },
+    {
+      "period": "Februari 2025",
+      "campaign_name": "Konten Ads Februari 2025",
+      "amount_spent": 270271,
+      "spent_with_tax": 300001,
+      "reach": 6109,
+      "impressions": 8110,
+      "results_messaging": 12,
+      "cost_per_result": 22523,
+      "link_clicks": 27
+    },
+    {
+      "period": "Maret 2025",
+      "campaign_name": "Konten Ads bulan Maret 2025",
+      "amount_spent": 318728,
+      "spent_with_tax": 353788,
+      "reach": 7784,
+      "impressions": 10503,
+      "results_messaging": 22,
+      "cost_per_result": 14488,
+      "link_clicks": 42
+    },
+    {
+      "period": "Promo Lebaran 2025",
+      "campaign_name": "Konten Ads Promo Lebaran",
+      "amount_spent": 370007,
+      "spent_with_tax": 410708,
+      "reach": 7688,
+      "impressions": 10499,
+      "results_messaging": 22,
+      "cost_per_result": 16819,
+      "link_clicks": 44
+    },
+    {
+      "period": "April 2025",
+      "campaign_name": "Konten Ads April 2025",
+      "amount_spent": 379770,
+      "spent_with_tax": 421545,
+      "reach": 7699,
+      "impressions": 10154,
+      "results_messaging": 28,
+      "cost_per_result": 13563,
+      "link_clicks": 128
+    },
+    {
+      "period": "Mei 2025",
+      "campaign_name": "Ads NSM Mei 2025",
+      "amount_spent": 383510,
+      "spent_with_tax": 425696,
+      "reach": 6018,
+      "impressions": 9530,
+      "results_messaging": 53,
+      "cost_per_result": 7236,
+      "link_clicks": 364
+    },
+    {
+      "period": "Juni 2025",
+      "campaign_name": "Ads NSM Juni 2025",
+      "amount_spent": 511712,
+      "spent_with_tax": 568000,
+      "reach": 7547,
+      "impressions": 12591,
+      "results_messaging": 41,
+      "cost_per_result": 12481,
+      "link_clicks": 236
+    },
+    {
+      "period": "Juli 2025",
+      "campaign_name": "Ads NSM Juli 2025",
+      "amount_spent": 566207,
+      "spent_with_tax": 628490,
+      "reach": 9790,
+      "impressions": 14565,
+      "results_messaging": 38,
+      "cost_per_result": 14900,
+      "link_clicks": 221
+    },
+    {
+      "period": "Agustus 2025",
+      "campaign_name": "Ads NSM Agustus 2025",
+      "amount_spent": 405406,
+      "spent_with_tax": 450001,
+      "reach": 5415,
+      "impressions": 6953,
+      "results_messaging": 18,
+      "cost_per_result": 22523,
+      "link_clicks": 53
+    },
+    {
+      "period": "September 2025",
+      "campaign_name": "Ads September 2025",
+      "amount_spent": 541374,
+      "spent_with_tax": 600925,
+      "reach": 10242,
+      "impressions": 13566,
+      "results_messaging": 29,
+      "cost_per_result": 18668,
+      "link_clicks": 92
+    },
+    {
+      "period": "Oktober 2025",
+      "campaign_name": "Ads Oktober 2025",
+      "amount_spent": 352528,
+      "spent_with_tax": 391306,
+      "reach": 6437,
+      "impressions": 8000,
+      "results_messaging": 13,
+      "cost_per_result": 27118,
+      "link_clicks": 48
+    },
+    {
+      "period": "November 2025",
+      "campaign_name": "Ads November - mbg 2025",
+      "amount_spent": 407602,
+      "spent_with_tax": 452438,
+      "reach": 12611,
+      "impressions": 17054,
+      "results_messaging": 75,
+      "cost_per_result": 5435,
+      "link_clicks": 166
+    },
+    {
+      "period": "Desember 2025",
+      "campaign_name": "Ads Desember 2025",
+      "amount_spent": 327116,
+      "spent_with_tax": 363099,
+      "reach": 4744,
+      "impressions": 7462,
+      "results_messaging": 17,
+      "cost_per_result": 19242,
+      "link_clicks": 45
+    },
+    {
+      "period": "Januari 2026",
+      "campaign_name": "Ads NSM Januari 2026",
+      "amount_spent": 232577,
+      "spent_with_tax": 258160,
+      "reach": 4764,
+      "impressions": 6911,
+      "results_messaging": 21,
+      "cost_per_result": 11075,
+      "link_clicks": 30
+    },
+    {
+      "period": "Februari 2026",
+      "campaign_name": "Ads NSM Februari 2026",
+      "amount_spent": 267234,
+      "spent_with_tax": 296630,
+      "reach": 4578,
+      "impressions": 6541,
+      "results_messaging": 25,
+      "cost_per_result": 10689,
+      "link_clicks": 43
+    },
+    {
+      "period": "Februari-Maret 2026",
+      "campaign_name": "Ads NSM Februari - Maret 2026",
+      "amount_spent": 189720,
+      "spent_with_tax": 210589,
+      "reach": 3407,
+      "impressions": 4590,
+      "results_messaging": 6,
+      "cost_per_result": 31620,
+      "link_clicks": 24
+    },
+    {
+      "period": "Maret 2026",
+      "campaign_name": "Ads NSM Maret 2026 ISO M...",
+      "amount_spent": 140198,
+      "spent_with_tax": 155620,
+      "reach": 2570,
+      "impressions": 3418,
+      "results_messaging": 10,
+      "cost_per_result": 14020,
+      "link_clicks": 21
+    },
+    {
+      "period": "April 2026",
+      "campaign_name": "Ads NSM April 2026",
+      "amount_spent": 222863,
+      "spent_with_tax": 247378,
+      "reach": 3630,
+      "impressions": 6058,
+      "results_messaging": 15,
+      "cost_per_result": 14858,
+      "link_clicks": 45
+    },
+    {
+      "period": "April 2026 (MDC/MBG)",
+      "campaign_name": "Ads NSM April 2026 MBG",
+      "amount_spent": 215311,
+      "spent_with_tax": 238995,
+      "reach": 5919,
+      "impressions": 7226,
+      "results_messaging": 17,
+      "cost_per_result": 12665,
+      "link_clicks": 37
+    },
+    {
+      "period": "Mei 2026 (MBG)",
+      "campaign_name": "Ads NSM Mei 2026 MBG",
+      "amount_spent": 36121,
+      "spent_with_tax": 40094,
+      "reach": 775,
+      "impressions": 941,
+      "results_messaging": 10,
+      "cost_per_result": 3612,
+      "link_clicks": 16
+    },
+    {
+      "period": "Mei 2026",
+      "campaign_name": "Ads NSM Mei 2026",
+      "amount_spent": 650577,
+      "spent_with_tax": 722140,
+      "reach": 23831,
+      "impressions": 26518,
+      "results_messaging": 21,
+      "cost_per_result": 30980,
+      "link_clicks": 68
+    },
+    {
+      "period": "Juni 2026",
+      "campaign_name": "Ads NSM Juni 2026",
+      "amount_spent": 158944,
+      "spent_with_tax": 176428,
+      "reach": 2178,
+      "impressions": 3575,
+      "results_messaging": 10,
+      "cost_per_result": 15894,
+      "link_clicks": 31
+    },
+    {
+      "period": "Juli 2026",
+      "campaign_name": "Ads NSM Juli 2026",
+      "amount_spent": 193658,
+      "spent_with_tax": 214960,
+      "reach": 4505,
+      "impressions": 6990,
+      "results_messaging": 16,
+      "cost_per_result": 12104,
+      "link_clicks": 50
+    },
+    {
+      "period": "Agustus 2026",
+      "campaign_name": "Ads NSM Agustus 2026",
+      "amount_spent": 357477,
+      "spent_with_tax": 396799,
+      "reach": 6290,
+      "impressions": 9526,
+      "results_messaging": 36,
+      "cost_per_result": 9930,
+      "link_clicks": 86
+    },
+    {
+      "period": "September 2026",
+      "campaign_name": "Ads NSM September 2026",
+      "amount_spent": 361378,
+      "spent_with_tax": 401130,
+      "reach": 10766,
+      "impressions": 13406,
+      "results_messaging": 12,
+      "cost_per_result": 30115,
+      "link_clicks": 66
+    },
+    {
+      "period": "Oktober 2026",
+      "campaign_name": "Ads NSM Oktober 2026",
+      "amount_spent": 449098,
+      "spent_with_tax": 498499,
+      "reach": 16690,
+      "impressions": 20511,
+      "results_messaging": 8,
+      "cost_per_result": 56137,
+      "link_clicks": 141
+    },
+    {
+      "period": "November 2026",
+      "campaign_name": "Ads NSM November 2026",
+      "amount_spent": 278507,
+      "spent_with_tax": 309143,
+      "reach": 32676,
+      "impressions": 36389,
+      "results_messaging": 7,
+      "cost_per_result": 39787,
+      "link_clicks": 75
+    }
+  ],
+  "iwash_campaigns": [
+    {
+      "moment": "Imlek",
+      "moment_id": "Imlek 2025",
+      "moment_en": "Lunar New Year 2025",
+      "period": "2025-02",
+      "ad_spend": 88263,
+      "leads": 13,
+      "results": 1,
+      "revenue": 835000
+    },
+    {
+      "moment": "Ramadhan Batch 1",
+      "moment_id": "Ramadhan Batch 1",
+      "moment_en": "Ramadan Batch 1",
+      "period": "2025-03",
+      "ad_spend": 272098,
+      "leads": 8,
+      "results": 3,
+      "revenue": 735000
+    },
+    {
+      "moment": "HUT Surabaya",
+      "moment_id": "HUT Surabaya",
+      "moment_en": "Surabaya Anniversary",
+      "period": "2025-05",
+      "ad_spend": 200000,
+      "leads": 18,
+      "results": 2,
+      "revenue": 526000
+    }
+  ]
+}

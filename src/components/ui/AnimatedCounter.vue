@@ -77,9 +77,9 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <span ref="rootRef" class="inline-flex items-baseline font-mono tracking-tight select-none">
+  <span ref="rootRef" class="tabular-figures inline-flex items-baseline font-mono tracking-normal select-none">
     <!-- Prefix (e.g. 'Rp ', '+') -->
-    <span v-if="prefix" class="mr-0.5 text-[0.85em] font-medium opacity-85">
+    <span v-if="prefix" class="pr-[0.18em] text-[0.85em] font-medium opacity-85">
       {{ prefix }}
     </span>
 
@@ -112,14 +112,14 @@ onBeforeUnmount(() => {
         </span>
 
         <!-- Non-digit characters: '.', ',', '%', etc. -->
-        <span v-else class="inline-block px-[0.05em] leading-none">
+        <span v-else class="inline-block leading-none">
           {{ char }}
         </span>
       </template>
     </span>
 
     <!-- Suffix (e.g. 'M+', 'Jt+', 'x', '+') -->
-    <span v-if="suffix" class="ml-0.5 text-[0.8em] font-medium opacity-85 whitespace-nowrap">
+    <span v-if="suffix" class="pl-[0.18em] text-[0.8em] font-medium opacity-85 whitespace-nowrap">
       {{ suffix }}
     </span>
   </span>

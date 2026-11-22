@@ -17,6 +17,18 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* Anchor jumps jangan tertutup navbar sticky */
+section[id],
+div[id] {
+  scroll-margin-top: 7.5rem;
+}
+
+/* Angka odometer: hilangkan celah antar digit */
+.tabular-figures {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
