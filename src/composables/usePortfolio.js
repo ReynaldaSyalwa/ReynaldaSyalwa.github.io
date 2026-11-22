@@ -137,3 +137,13 @@ export function compactNum(value, locale = 'id') {
   if (value >= 1_000) return ribuStr(value, locale)
   return String(value)
 }
+
+/**
+ * ROAS dengan pemisah desimal sesuai locale.
+ * 23.06 -> "23,06" (id) / "23.06" (en)
+ * Aturan situs: SEMUA angka desimal pakai koma di locale id.
+ */
+export function roasStr(value, locale = 'id', digits = 2) {
+  const v = Number(value).toFixed(digits)
+  return locale === 'id' ? v.replace('.', ',') : v
+}

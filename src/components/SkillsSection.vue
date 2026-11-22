@@ -26,8 +26,12 @@ const toolGroups = [
 <template>
   <section id="skills" class="bg-cream px-5 py-16 sm:px-8 sm:py-24">
     <div class="mx-auto max-w-shell">
-      <h2 class="font-display text-display-sm font-extrabold text-ink">{{ t('skills.title') }}</h2>
-      <p class="mt-3 max-w-2xl text-[14px] leading-relaxed text-ink/55">{{ t('skills.lead') }}</p>
+      <h2 class="font-display text-display-sm font-extrabold text-ink" data-aos="fade-up">
+        {{ t('skills.title') }}
+      </h2>
+      <p class="mt-3 max-w-2xl text-[14px] leading-relaxed text-ink/55" data-aos="fade-up" data-aos-delay="80">
+        {{ t('skills.lead') }}
+      </p>
 
       <!-- Pill keahlian -->
       <div class="mt-7 flex flex-wrap gap-2">
@@ -35,19 +39,25 @@ const toolGroups = [
           v-for="(pill, i) in tm('skills.pills')"
           :key="i"
           class="rounded-pill border border-ink/15 bg-white/60 px-4 py-1.5 text-[12px] font-medium text-ink/70"
+          data-aos="zoom-in"
+          :data-aos-delay="i * 50"
         >{{ pill }}</span>
       </div>
 
       <div class="mt-12 grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:gap-14">
         <!-- Tools grid -->
         <div>
-          <h3 class="font-display text-lg font-extrabold text-ink">{{ t('skills.tools_title') }}</h3>
+          <h3 class="font-display text-lg font-extrabold text-ink" data-aos="fade-up">
+            {{ t('skills.tools_title') }}
+          </h3>
 
           <div class="mt-5 grid gap-4 sm:grid-cols-2">
             <div
-              v-for="g in toolGroups"
+              v-for="(g, i) in toolGroups"
               :key="g.key"
               class="rounded-card border border-ink/8 bg-white p-5 shadow-soft"
+              data-aos="fade-up"
+              :data-aos-delay="i * 80"
             >
               <p class="text-[10.5px] font-bold uppercase tracking-wide2 text-amber">{{ t(g.key) }}</p>
               <ul class="mt-3 space-y-1.5">
@@ -65,7 +75,7 @@ const toolGroups = [
         </div>
 
         <!-- Cara kerja -->
-        <div class="rounded-card bg-ink p-6 shadow-lift sm:p-7">
+        <div class="rounded-card bg-ink p-6 shadow-lift sm:p-7" data-aos="fade-left" data-aos-delay="120">
           <h3 class="font-display text-lg font-extrabold text-white">{{ t('skills.soft_title') }}</h3>
           <ol class="mt-5 space-y-4">
             <li

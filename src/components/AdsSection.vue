@@ -1,11 +1,12 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, watch, nextTick } from 'vue'
 import { useI18n } from 'vue-i18n'
+import AOS from 'aos'
 import { MessageSquare, Eye, MousePointerClick, Wallet, Target, TrendingDown, Users } from 'lucide-vue-next'
 import SectionBanner from './SectionBanner.vue'
 import {
   PERIOD, activeMeta, filteredCampaigns, PORTFOLIO,
-  formatIDR, compactNum,
+  formatIDR, roasStr, compactNum,
 } from '../composables/usePortfolio'
 
 const { t, locale } = useI18n()
@@ -13,6 +14,12 @@ const { t, locale } = useI18n()
 const meta = activeMeta
 const campaigns = filteredCampaigns
 const iwash = PORTFOLIO.iwash_campaigns
+
+// Metrik berubah saat filter diganti -> AOS perlu dihitung ulang.
+watch(PERIOD, async () => {
+  await nextTick()
+  AOS.refreshHard()
+})
 
 const periods = [
   { id: 'all', key: 'ads.filter_label' },
@@ -47,9 +54,11 @@ const metrics = computed(() => [
 
     <div class="mx-auto max-w-shell px-5 pt-10 sm:px-8 sm:pt-14">
       <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-        <p class="max-w-xl text-[14.5px] leading-relaxed text-ink/60">{{ t('ads.lead') }}</p>
+        <p class="max-w-xl text-[14.5px] leading-relaxed text-ink/60" data-aos="fade-up">
+          {{ t('ads.lead') }}
+        </p>
 
-        <div class="shrink-0">
+        <div class="shrink-0" data-aos="fade-left">
           <p class="mb-2 text-[10px] font-bold uppercase tracking-wide2 text-ink/35">
             {{ t('ads.filter_label') }}
           </p>
@@ -69,9 +78,11 @@ const metrics = computed(() => [
       <!-- Grid metrik hitam -->
       <div class="mt-8 grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-6">
         <div
-          v-for="m in metrics"
+          v-for="(m, i) in metrics"
           :key="m.key"
           class="rounded-card bg-ink p-4 shadow-soft"
+          data-aos="fade-up"
+          :data-aos-delay="i * 60"
         >
           <component :is="m.icon" class="h-3.5 w-3.5 text-amber" />
           <p class="mt-2.5 font-display text-[17px] font-extrabold leading-none tracking-tightest text-white">
@@ -84,25 +95,29 @@ const metrics = computed(() => [
       </div>
 
       <!-- Kampanye terbaik -->
-      <div v-if="bestCpr" class="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 rounded-card border border-amber/30 bg-amber/8 px-5 py-3.5">
+      <div
+        v-if="bestCpr"
+        class="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 rounded-card border border-amber/30 bg-amber/8 px-5 py-3.5"
+        data-aos="fade-up"
+      >
         <span class="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wide2 text-amber-deep">
           <TrendingDown class="h-3.5 w-3.5" />
           {{ t('ads.best_label') }}
         </span>
-        <span class="font-display text-[15px] font-extrabold text-ink">{{ formatIDR(bestCpr.cost_per_result) }}</span>
+        <span class="font-display text-[15px] font-extrabold text-ink tabular-figures">{{ formatIDR(bestCpr.cost_per_result) }}</span>
         <span class="text-[11.5px] text-ink/50">— {{ bestCpr.campaign_name }}</span>
       </div>
 
       <!-- Tabel kampanye -->
-      <div class="mt-4 overflow-hidden rounded-card border border-ink/8 bg-white shadow-soft">
-        <div class="flex items-center justify-between border-b border-ink/8 px-5 py-3.5">
+      <div class="mt-4 overflow-hidden rounded-card border border-ink/8 bg-white shadow-soft" data-aos="fade-up">
+        <div class="flex items-center justify-between border-b border-ink/8 px-5 py-4">
           <h3 class="font-display text-[14.5px] font-bold text-ink">{{ t('ads.table_title') }}</h3>
-          <span class="rounded-pill bg-ink/5 px-2.5 py-1 font-mono text-[10.5px] text-ink/50">
+          <span class="rounded-pill bg-ink/5 px-2.5 py-1 font-mono text-[10.5px] text-ink/50 tabular-figures">
             {{ campaigns.length }} {{ locale === 'id' ? 'kampanye' : 'campaigns' }}
           </span>
         </div>
 
-        <div class="max-h-[400px] overflow-auto">
+        <div class="max-h-[460px] overflow-auto">
           <table class="w-full min-w-[620px] border-collapse text-left">
             <thead class="sticky top-0 bg-white shadow-[0_1px_0_rgba(17,17,17,0.08)]">
               <tr>
@@ -137,10 +152,14 @@ const metrics = computed(() => [
 
       <!-- IWASH musiman -->
       <div class="mt-8">
-        <h3 class="font-display text-lg font-extrabold text-ink">{{ t('ads.iwash_title') }}</h3>
-        <p class="mt-2 max-w-2xl text-[13.5px] leading-relaxed text-ink/55">{{ t('ads.iwash_desc') }}</p>
+        <h3 class="font-display text-lg font-extrabold text-ink" data-aos="fade-up">
+          {{ t('ads.iwash_title') }}
+        </h3>
+        <p class="mt-2 max-w-2xl text-[13.5px] leading-relaxed text-ink/55" data-aos="fade-up" data-aos-delay="80">
+          {{ t('ads.iwash_desc') }}
+        </p>
 
-        <div class="mt-4 overflow-hidden rounded-card border border-ink/8 bg-white shadow-soft">
+        <div class="mt-4 overflow-hidden rounded-card border border-ink/8 bg-white shadow-soft" data-aos="fade-up" data-aos-delay="140">
           <div class="overflow-x-auto">
             <table class="w-full min-w-[580px] border-collapse text-left">
               <thead>
@@ -166,7 +185,7 @@ const metrics = computed(() => [
                   <td class="px-4 py-3 text-right font-mono text-[11.5px] text-ink/60">{{ formatIDR(c.revenue) }}</td>
                   <td class="px-4 py-3 text-right">
                     <span class="rounded-pill bg-sage/12 px-2.5 py-1 font-display text-[11.5px] font-extrabold text-sage">
-                      {{ (c.revenue / c.ad_spend).toFixed(2) }}x
+                      {{ roasStr(c.revenue / c.ad_spend, locale) }}x
                     </span>
                   </td>
                 </tr>

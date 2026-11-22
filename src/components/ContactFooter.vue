@@ -14,7 +14,7 @@ const CV = '/REYNALDA_VONNA_SYALWA_CV.pdf'
   <section id="contact" class="bg-cream px-5 pb-16 pt-20 sm:px-8 sm:pb-24">
     <div class="mx-auto max-w-shell">
       <div class="grid gap-10 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
-        <div>
+        <div data-aos="fade-right">
           <h2 class="font-display text-display-sm font-extrabold leading-none text-ink">
             {{ t('contact.title_part1') }}<br />
             <span class="text-amber">{{ t('contact.title_part2') }}</span>
@@ -42,7 +42,7 @@ const CV = '/REYNALDA_VONNA_SYALWA_CV.pdf'
         </div>
 
         <!-- Daftar tautan -->
-        <div class="space-y-2">
+        <div class="space-y-2" data-aos="fade-left" data-aos-delay="100">
           <a
             :href="WA"
             target="_blank"

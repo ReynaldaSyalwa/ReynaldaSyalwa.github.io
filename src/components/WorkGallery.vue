@@ -1,6 +1,7 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, watch, nextTick } from 'vue'
 import { useI18n } from 'vue-i18n'
+import AOS from 'aos'
 import { X, Play, ArrowUpRight } from 'lucide-vue-next'
 import { FLYERS, VIDEOS } from '../composables/usePortfolio'
 
@@ -24,6 +25,13 @@ const shownVideos = computed(() =>
   brand.value === 'all' ? VIDEOS : VIDEOS.filter(v => v.brand === brand.value)
 )
 
+// Saat tab/filter berubah, elemen baru muncul -> AOS harus menghitung ulang
+// supaya kartu baru tidak tertinggal dalam kondisi transparan.
+watch([tab, brand], async () => {
+  await nextTick()
+  AOS.refreshHard()
+})
+
 function openFlyer(f) {
   lightbox.value = { type: 'flyer', item: f }
 }
@@ -39,7 +47,7 @@ function close() {
   <section id="work" class="bg-cream px-5 py-14 sm:px-8 sm:py-20">
     <div class="mx-auto max-w-shell">
       <div class="flex flex-wrap items-end justify-between gap-5">
-        <div class="max-w-2xl">
+        <div class="max-w-2xl" data-aos="fade-up">
           <p class="text-[10.5px] font-bold uppercase tracking-wide2 text-amber">
             {{ t('work.index') }} — {{ t('work.title_part1') }} {{ t('work.title_part2') }}
           </p>
@@ -50,7 +58,7 @@ function close() {
         </div>
 
         <!-- Tab flyer / video -->
-        <div class="inline-flex rounded-pill border border-ink/15 bg-white p-1">
+        <div class="inline-flex rounded-pill border border-ink/15 bg-white p-1" data-aos="fade-left">
           <button
             type="button"
             class="rounded-pill px-4 py-1.5 text-[12px] font-semibold transition-colors"
@@ -86,12 +94,14 @@ function close() {
       </div>
 
       <!-- Grid flyer -->
-      <div v-if="tab === 'flyer'" class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
+      <div v-if="tab === 'flyer'" :key="`flyer-${brand}`" class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
         <button
-          v-for="f in shownFlyers"
+          v-for="(f, i) in shownFlyers"
           :key="f.file"
           type="button"
           class="group relative aspect-[4/5] overflow-hidden rounded-card bg-ink/5 text-left shadow-soft transition-shadow hover:shadow-lift"
+          data-aos="zoom-in-up"
+          :data-aos-delay="(i % 4) * 60"
           @click="openFlyer(f)"
         >
           <img
@@ -116,13 +126,15 @@ function close() {
       </div>
 
       <!-- Grid video -->
-      <div v-else class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
+      <div v-else :key="`video-${brand}`" class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
         <button
-          v-for="v in shownVideos"
+          v-for="(v, i) in shownVideos"
           :key="v.file"
           type="button"
           class="group relative overflow-hidden rounded-card bg-ink/5 text-left shadow-soft transition-shadow hover:shadow-lift"
           :class="v.ratio === '16:9' ? 'col-span-2 aspect-video' : 'aspect-[9/16]'"
+          data-aos="zoom-in-up"
+          :data-aos-delay="(i % 4) * 60"
           @click="openVideo(v)"
         >
           <img

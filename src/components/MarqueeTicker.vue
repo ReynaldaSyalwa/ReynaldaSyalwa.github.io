@@ -5,9 +5,9 @@ const { tm } = useI18n()
 </script>
 
 <template>
-  <!-- Ticker miring -2.5deg; lebar dinaikkan & digeser agar sudut miring tetap
-       tertutup tanpa menimbulkan overflow horizontal pada halaman. -->
-  <div class="relative overflow-hidden py-3 sm:py-4" aria-hidden="true">
+  <!-- Ticker miring -2.5deg. Padding atas/bawah diberi ruang cukup supaya
+       sudut miring tidak menabrak header maupun section berikutnya. -->
+  <div class="relative overflow-hidden bg-cream pb-8 pt-12 sm:pt-14" aria-hidden="true">
     <div class="-rotate-[2.5deg]">
       <div class="ml-[-8%] w-[116%] border-y border-ink/10 bg-white py-2.5 shadow-[0_6px_20px_-14px_rgba(17,17,17,0.35)]">
         <div class="marquee-track">

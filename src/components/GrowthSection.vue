@@ -6,7 +6,7 @@ import { ArrowUpRight, TrendingUp } from 'lucide-vue-next'
 import SectionBanner from './SectionBanner.vue'
 import {
   PERIOD, activePeriod, activeMeta, monthlySeries, groupedDeals,
-  jutaStr, formatIDR, compactNum,
+  jutaStr, roasStr, formatIDR, compactNum,
 } from '../composables/usePortfolio'
 
 const { t, locale, tm } = useI18n()
@@ -140,9 +140,11 @@ watch([PERIOD, locale], () => {
     <div class="mx-auto max-w-shell px-5 pt-10 sm:px-8 sm:pt-14">
       <!-- Lead + FILTER PERIODE (satu-satunya filter) -->
       <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-        <p class="max-w-xl text-[14.5px] leading-relaxed text-ink/60">{{ t('growth.lead') }}</p>
+        <p class="max-w-xl text-[14.5px] leading-relaxed text-ink/60" data-aos="fade-up">
+          {{ t('growth.lead') }}
+        </p>
 
-        <div class="shrink-0">
+        <div class="shrink-0" data-aos="fade-left">
           <p class="mb-2 text-[10px] font-bold uppercase tracking-wide2 text-ink/35">
             {{ t('growth.filter_label') }}
           </p>
@@ -161,7 +163,7 @@ watch([PERIOD, locale], () => {
 
       <!-- Kartu metrik utama: omzet / belanja / ROAS / deal -->
       <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        <div class="rounded-card bg-ink p-5 shadow-lift">
+        <div class="rounded-card bg-ink p-5 shadow-lift" data-aos="fade-up" data-aos-delay="0">
           <p class="text-[10px] font-bold uppercase tracking-wide2 text-white/40">{{ t('growth.metric_revenue') }}</p>
           <p class="mt-2 font-display text-[28px] font-extrabold leading-none tracking-tightest text-white">
             {{ jutaStr(period.revenue, locale, 1) }}
@@ -170,7 +172,7 @@ watch([PERIOD, locale], () => {
           <p class="mt-2 font-mono text-[10.5px] text-white/35">{{ formatIDR(period.revenue) }}</p>
         </div>
 
-        <div class="rounded-card border border-ink/8 bg-white p-5 shadow-soft">
+        <div class="rounded-card border border-ink/8 bg-white p-5 shadow-soft" data-aos="fade-up" data-aos-delay="70">
           <p class="text-[10px] font-bold uppercase tracking-wide2 text-ink/35">{{ t('growth.metric_spend') }}</p>
           <p class="mt-2 font-display text-[28px] font-extrabold leading-none tracking-tightest text-ink">
             {{ jutaStr(period.ad_spend, locale, 2) }}
@@ -179,10 +181,10 @@ watch([PERIOD, locale], () => {
           <p class="mt-2 font-mono text-[10.5px] text-ink/30">{{ formatIDR(period.ad_spend) }}</p>
         </div>
 
-        <div class="rounded-card border border-amber/30 bg-amber/8 p-5 shadow-soft">
+        <div class="rounded-card border border-amber/30 bg-amber/8 p-5 shadow-soft" data-aos="fade-up" data-aos-delay="140">
           <p class="text-[10px] font-bold uppercase tracking-wide2 text-amber-deep/70">{{ t('growth.metric_roas') }}</p>
-          <p class="mt-2 flex items-baseline gap-1 font-display text-[28px] font-extrabold leading-none tracking-tightest text-amber-deep">
-            {{ period.roas }}x
+          <p class="mt-2 flex items-baseline gap-1 font-display text-[28px] font-extrabold leading-none tracking-tightest text-amber-deep tabular-figures">
+            {{ roasStr(period.roas, locale) }}x
             <TrendingUp class="h-4 w-4" />
           </p>
           <p class="mt-2 font-mono text-[10.5px] text-amber-deep/50">
@@ -190,9 +192,9 @@ watch([PERIOD, locale], () => {
           </p>
         </div>
 
-        <div class="rounded-card border border-ink/8 bg-white p-5 shadow-soft">
+        <div class="rounded-card border border-ink/8 bg-white p-5 shadow-soft" data-aos="fade-up" data-aos-delay="210">
           <p class="text-[10px] font-bold uppercase tracking-wide2 text-ink/35">{{ t('growth.metric_deals') }}</p>
-          <p class="mt-2 font-display text-[28px] font-extrabold leading-none tracking-tightest text-ink">
+          <p class="mt-2 font-display text-[28px] font-extrabold leading-none tracking-tightest text-ink tabular-figures">
             {{ period.deals }}
           </p>
           <p class="mt-2 font-mono text-[10.5px] text-ink/30">
@@ -202,7 +204,10 @@ watch([PERIOD, locale], () => {
       </div>
 
       <!-- Grafik -->
-      <div class="mt-4 rounded-card border border-ink/8 bg-white p-5 shadow-soft sm:p-6">
+      <div
+        class="mt-4 rounded-card border border-ink/8 bg-white p-5 shadow-soft sm:p-6"
+        data-aos="fade-up"
+      >
         <div class="flex flex-wrap items-center justify-between gap-3">
           <h3 class="font-display text-[14.5px] font-bold text-ink">{{ t('growth.chart_title') }}</h3>
           <div class="flex items-center gap-4 text-[10.5px] font-medium text-ink/50">
@@ -220,23 +225,35 @@ watch([PERIOD, locale], () => {
       </div>
 
       <!-- Tabel rincian -->
-      <div class="mt-4 overflow-hidden rounded-card border border-ink/8 bg-white shadow-soft">
-        <div class="flex items-center justify-between border-b border-ink/8 px-5 py-3.5">
+      <div
+        class="mt-4 overflow-hidden rounded-card border border-ink/8 bg-white shadow-soft"
+        data-aos="fade-up"
+      >
+        <div class="flex items-center justify-between border-b border-ink/8 px-5 py-4">
           <h3 class="font-display text-[14.5px] font-bold text-ink">{{ t('growth.table_title') }}</h3>
-          <span class="rounded-pill bg-ink/5 px-2.5 py-1 font-mono text-[10.5px] text-ink/50">
+          <span class="rounded-pill bg-ink/5 px-2.5 py-1 font-mono text-[10.5px] text-ink/50 tabular-figures">
             {{ period.deals }} deal
           </span>
         </div>
 
-        <div v-if="groups.length" class="max-h-[420px] overflow-y-auto">
+        <div v-if="groups.length" class="max-h-[460px] overflow-y-auto">
           <table class="w-full border-collapse text-left">
+            <!-- Header kolom: sebelumnya tidak ada, pembaca harus menebak -->
+            <thead class="sticky top-0 z-10 bg-white shadow-[0_1px_0_rgba(17,17,17,0.08)]">
+              <tr>
+                <th class="px-5 py-2.5 text-[9.5px] font-bold uppercase tracking-wide2 text-ink/40">{{ t('growth.table_client') }}</th>
+                <th class="px-5 py-2.5 text-[9.5px] font-bold uppercase tracking-wide2 text-ink/40">{{ t('growth.table_service') }}</th>
+                <th class="px-5 py-2.5 text-right text-[9.5px] font-bold uppercase tracking-wide2 text-ink/40">{{ t('growth.table_value') }}</th>
+                <th class="px-5 py-2.5 text-right text-[9.5px] font-bold uppercase tracking-wide2 text-ink/40">—</th>
+              </tr>
+            </thead>
             <tbody>
               <template v-for="g in groups" :key="g.period">
-                <tr class="bg-ink/[0.025]">
+                <tr class="bg-ink/[0.03]">
                   <td colspan="3" class="px-5 py-2 text-[10.5px] font-bold uppercase tracking-wide2 text-ink/45">
                     {{ locale === 'id' ? g.month_label : g.period }}
                   </td>
-                  <td class="px-5 py-2 text-right font-mono text-[10.5px] font-semibold text-ink/50">
+                  <td class="px-5 py-2 text-right font-mono text-[10.5px] font-semibold text-ink/50 tabular-figures">
                     {{ formatIDR(g.total) }}
                   </td>
                 </tr>
@@ -247,7 +264,7 @@ watch([PERIOD, locale], () => {
                 >
                   <td class="px-5 py-2.5 text-[12.5px] font-medium text-ink">{{ row.client }}</td>
                   <td class="px-5 py-2.5 text-[11.5px] text-ink/50">{{ row.service }}</td>
-                  <td class="px-5 py-2.5 text-right font-mono text-[12px] font-semibold text-ink">
+                  <td class="px-5 py-2.5 text-right font-mono text-[12px] font-semibold text-ink tabular-figures">
                     {{ formatIDR(row.deal_value) }}
                   </td>
                   <td class="px-5 py-2.5 text-right">
@@ -265,10 +282,16 @@ watch([PERIOD, locale], () => {
       </div>
 
       <!-- Cara membaca (3 langkah) -->
-      <div class="mt-10 rounded-card border border-ink/8 bg-white/60 p-6 sm:p-7">
+      <div class="mt-10 rounded-card border border-ink/8 bg-white/60 p-6 sm:p-7" data-aos="fade-up">
         <p class="text-[10px] font-bold uppercase tracking-wide2 text-amber">{{ t('growth.read_order') }}</p>
         <div class="mt-4 grid gap-5 sm:grid-cols-3">
-          <div v-for="s in steps" :key="s.num" class="flex gap-3">
+          <div
+            v-for="(s, i) in steps"
+            :key="s.num"
+            class="flex gap-3"
+            data-aos="fade-up"
+            :data-aos-delay="80 + i * 80"
+          >
             <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-ink font-display text-[11px] font-bold text-white">
               {{ s.num }}
             </span>
@@ -280,7 +303,7 @@ watch([PERIOD, locale], () => {
         </div>
       </div>
 
-      <p class="mt-5 text-[11px] leading-relaxed text-ink/40">{{ t('growth.note') }}</p>
+      <p class="mt-5 text-[11px] leading-relaxed text-ink/40" data-aos="fade-up">{{ t('growth.note') }}</p>
     </div>
   </section>
 </template>

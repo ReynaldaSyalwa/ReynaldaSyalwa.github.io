@@ -1,7 +1,7 @@
 <script setup>
 import { useI18n } from 'vue-i18n'
 import { ArrowRight, ArrowUpRight } from 'lucide-vue-next'
-import { activePeriod, jutaStr } from '../composables/usePortfolio'
+import { activePeriod, jutaStr, roasStr } from '../composables/usePortfolio'
 
 const { t, locale } = useI18n()
 const period = activePeriod
@@ -15,7 +15,7 @@ const heroPortrait = '/media/profile/syasya-portrait.png'
   <section id="top" class="relative overflow-hidden bg-cream pt-8 pb-14 sm:pt-12 sm:pb-20">
     <div class="mx-auto max-w-shell px-5 sm:px-8">
       <!-- Baris atas: ketersediaan kiri, tautan hasil kanan -->
-      <div class="mb-8 flex flex-wrap items-center justify-between gap-3">
+      <div class="mb-8 flex flex-wrap items-center justify-between gap-3" data-aos="fade-down">
         <span
           class="inline-flex items-center gap-2 rounded-pill border border-ink/15 bg-white/70 px-3.5 py-1.5 text-[10.5px] font-semibold uppercase tracking-wide2 text-ink/70"
         >
@@ -37,23 +37,31 @@ const heroPortrait = '/media/profile/syasya-portrait.png'
 
       <!-- Headline -->
       <div class="relative">
-        <h1 class="font-display text-display font-extrabold tracking-tightest text-ink">
+        <h1 class="font-display text-display font-extrabold tracking-tightest text-ink" data-aos="fade-up">
           <span class="mb-1 block text-[0.32em] font-medium tracking-normal text-ink/40">{{ t('hero.hello') }}</span>
           <span class="text-amber">SyaSya</span><span class="ml-1 inline-block -translate-y-3 text-[0.46em]">👋</span>,
         </h1>
 
-        <p class="mt-1 max-w-2xl font-display text-display-sm font-semibold text-ink/80">
+        <p
+          class="mt-1 max-w-2xl font-display text-display-sm font-semibold text-ink/80"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
           {{ t('hero.role') }}
         </p>
 
-        <p class="mt-5 max-w-xl text-[14.5px] leading-relaxed text-ink/60">
+        <p
+          class="mt-5 max-w-xl text-[14.5px] leading-relaxed text-ink/60"
+          data-aos="fade-up"
+          data-aos-delay="180"
+        >
           {{ t('hero.sub') }}
         </p>
       </div>
 
       <!-- Foto cutout di atas lingkaran orange + chips -->
       <div class="relative mt-9 flex flex-col items-center">
-        <div class="relative flex items-end justify-center">
+        <div class="relative flex items-end justify-center" data-aos="zoom-in" data-aos-delay="150">
           <!-- Lingkaran orange -->
           <div
             class="absolute bottom-0 h-[58%] w-[290px] rounded-full bg-amber sm:h-[62%] sm:w-[380px]"
@@ -86,7 +94,11 @@ const heroPortrait = '/media/profile/syasya-portrait.png'
         </div>
 
         <!-- Pengalaman + CTA -->
-        <div class="relative z-30 -mt-1 flex w-full flex-col items-center gap-4 sm:-mt-3">
+        <div
+          class="relative z-30 -mt-1 flex w-full flex-col items-center gap-4 sm:-mt-3"
+          data-aos="fade-up"
+          data-aos-delay="250"
+        >
           <div class="flex items-center gap-2.5 rounded-pill border border-ink/10 bg-white/85 px-4 py-2 shadow-soft backdrop-blur">
             <span class="font-display text-base font-extrabold text-amber">{{ t('hero.exp_number') }}</span>
             <span class="max-w-[230px] text-[10.5px] leading-snug text-ink/55">{{ t('hero.exp_label') }}</span>
@@ -113,7 +125,7 @@ const heroPortrait = '/media/profile/syasya-portrait.png'
       </div>
 
       <!-- Kutipan + 3 angka ringkas -->
-      <div class="mt-12 grid gap-5 border-t border-ink/10 pt-8 sm:grid-cols-[auto_1fr]">
+      <div class="mt-12 grid gap-5 border-t border-ink/10 pt-8 sm:grid-cols-[auto_1fr]" data-aos="fade-up">
         <span class="font-display text-5xl leading-none text-amber/35">”</span>
         <div>
           <p class="max-w-lg text-[13px] italic leading-relaxed text-ink/55">
@@ -131,7 +143,7 @@ const heroPortrait = '/media/profile/syasya-portrait.png'
             </span>
             <span class="h-3 w-px bg-ink/15" />
             <span>
-              <strong class="font-display font-extrabold text-ink">{{ period.roas }}x</strong>
+              <strong class="font-display font-extrabold text-ink">{{ roasStr(period.roas, locale) }}x</strong>
               {{ t('about.stat_roas') }}
             </span>
           </div>

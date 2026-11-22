@@ -1,7 +1,7 @@
 <script setup>
 import { useI18n } from 'vue-i18n'
 import SectionBanner from './SectionBanner.vue'
-import { PORTFOLIO, formatIDR } from '../composables/usePortfolio'
+import { PORTFOLIO, formatIDR, roasStr } from '../composables/usePortfolio'
 
 const { t, locale } = useI18n()
 const iwash = PORTFOLIO.iwash_campaigns
@@ -17,12 +17,17 @@ const iwash = PORTFOLIO.iwash_campaigns
     />
 
     <div class="mx-auto max-w-shell px-5 pt-10 sm:px-8 sm:pt-14">
-      <p class="max-w-2xl text-[14.5px] leading-relaxed text-ink/60">{{ t('brand.lead') }}</p>
+      <p class="max-w-2xl text-[14.5px] leading-relaxed text-ink/60" data-aos="fade-up">
+        {{ t('brand.lead') }}
+      </p>
 
       <!-- Dua kartu brand -->
       <div class="mt-8 grid gap-4 lg:grid-cols-2">
         <!-- NSM -->
-        <article class="rounded-card border border-ink/8 bg-white p-6 shadow-soft sm:p-7">
+        <article
+          class="rounded-card border border-ink/8 bg-white p-6 shadow-soft sm:p-7"
+          data-aos="fade-right"
+        >
           <div class="flex items-start justify-between gap-4">
             <div>
               <p class="text-[10px] font-bold uppercase tracking-wide2 text-ink/35">B2B · Institusi</p>
@@ -58,7 +63,11 @@ const iwash = PORTFOLIO.iwash_campaigns
         </article>
 
         <!-- Iwash -->
-        <article class="rounded-card border border-ink/8 bg-white p-6 shadow-soft sm:p-7">
+        <article
+          class="rounded-card border border-ink/8 bg-white p-6 shadow-soft sm:p-7"
+          data-aos="fade-left"
+          data-aos-delay="100"
+        >
           <div class="flex items-start justify-between gap-4">
             <div>
               <p class="text-[10px] font-bold uppercase tracking-wide2 text-ink/35">B2C · Rumah tangga</p>
@@ -96,10 +105,14 @@ const iwash = PORTFOLIO.iwash_campaigns
 
       <!-- Pola musiman -->
       <div class="mt-10">
-        <h3 class="font-display text-lg font-extrabold text-ink">{{ t('brand.seasonal_title') }}</h3>
-        <p class="mt-2 max-w-2xl text-[13.5px] leading-relaxed text-ink/55">{{ t('brand.seasonal_desc') }}</p>
+        <h3 class="font-display text-lg font-extrabold text-ink" data-aos="fade-up">
+          {{ t('brand.seasonal_title') }}
+        </h3>
+        <p class="mt-2 max-w-2xl text-[13.5px] leading-relaxed text-ink/55" data-aos="fade-up" data-aos-delay="80">
+          {{ t('brand.seasonal_desc') }}
+        </p>
 
-        <div class="mt-5 overflow-hidden rounded-card border border-ink/8 bg-white shadow-soft">
+        <div class="mt-5 overflow-hidden rounded-card border border-ink/8 bg-white shadow-soft" data-aos="fade-up" data-aos-delay="140">
           <div class="overflow-x-auto">
             <table class="w-full min-w-[560px] border-collapse text-left">
               <thead>
@@ -125,7 +138,7 @@ const iwash = PORTFOLIO.iwash_campaigns
                   <td class="px-4 py-3 text-right text-[12.5px] font-semibold text-ink">{{ c.results }}</td>
                   <td class="px-4 py-3 text-right">
                     <span class="rounded-pill bg-amber/12 px-2.5 py-1 font-display text-[11.5px] font-extrabold text-amber-deep">
-                      {{ (c.revenue / c.ad_spend).toFixed(2) }}x
+                      {{ roasStr(c.revenue / c.ad_spend, locale) }}x
                     </span>
                   </td>
                 </tr>

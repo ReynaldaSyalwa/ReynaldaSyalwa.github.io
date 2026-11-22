@@ -15,8 +15,12 @@ const jobs = [
   <section id="experience" class="bg-cream px-5 py-16 sm:px-8 sm:py-24">
     <div class="mx-auto max-w-shell">
       <div class="max-w-2xl">
-        <h2 class="font-display text-display-sm font-extrabold text-ink">{{ t('experience.title') }}</h2>
-        <p class="mt-3 text-[14px] leading-relaxed text-ink/55">{{ t('experience.lead') }}</p>
+        <h2 class="font-display text-display-sm font-extrabold text-ink" data-aos="fade-up">
+          {{ t('experience.title') }}
+        </h2>
+        <p class="mt-3 text-[14px] leading-relaxed text-ink/55" data-aos="fade-up" data-aos-delay="80">
+          {{ t('experience.lead') }}
+        </p>
       </div>
 
       <div class="mt-10 space-y-0">
@@ -24,6 +28,8 @@ const jobs = [
           v-for="(job, i) in jobs"
           :key="job.n"
           class="group relative grid gap-4 border-t border-ink/10 py-7 sm:grid-cols-[130px_1fr] sm:gap-8"
+          data-aos="fade-up"
+          :data-aos-delay="i * 90"
         >
           <!-- Periode -->
           <div class="flex items-start gap-2">
