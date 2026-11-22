@@ -11,7 +11,7 @@
 | # | Aset | Fungsi |
 |---|---|---|
 | 1 | ✅ **Referensi tampilan** — Behance: *Portfolio Brand Social Media Digital Marketing* (Muhammad Helmi Muharrom, project 220076409) | Acuan desain utama |
-| 2 | ⏳ **Dokumen CV** | Konten profil, pengalaman, pendidikan |
+| 2 | ✅ **Dokumen CV** — `REYNALDA_VONNA_SYALWA_CV.pdf` (identik dengan yang sudah dipelajari, tidak ada perubahan) | Konten profil, pengalaman, pendidikan |
 | 3 | ⏳ **Foto wajah** | Hero / About (cutout portrait di atas lingkaran warna) |
 | 4 | ⏳ **Hasil desain flyer / foto / video** | Galeri karya kreatif — section baru |
 | 5 | ✅ **Data ads 2 Excel** | Tetap dimasukkan, filter periode saja |
@@ -129,3 +129,45 @@ Contoh: Kahf → 25K followers, 1.4M impressions, 150+ SKU, 15% engagement, 5% A
 - Jangan pakai putih bersih — harus off-white + grain
 - Jangan campur banyak aksen: orange = utama, hijau hanya untuk indikator tren
 - Jangan pakai serif (versi sekarang pakai Newsreader — harus diganti)
+
+---
+
+## 📦 Inventaris Aset Diterima
+
+**Lokasi penyimpanan permanen:** `/home/sya/portfolio-assets/syasya/`
+
+| Folder | Isi |
+|---|---|
+| `cv/` | `CV_REYNALDA_VONNA_SYALWA_2026.pdf` — identik dengan data yang sudah dipakai, **tidak ada perubahan** |
+| `flyer-iso/` | **6 flyer** promosi brand sertifikasi ISO |
+| `video/` | Screenshot CapCut project *Anniversary ACM Surabaya* (2:52) |
+| `foto/` | ⏳ masih kosong — menunggu foto wajah |
+| `flyer-iwash/` | ⏳ masih kosong — menunggu flyer IWASH |
+
+### Daftar flyer ISO (desain oleh SyaSya)
+1. `01_nsm_midyear_sale.jpeg` — NSM Mid Year Sale, start Rp 7.000.000
+2. `02_nsm_dapur_mbg_iso.jpeg` — Cegah keracunan massal Dapur MBG (HACCP/ISO 22000/45001), start Rp 5.000.000
+3. `03_nsm_endyear_sale_12pct.jpeg` — Endyear Sale diskon 12%
+4. `04_nsm_bundling_iso.jpeg` — Paket bundling 9001+14001+45001: Rp 24 jt → **Rp 21 jt** (exc PPN)
+5. `05_nsm_kemerdekaan.jpeg` — Promo Spesial Kemerdekaan, start Rp 7.000.000
+6. `06_nsm_iso_dapur_mbg_kemerdekaan.jpeg` — Sertifikasi Halal + ISO + HACCP untuk Dapur MBG
+
+### Fakta brand dari flyer (untuk copy section karya)
+- **Brand:** NSM International Cert · akreditasi **IASCB**
+- **Website:** www.nusantaracert.com · **IG:** @nsmcertification · **Telp:** 0811-3851-9001
+- **Layanan:** ISO 9001, 14001, 45001, 22000, 27001, 37001, 22301, HACCP, GMP (+ Halal)
+- **Deliverable yang dijanjikan:** Sertifikat ISO · Laporan Audit · Logo Regulations
+- **Angle promosi:** musiman (Mid Year, End Year, Kemerdekaan, Lebaran) + isu regulasi (SE HK.02.02/C.I/4202/2025 untuk SPPG BGN)
+
+### Karya video
+- Project **Anniversary ACM Surabaya** — durasi 2:52, diedit di **CapCut desktop** (timeline multi-track, audio volume -28.5 dB)
+- Isi: rebranding ACM 2017, logo lama → baru, tagline "Trusted For Our Standards", angka 15
+- ⚠️ Yang ada baru **screenshot workspace**, bukan file video. Untuk galeri perlu **file hasil ekspor (.mp4)**.
+
+---
+
+## ❓ Yang masih perlu dikonfirmasi nanti
+1. Foto wajah — apakah sudah cutout atau perlu saya bantu proses background removal?
+2. Video — minta file .mp4 hasil export (screenshot tidak bisa diputar di web)
+3. Apakah brand NSM boleh disebut eksplisit di portofolio, atau hanya "brand klien"?
+4. Testimoni klien — ada yang bisa dipakai untuk blok kutipan seperti di referensi?
