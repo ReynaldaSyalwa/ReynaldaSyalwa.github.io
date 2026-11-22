@@ -141,7 +141,7 @@ Contoh: Kahf → 25K followers, 1.4M impressions, 150+ SKU, 15% engagement, 5% A
 | `cv/` | `CV_REYNALDA_VONNA_SYALWA_2026.pdf` — identik dengan data yang sudah dipakai, **tidak ada perubahan** |
 | `flyer-iso/` | **6 flyer** promosi brand sertifikasi ISO |
 | `flyer-iwash/` | **5 flyer** promosi Iwash Indonesia |
-| `video/` | Screenshot CapCut project *Anniversary ACM Surabaya* (2:52) |
+| `video/` | **7 file .mp4** + poster frame (siap pakai galeri) |
 | `foto/` | ⏳ masih kosong — menunggu foto wajah |
 
 ### Daftar flyer ISO (desain oleh SyaSya)
@@ -160,9 +160,26 @@ Contoh: Kahf → 25K followers, 1.4M impressions, 150+ SKU, 15% engagement, 5% A
 - **Angle promosi:** musiman (Mid Year, End Year, Kemerdekaan, Lebaran) + isu regulasi (SE HK.02.02/C.I/4202/2025 untuk SPPG BGN)
 
 ### Karya video
-- Project **Anniversary ACM Surabaya** — durasi 2:52, diedit di **CapCut desktop** (timeline multi-track, audio volume -28.5 dB)
-- Isi: rebranding ACM 2017, logo lama → baru, tagline "Trusted For Our Standards", angka 15
-- ⚠️ Yang ada baru **screenshot workspace**, bukan file video. Untuk galeri perlu **file hasil ekspor (.mp4)**.
+- ~~Screenshot CapCut saja~~ → sekarang **7 file .mp4 siap tayang**
+
+| File | Durasi | Rasio | Isi | Gaya |
+|---|---:|---|---|---|
+| `01_iso_promo_v1.mp4` | 39,6 s | 9:16 | Talking-head outdoor: perempuan berhijab + **helm proyek kuning**, bicara soal risiko kerja yang bisa dicegah. Subtitle: *"padahal risiko tersebut bisa dicegah"* | UGC explainer, 1 take |
+| `02_iso_promo_v2.mp4` | 16,0 s | 4:5 | Rapat koordinasi 10–12 peserta (kemeja putih, hijab pastel, helm proyek di meja). Tanpa teks/logo | Dokumenter candid |
+| `03_iso_promo_v3_mbg.mp4` | 35,8 s | 9:16 | Talking-head indoor: perempuan berhijab + lanyard ID. Subtitle: *"Dimana setiap dapur MBG…"* | UGC explainer |
+| `04_iwash_valentine_2025.mp4` | 15,8 s | 9:16 | Close-up cuci sofa/kasur motif kartun pakai kain microfiber oranye. Seragam "READY TO C[LEAN]" | Oddly-satisfying cleaning |
+| `05_iwash_puasa_2025.mp4` | 26,5 s | 9:16 | Testimoni di ruang tamu bergaya (tray emas, bunga). Subtitle: *"Bisa cuci sofa, cuci kasur"* | UGC testimonial, warm beige-gold |
+| `06_iwash_hut_surabaya_2025.mp4` | 22,8 s | 9:16 | Staff berhijab + lanyard biru di outlet IWASH (konsep laundry + lounge/cafe), staf berseragam di belakang | Behind-the-scenes |
+| `07_hut_kantor.mp4` | 125,3 s | 16:9 | Ucapan HUT ACM ke-15: Ibu Siti Sofiah (Top Management) — *"Terima kasih atas dedikasi dan kerja keras seluruh tim…"* + tagline ACM *Trusted For Our Standards* | Korporat split-screen, brand blue |
+
+**Poster frames** sudah di-extract otomatis ke `video/_posters/*.jpg` — dipakai sebagai thumbnail galeri supaya tidak perlu load video untuk preview.
+
+**Total ukuran:** 37 MB + 420 KB poster
+
+**Catatan teknis untuk implementasi:**
+- Semua video **sudah ada audio (aac)** → galeri harus pakai kontrol play, bukan autoplay
+- 6 video vertikal 9:16 + 1 landscape 16:9 → grid galeri perlu handle dua rasio (bisa pakai `aspect-[9/16]` dengan `object-cover`, dan `07` diberi span 2 kolom)
+- File terbesar 11 MB (`07_hut_kantor`) → pertimbangkan lazy-load + `preload="none"`
 
 ### Daftar flyer IWASH (desain oleh SyaSya)
 1. `01_iwash_valentine_14pct_feb2025.jpeg` — Valentine Days, **diskon 14%**, periode 5–16 Feb 2025, tema hearts + balloons
