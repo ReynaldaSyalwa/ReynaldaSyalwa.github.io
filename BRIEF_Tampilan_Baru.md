@@ -140,9 +140,9 @@ Contoh: Kahf → 25K followers, 1.4M impressions, 150+ SKU, 15% engagement, 5% A
 |---|---|
 | `cv/` | `CV_REYNALDA_VONNA_SYALWA_2026.pdf` — identik dengan data yang sudah dipakai, **tidak ada perubahan** |
 | `flyer-iso/` | **6 flyer** promosi brand sertifikasi ISO |
+| `flyer-iwash/` | **5 flyer** promosi Iwash Indonesia |
 | `video/` | Screenshot CapCut project *Anniversary ACM Surabaya* (2:52) |
 | `foto/` | ⏳ masih kosong — menunggu foto wajah |
-| `flyer-iwash/` | ⏳ masih kosong — menunggu flyer IWASH |
 
 ### Daftar flyer ISO (desain oleh SyaSya)
 1. `01_nsm_midyear_sale.jpeg` — NSM Mid Year Sale, start Rp 7.000.000
@@ -164,10 +164,36 @@ Contoh: Kahf → 25K followers, 1.4M impressions, 150+ SKU, 15% engagement, 5% A
 - Isi: rebranding ACM 2017, logo lama → baru, tagline "Trusted For Our Standards", angka 15
 - ⚠️ Yang ada baru **screenshot workspace**, bukan file video. Untuk galeri perlu **file hasil ekspor (.mp4)**.
 
+### Daftar flyer IWASH (desain oleh SyaSya)
+1. `01_iwash_valentine_14pct_feb2025.jpeg` — Valentine Days, **diskon 14%**, periode 5–16 Feb 2025, tema hearts + balloons
+2. `02_iwash_ramadhan_mar2025.jpeg` — Promo Ramadhan, start Rp 50.000, berlaku 1–10 Mar 2025, tema masjid/geometris
+3. `03_iwash_christmas_15pct_dec2025.jpeg` — Christmas, **diskon 15%**, start Rp 50.000, periode 01–25 Des 2025
+4. `04_iwash_why_choose_us.jpeg` — alasan pilih Iwash (4 kartu kuning: FREE transport, tanpa DP, banyak promo, bebas debu/tungau/bakteri)
+5. `05_iwash_diskon15_batik.jpeg` — Potongan batik, diskon 15%, start Rp 50.000
+
+### Fakta brand IWASH (untuk copy section karya)
+- **Brand:** Iwash Indonesia by Indo Clean
+- **Layanan:** cleaning semua jenis soft furniture (kasur, sofa, karpet) + cuci sepatu & tas
+- **Harga:** start **Rp 50.000**
+- **IG:** @iwash_indonesia (185 post · 9.655 followers · 413 following) · **Site:** iwash-indonesia.id · **Hashtag:** #ReadyToClean
+- **Selling point:** FREE transport · pembayaran tanpa DP · banyak promo/diskon · bebas debu, tungau & bakteri
+- **Angle promosi:** kalender hari besar — Valentine (Feb), Ramadhan/Lebaran (Mar), HUT Surabaya (Mei), Christmas (Des)
+
+### 🔥 Kaitan kuat flyer ↔ data ads (ini yang bikin portofolio istimewa)
+Data ads IWASH yang sudah masuk cocok dengan flyer musiman:
+| Flyer | Kampanye ads (data terverifikasi) | Hasil |
+|---|---|---|
+| Ramadhan (1–10 Mar 2025) | **Ramadhan Batch 1** — spend Rp 272.098 | 3 closing · Rp 735.000 · ROAS 2,70x |
+| Valentine (5–16 Feb 2025) | **Imlek seat** — spend Rp 88.263 | 1 closing · Rp 835.000 · **ROAS 9,46x** |
+| — | **HUT Surabaya** — spend Rp 200.000 | 2 closing · Rp 526.000 · ROAS 2,63x |
+
+→ Narasi yang bisa dibangun: *"Desain flyer musiman → dipakai jadi materi Meta Ads → menghasilkan closing terukur."* Ini pola studi kasus yang sama seperti referensi Behance (visual + grid Result), tapi dengan angka riil.
+
 ---
 
 ## ❓ Yang masih perlu dikonfirmasi nanti
 1. Foto wajah — apakah sudah cutout atau perlu saya bantu proses background removal?
 2. Video — minta file .mp4 hasil export (screenshot tidak bisa diputar di web)
-3. Apakah brand NSM boleh disebut eksplisit di portofolio, atau hanya "brand klien"?
+3. Apakah brand NSM & Iwash boleh disebut eksplisit di portofolio, atau hanya "brand klien"?
 4. Testimoni klien — ada yang bisa dipakai untuk blok kutipan seperti di referensi?
+5. Linking flyer ↔ campaign: apakah benar flyer Valentine dipasangkan dengan kampanye Imlek? (di data ads tidak ada kampanye Valentine) — perlu konfirmasi supaya tidak salah narasi.
