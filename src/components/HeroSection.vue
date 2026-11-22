@@ -5,6 +5,10 @@ import { activePeriod, jutaStr } from '../composables/usePortfolio'
 
 const { t, locale } = useI18n()
 const period = activePeriod
+
+// Binding (bukan atribut statis) agar Vite tidak meng-hash ulang;
+// file sudah tersedia di public/media/profile.
+const heroPortrait = '/media/profile/syasya-portrait.png'
 </script>
 
 <template>
@@ -58,7 +62,7 @@ const period = activePeriod
 
           <!-- Portrait -->
           <img
-            src="/media/profile/syasya-portrait.png"
+            :src="heroPortrait"
             :alt="`${t('hero.name')} — ${t('hero.role')}`"
             class="relative z-10 w-[262px] drop-shadow-[0_20px_44px_rgba(17,17,17,0.18)] sm:w-[336px]"
             width="799"

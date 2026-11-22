@@ -4,6 +4,10 @@ import { activePeriod, jutaStr } from '../composables/usePortfolio'
 
 const { t, locale } = useI18n()
 const period = activePeriod
+
+// Dibuat sebagai binding (bukan atribut statis) supaya Vite tidak
+// meng-hash/menyalin ulang file — file sudah ada di public/media.
+const aboutPhoto = '/media/profile/syasya-casual.webp'
 </script>
 
 <template>
@@ -49,7 +53,7 @@ const period = activePeriod
           <div class="relative">
             <div class="overflow-hidden rounded-card bg-ink/5 shadow-soft">
               <img
-                src="/media/profile/syasya-casual.webp"
+                :src="aboutPhoto"
                 :alt="t('about.title')"
                 class="h-full w-full object-cover"
                 width="1000"
