@@ -10,11 +10,11 @@
 
 | # | Aset | Fungsi |
 |---|---|---|
-| 1 | **Referensi tampilan web terbaru** | Acuan desain utama — menggantikan gaya editorial Framer yang sekarang |
-| 2 | **Dokumen CV** | Konten profil, pengalaman, pendidikan |
-| 3 | **Foto wajah** | Hero / About section (menggantikan ilustrasi sketch) |
-| 4 | **Hasil desain flyer / foto / video** | Portofolio karya kreatif — section baru (galeri) |
-| 5 | **Data ads dari 2 Excel** (sudah diterima) | Tetap dimasukkan ke tampilan baru |
+| 1 | ✅ **Referensi tampilan** — Behance: *Portfolio Brand Social Media Digital Marketing* (Muhammad Helmi Muharrom, project 220076409) | Acuan desain utama |
+| 2 | ⏳ **Dokumen CV** | Konten profil, pengalaman, pendidikan |
+| 3 | ⏳ **Foto wajah** | Hero / About (cutout portrait di atas lingkaran warna) |
+| 4 | ⏳ **Hasil desain flyer / foto / video** | Galeri karya kreatif — section baru |
+| 5 | ✅ **Data ads 2 Excel** | Tetap dimasukkan, filter periode saja |
 
 ---
 
@@ -74,7 +74,58 @@ Angka di atas sudah lolos `assert` di `scripts/generate_portfolio_data.py` — *
 - Deploy: push ke `main` → GitHub Actions → live di https://reynaldasyalwa.github.io
 
 ## Rencana setelah aset masuk
-1. Pelajari referensi tampilan baru → tentukan apakah reskin atau rebuild
+1. Terapkan bahasa visual referensi Behance (lihat bagian di bawah)
 2. Restrukturisasi filter jadi **3 tab periode saja** (Semua / 2025 / 2026)
-3. Tambah section baru: foto profil + galeri karya flyer/foto/video
+3. Tambah section: hero dengan foto cutout, galeri karya flyer/foto/video
 4. Regenerate data, verifikasi angka vs Excel, build, test mobile+desktop, push
+
+---
+
+## 🎨 Referensi Desain Behance — Analisis
+
+**Sumber:** https://www.behance.net/gallery/220076409/Portfolio-Brand-Social-Media-Digital-Marketing
+Oleh **Muhammad Helmi Muharrom** · Tags: Advertising, Branding, Figma
+**Catatan penting:** ini bukan website ter-code — ini **deck gambar** (24 modul). Jadi yang diambil adalah **bahasa visualnya**, lalu diterjemahkan ke Vue.
+
+### Palet
+| Peran | Nilai |
+|---|---|
+| Latar | Off-white hangat **#F7F5F0** + tekstur grain/noise halus (bukan putih bersih) |
+| Aksen utama | **Orange amber #F5A24B → #F79A3E** |
+| Aksen sekunder | Sage/olive **#7E8F6B**, lime **#7BD44A** (panah tren) |
+| Teks | Hitam **#111**, muted **#6B6B6B** |
+| Kartu hasil | Blok **hitam solid** dengan teks putih |
+
+### Tipografi
+- **Satu keluarga geometric sans** (Poppins / Gilroy / General Sans) — tidak ada serif
+- Headline sangat bold, 2 baris, ~86–90px, tracking rapat; **satu kata diwarnai orange** (mis. nama)
+- Body ~15px regular, abu-abu, line-height longgar
+- Hero number besar bold ("2 Years") + keterangan kecil di bawahnya
+
+### Komponen khas
+1. **Marquee ticker** — band kata kunci (Design, Brand, Marketing, Social Media, Strategy, Analytics) **dimiringkan ~-3°**, pemisah bintang ✦ orange
+2. **Cutout portrait** di atas **lingkaran orange solid**, dengan outline doodle putih mengikuti siluet (efek stiker)
+3. **Chip pill hitam** berisi emoji (📢 Marketing, 🚀 Ads, ✨ Brand, 📱 Social Media) ditempel miring mengelilingi subjek
+4. **Segmented CTA** — segmen orange aktif + segmen outline gelap, ikon panah ↗
+5. **Tanda kutip besar** (2 blok hitam) pembuka blok testimoni
+6. **Coretan hand-drawn** orange di dekat badge/headline
+7. **Kartu "Result"** hitam + grid 6 kartu statistik kecil ber-ikon (followers, impressions, SKUs, engagement, AVR, reach) dengan panah naik
+
+### Pola section (per brand/case)
+`Judul besar` → `narasi singkat` → `kolase visual di kiri` → `grid metrik "Result" di kanan`
+Contoh: Kahf → 25K followers, 1.4M impressions, 150+ SKU, 15% engagement, 5% AVR, 7% organic reach.
+
+### Pemetaan ke website SyaSya
+| Elemen referensi | Padanan di portofolio SyaSya |
+|---|---|
+| Cover: headline + cutout + orange circle + chips | Hero dengan **foto wajah SyaSya**, headline "I'm SyaSya", chip keahlian |
+| Statistik hero ("2 Years") | **22 deal / Rp 229,1 Jt / 23,1x ROAS** |
+| Marquee ticker | Meta Ads · ISO Certification · IWASH Cleaning · Creative Design · SEO |
+| Kartu "Result" hitam + grid 6 metrik | Section hasil ads dengan **filter Semua / 2025 / 2026** |
+| Kolase visual per brand | **Galeri flyer / foto / video karya SyaSya** |
+| Testimoni + kutipan | Bisa diisi testimoni klien (jika ada) |
+
+### Yang harus dihindari
+- Jangan pakai putih bersih — harus off-white + grain
+- Jangan campur banyak aksen: orange = utama, hijau hanya untuk indikator tren
+- Jangan pakai serif (versi sekarang pakai Newsreader — harus diganti)
