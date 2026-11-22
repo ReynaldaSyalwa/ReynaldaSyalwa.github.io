@@ -24,6 +24,18 @@ body {
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  /* AOS fade-left/fade-right memakai translate3d(100px) yang memperlebar
+     halaman ke kanan. `clip` dipakai (bukan `hidden`) supaya elemen
+     position: sticky di dalamnya tetap berfungsi. */
+  overflow-x: clip;
+}
+
+/* Fallback untuk browser lama yang belum mendukung overflow: clip */
+@supports not (overflow: clip) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
 }
 
 /* ── Tekstur grain halus di atas latar cream ─────────────────────── */
