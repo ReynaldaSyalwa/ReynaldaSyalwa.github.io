@@ -51,20 +51,20 @@ const aboutPhoto = '/media/profile/syasya-casual.webp'
         <!-- Kanan: foto + statistik -->
         <div>
           <div class="relative">
-            <div class="overflow-hidden rounded-card bg-ink/5 shadow-soft">
+            <div class="aspect-[4/5] overflow-hidden rounded-card bg-ink/5 shadow-soft">
               <img
                 :src="aboutPhoto"
                 :alt="t('about.title')"
-                class="h-full w-full object-cover"
+                class="h-full w-full object-cover object-top"
                 width="1000"
                 height="1250"
                 loading="lazy"
               />
             </div>
-            <!-- Badge kecil -->
-            <div class="absolute -bottom-4 -left-4 rounded-card bg-ink px-4 py-3 shadow-lift">
+            <!-- Badge kecil (di dalam tepi foto) -->
+            <div class="absolute bottom-4 left-4 rounded-card bg-ink/95 px-4 py-3 shadow-lift backdrop-blur">
               <p class="font-display text-2xl font-extrabold leading-none text-amber">{{ t('hero.exp_number') }}</p>
-              <p class="mt-1 text-[10px] font-medium uppercase tracking-wide2 text-white/55">
+              <p class="mt-1 text-[9.5px] font-medium uppercase tracking-wide2 text-white/60">
                 {{ t('about.stat_exp') }}
               </p>
             </div>
